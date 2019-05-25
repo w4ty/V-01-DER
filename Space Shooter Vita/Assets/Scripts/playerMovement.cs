@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class playerMovement : MonoBehaviour {
 
-	float maxSpeed = 5f;
-	float rotSpeed = 180f;
+	public float maxSpeed = 7f;
+	public float rotSpeed = 270f;
 
 	void Start () {
 		
@@ -19,10 +19,12 @@ public class playerMovement : MonoBehaviour {
 		z -= Input.GetAxis("Horizontal") * rotSpeed * Time.deltaTime;
 		rot = Quaternion.Euler(0, 0, z);
 		transform.rotation = rot;
-		// Vertical movement
+		// Movement
 		Vector3 pos = transform.position;
 
-		pos.y += Input.GetAxis("Vertical") * maxSpeed * Time.deltaTime;
+		Vector3 velocity = new Vector3(0, Input.GetAxis("Vertical") * maxSpeed * Time.deltaTime, 0);
+
+		pos += rot * velocity;
 
 		transform.position = pos;
 
