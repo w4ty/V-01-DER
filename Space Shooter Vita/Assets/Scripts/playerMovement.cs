@@ -6,7 +6,8 @@ public class playerMovement : MonoBehaviour {
 
 	public float maxSpeed = 7f;
 	public float rotSpeed = 270f;
-
+	public float maxYCoordinate = 10f;
+	public float minYCoordinate = -10f;
 	void Start () {
 		
 	}
@@ -26,7 +27,15 @@ public class playerMovement : MonoBehaviour {
 
 		pos += rot * velocity;
 
+		// Movement restriction
+		if (pos.y > maxYCoordinate)
+		{
+			pos.y = maxYCoordinate;
+		}
+		if (pos.y < minYCoordinate)
+		{
+			pos.y = minYCoordinate;
+		}
 		transform.position = pos;
-
 	}
 }
