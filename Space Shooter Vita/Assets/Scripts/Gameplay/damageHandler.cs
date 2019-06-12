@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class damageHandler : MonoBehaviour
 {
-	public int maxHP = 2;
+	public int maxHP = 20;
 	public int hp;
 	public float invLength = 0;
 	int objectLayer;
@@ -18,7 +18,7 @@ public class damageHandler : MonoBehaviour
 	{
 		Debug.Log("Triggered");
 
-			hp -= maxHP / 2;
+			hp -= 10;
 			invFrames = invLength;
 
 			gameObject.layer = 10;

@@ -79,15 +79,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\EngineSettings.cs" />
-    <Compile Include="Assets\Scripts\SelfDestruct.cs" />
-    <Compile Include="Assets\Scripts\bulletDMGHandler.cs" />
-    <Compile Include="Assets\Scripts\cameraFollow.cs" />
-    <Compile Include="Assets\Scripts\damageHandler.cs" />
-    <Compile Include="Assets\Scripts\moveForward.cs" />
-    <Compile Include="Assets\Scripts\playerFire.cs" />
-    <Compile Include="Assets\Scripts\playerMovement.cs" />
-    <Compile Include="Assets\Scripts\showFPS.cs" />
+    <Compile Include="Assets\Scripts\Camera\cameraFollow.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\SelfDestruct.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\bulletDMGHandler.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\damageHandler.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\enemyFire.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\facePlayer.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\moveForward.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\playerFire.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\playerMovement.cs" />
+    <Compile Include="Assets\Scripts\MISC_\EngineSettings.cs" />
+    <Compile Include="Assets\Scripts\MISC_\showFPS.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
