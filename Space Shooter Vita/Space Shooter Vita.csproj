@@ -88,6 +88,7 @@
     <Compile Include="Assets\Scripts\Gameplay\moveForward.cs" />
     <Compile Include="Assets\Scripts\Gameplay\playerFire.cs" />
     <Compile Include="Assets\Scripts\Gameplay\playerMovement.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\randomSpawn.cs" />
     <Compile Include="Assets\Scripts\MISC_\EngineSettings.cs" />
     <Compile Include="Assets\Scripts\MISC_\showFPS.cs" />
   </ItemGroup>

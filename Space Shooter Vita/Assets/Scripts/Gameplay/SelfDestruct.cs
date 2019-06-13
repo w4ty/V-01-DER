@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class SelfDestruct : MonoBehaviour {
 
-	float timer = 120f;
+	float timer = 0;
 
 	void Update () {
-		timer -= 1f;
+		timer += 1;
 
-		if(timer <= 0)
+		if(timer >= 260)
 		{
 			Destroy(gameObject);
 		}
