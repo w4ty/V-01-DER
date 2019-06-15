@@ -91,6 +91,7 @@
     <Compile Include="Assets\Scripts\Gameplay\randomSpawn.cs" />
     <Compile Include="Assets\Scripts\MISC_\EngineSettings.cs" />
     <Compile Include="Assets\Scripts\MISC_\showFPS.cs" />
+    <Compile Include="Assets\Scripts\Menu\alpha_ChangeLevel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Fonts\LICENSE_OFL.txt" />
