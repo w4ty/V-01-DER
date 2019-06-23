@@ -8,7 +8,7 @@ public class alpha_ChangeLevel : MonoBehaviour {
 	void Update () {
 		if (Input.GetButton("Submit"))
 		{
-			SceneManager.LoadScene("Main");
+			SceneManager.LoadScene("Gameplay_Battle");
 		}
 	}
 }

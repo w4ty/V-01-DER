@@ -80,6 +80,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Camera\cameraFollow.cs" />
+    <Compile Include="Assets\Scripts\Day\DialogueParser.cs" />
     <Compile Include="Assets\Scripts\Gameplay\SelfDestruct.cs" />
     <Compile Include="Assets\Scripts\Gameplay\bulletDMGHandler.cs" />
     <Compile Include="Assets\Scripts\Gameplay\damageHandler.cs" />
