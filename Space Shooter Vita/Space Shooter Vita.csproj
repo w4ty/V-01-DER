@@ -91,6 +91,7 @@
     <Compile Include="Assets\Scripts\Day\ClearButtonOnStart.cs" />
     <Compile Include="Assets\Scripts\Day\DialogueManager.cs" />
     <Compile Include="Assets\Scripts\Day\DialogueParser.cs" />
+    <Compile Include="Assets\Scripts\Day\ShowPath.cs" />
     <Compile Include="Assets\Scripts\Gameplay\SelfDestruct.cs" />
     <Compile Include="Assets\Scripts\Gameplay\bulletDMGHandler.cs" />
     <Compile Include="Assets\Scripts\Gameplay\damageHandler.cs" />
@@ -109,6 +110,7 @@
     <None Include="Assets\Fonts\LICENSE_OFL.txt" />
     <None Include="Assets\Plugins\SimpleInput\Credits.txt" />
     <None Include="Assets\Plugins\SimpleInput\README.txt" />
+    <None Include="Assets\StreamingAssets\DialogueUniversal0.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

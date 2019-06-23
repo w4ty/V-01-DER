@@ -135,6 +135,7 @@
     <None Include="Assets\Fonts\LICENSE_OFL.txt" />
     <None Include="Assets\Plugins\SimpleInput\Credits.txt" />
     <None Include="Assets\Plugins\SimpleInput\README.txt" />
+    <None Include="Assets\StreamingAssets\DialogueUniversal0.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

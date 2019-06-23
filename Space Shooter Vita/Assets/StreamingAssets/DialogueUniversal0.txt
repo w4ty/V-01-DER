@@ -1,0 +1,3 @@
+System;This is a test of max characters available in at once, as well as different types: CH(S) 测试, CH(T) 測試, GR Δοκιμή, JP テスト, RU Тестовое задание. REMEMBER TO REMOVE THIS TEXT. CHARACTER USED IS SYSTEM. TEST TEST TEST TEST.;0;R
+Player;Back to menu:scene,Main_Menu;Continue:line,2
+System;Continued succesfully..;1;L
