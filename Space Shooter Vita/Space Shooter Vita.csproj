@@ -79,7 +79,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="Space Shooter Vita.Plugins.csproj">
+      <Project>{8DAA8C56-303D-21CC-32C1-634E90FC3237}</Project>
+      <Name>Space Shooter Vita.Plugins</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="Assets\Scripts\Camera\cameraFollow.cs" />
+    <Compile Include="Assets\Scripts\Day\Character.cs" />
+    <Compile Include="Assets\Scripts\Day\ChoiceButton.cs" />
+    <Compile Include="Assets\Scripts\Day\ClearButtonOnStart.cs" />
+    <Compile Include="Assets\Scripts\Day\DialogueManager.cs" />
     <Compile Include="Assets\Scripts\Day\DialogueParser.cs" />
     <Compile Include="Assets\Scripts\Gameplay\SelfDestruct.cs" />
     <Compile Include="Assets\Scripts\Gameplay\bulletDMGHandler.cs" />
@@ -95,7 +105,10 @@
     <Compile Include="Assets\Scripts\Menu\alpha_ChangeLevel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Data\DialogueUniversal0.txt" />
     <None Include="Assets\Fonts\LICENSE_OFL.txt" />
+    <None Include="Assets\Plugins\SimpleInput\Credits.txt" />
+    <None Include="Assets\Plugins\SimpleInput\README.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

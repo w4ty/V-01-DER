@@ -1,7 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Space Shooter Vita.Plugins", "Space Shooter Vita.Plugins.csproj", "{8DAA8C56-303D-21CC-32C1-634E90FC3237}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Space Shooter Vita", "Space Shooter Vita.csproj", "{0AA0B299-FE8C-7F94-2751-4A5A0638F4CF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Space Shooter Vita.Editor.Plugins", "Space Shooter Vita.Editor.Plugins.csproj", "{AE61BCDB-5F12-E204-00CD-2F15FEF3FD36}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,10 +13,18 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8DAA8C56-303D-21CC-32C1-634E90FC3237}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DAA8C56-303D-21CC-32C1-634E90FC3237}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DAA8C56-303D-21CC-32C1-634E90FC3237}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DAA8C56-303D-21CC-32C1-634E90FC3237}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0AA0B299-FE8C-7F94-2751-4A5A0638F4CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0AA0B299-FE8C-7F94-2751-4A5A0638F4CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0AA0B299-FE8C-7F94-2751-4A5A0638F4CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0AA0B299-FE8C-7F94-2751-4A5A0638F4CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE61BCDB-5F12-E204-00CD-2F15FEF3FD36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE61BCDB-5F12-E204-00CD-2F15FEF3FD36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE61BCDB-5F12-E204-00CD-2F15FEF3FD36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE61BCDB-5F12-E204-00CD-2F15FEF3FD36}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

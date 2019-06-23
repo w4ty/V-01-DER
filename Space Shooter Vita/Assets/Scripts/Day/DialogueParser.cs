@@ -1,8 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
 using System.Text;
+using UnityEngine.SceneManagement;
 using System.IO;
 using System.Text.RegularExpressions;
 
@@ -28,8 +28,8 @@ public class DialogueParser : MonoBehaviour
 	List<DialogueLine> lines;
 	void Start()
 	{
-		string file = "Assets/Data/DialogueUniversal";
-		string sceneNum = EditorApplication.currentScene;
+		string file = "Assets/Data/DialogueUniversal0";
+		string sceneNum = SceneManager.GetActiveScene().name;
 		sceneNum = Regex.Replace(sceneNum, "[^0-9]", "");
 		file += sceneNum;
 		file += ".txt";
