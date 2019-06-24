@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class DialogueManager : MonoBehaviour {
 
 	DialogueParser parser;
-
+	public Button dummyButton;
 	public string dialogue, characterName;
 	public int lineNum;
 	int pose;
@@ -36,6 +36,15 @@ public class DialogueManager : MonoBehaviour {
 			ShowDialogue();
 
 			lineNum++;
+		}
+		if(playerTalking == true)
+		{
+			dummyButton.interactable = false;
+		}
+		else
+		{
+			dummyButton.interactable = true;
+			dummyButton.Select();
 		}
 		UpdateUI();
 	}
@@ -67,12 +76,13 @@ public class DialogueManager : MonoBehaviour {
 		else
 		{
 			playerTalking = true;
-			characterName = "";
-			dialogue = "";
+			characterName = "Player";
+			dialogue = "What will you do?";
 			pose = 0;
-			position = "";
+			position = "L";
 			options = parser.GetOptions(lineNum);
 			CreateButtons();
+			DisplayImages();
 		}
 	}
 	void DisplayImages()
@@ -106,6 +116,7 @@ public class DialogueManager : MonoBehaviour {
 		{
 			GameObject button = (GameObject)Instantiate(choiceBox);
 			Button b = button.GetComponent<Button>();
+			b.Select();
 			ChoiceButton cb = button.GetComponent<ChoiceButton>();
 			cb.SetText(options[i].Split(':')[0]);
 			cb.option = options[i].Split(':')[1];
@@ -129,6 +140,7 @@ public class DialogueManager : MonoBehaviour {
 	{
 		for (int i = 0; i < buttons.Count; i++)
 		{
+			dummyButton.Select();
 			print("Clearing buttons");
 			Button b = buttons[i];
 			buttons.Remove(b);
