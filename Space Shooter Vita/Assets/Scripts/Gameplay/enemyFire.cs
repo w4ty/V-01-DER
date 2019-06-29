@@ -10,10 +10,9 @@ public class enemyFire : MonoBehaviour {
 
 	void Update()
 	{
-		var distance = Vector2.Distance(transform.position, target.transform.position);
 		cooldownTimer -= Time.deltaTime;
 
-		if (cooldownTimer <= 0 && distance < 5)
+		if (cooldownTimer <= 0)
 		{
 			Debug.Log("Enemy firing");
 			cooldownTimer = fireDelay;

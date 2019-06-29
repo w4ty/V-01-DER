@@ -9,10 +9,18 @@ public class damageHandler : MonoBehaviour
 	public float invLength = 0;
 	int objectLayer;
 	float invFrames = 0;
+	private Animator anim;
+	private SpriteRenderer spriteControl;
+
 	void Start()
 	{
+		if (transform.childCount > 0)
+		{
+			spriteControl = this.transform.GetChild(0).GetComponent<SpriteRenderer>();
+		}
 		hp = maxHP;
 		objectLayer = gameObject.layer;
+		anim = GetComponent<Animator>();
 	}
 	void OnTriggerEnter2D()
 	{
@@ -32,12 +40,20 @@ public class damageHandler : MonoBehaviour
 		}
 		if (hp <= 0)
 		{
-			kill();
+			try
+			{
+				anim.SetBool("playDestroy", true);
+				HideSprite();
+			}
+			catch { }
 		}
 	}
 	void kill()
 	{
 		Destroy(gameObject);
 	}
-
+	void HideSprite()
+	{
+		spriteControl.sprite = null;
+	}
 }

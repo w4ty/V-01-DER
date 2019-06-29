@@ -5,11 +5,11 @@ using UnityEngine;
 public class randomSpawn : MonoBehaviour {
 	public GameObject UnitToSpawn;
 	public GameObject UnitToSpawn2;
-	public GameObject UnitToSpawn3;
+//	public GameObject UnitToSpawn3;
 	public GameObject Portal;
 	public float spawnCD;
 	public float spawnCD2;
-	public float spawnCD3;
+//	public float spawnCD3;
 
 
 	void Update () {
