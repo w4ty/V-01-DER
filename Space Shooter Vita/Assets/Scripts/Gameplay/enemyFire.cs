@@ -3,16 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class enemyFire : MonoBehaviour {
-
+	public GameObject target;
 	public GameObject Bullet_PlayerPrefab;
 	public float fireDelay = 0.25f;
 	float cooldownTimer = 0.5f;
 
 	void Update()
 	{
+		var distance = Vector2.Distance(transform.position, target.transform.position);
 		cooldownTimer -= Time.deltaTime;
 
-		if (cooldownTimer <= 0)
+		if (cooldownTimer <= 0 && distance < 5)
 		{
 			Debug.Log("Enemy firing");
 			cooldownTimer = fireDelay;

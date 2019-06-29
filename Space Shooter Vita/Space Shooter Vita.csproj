@@ -86,8 +86,11 @@
     <Compile Include="Assets\Scripts\Day\DialogueManager.cs" />
     <Compile Include="Assets\Scripts\Day\DialogueParser.cs" />
     <Compile Include="Assets\Scripts\Day\ShowPath.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\PlayerMovementAlt.cs" />
     <Compile Include="Assets\Scripts\Gameplay\SelfDestruct.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\TransformExtension.cs" />
     <Compile Include="Assets\Scripts\Gameplay\bulletDMGHandler.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\crosshairAim.cs" />
     <Compile Include="Assets\Scripts\Gameplay\damageHandler.cs" />
     <Compile Include="Assets\Scripts\Gameplay\enemyFire.cs" />
     <Compile Include="Assets\Scripts\Gameplay\facePlayer.cs" />
