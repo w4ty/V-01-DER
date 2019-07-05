@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class enemyFire : MonoBehaviour {
+public class EnemyFire : MonoBehaviour
+{
 	public GameObject target;
 	public GameObject Bullet_PlayerPrefab;
 	public float fireDelay = 0.25f;

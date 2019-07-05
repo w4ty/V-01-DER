@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class damageHandler : MonoBehaviour
+public class DamageHandler : MonoBehaviour
 {
 	public int maxHP = 20;
 	public int hp;

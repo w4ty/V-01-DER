@@ -2,17 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovementAlt : MonoBehaviour {
+public class PlayerMovementAlt : MonoBehaviour
+{
 	public float moveSpeed = 10f;
 	public float maxYCoordinate = 10f;
 	public float minYCoordinate = -10f;
 	public float maxXCoordinate = 10f;
 	public float minXCoordinate = -10f;
-	void Start () {
-		
-	}
 	
-	void Update () {
+	void Update ()
+	{
 		// Turn inputs to short floats for easier access
 		float lh = Input.GetAxis("Horizontal");
 		float lv = Input.GetAxis("Vertical");

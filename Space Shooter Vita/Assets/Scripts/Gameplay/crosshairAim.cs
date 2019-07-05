@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class crosshairAim : MonoBehaviour
+public class CrosshairAim : MonoBehaviour
 {
 	private GameObject crosshair;
 	private Transform crossTransform;
@@ -14,7 +14,6 @@ public class crosshairAim : MonoBehaviour
 	}
 
 	void FixedUpdate()
-
 	{
 		crossTransform.LookAt2D(crosshair.transform.position);
 	}

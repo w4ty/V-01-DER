@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class playerMovement : MonoBehaviour {
+public class PlayerMovement : MonoBehaviour
+{
 	// OUTDATED DON'T USE
 	public float maxSpeed = 7f;
 	public float rotSpeed = 270f;
@@ -10,11 +11,9 @@ public class playerMovement : MonoBehaviour {
 	public float minYCoordinate = -10f;
 	public float maxXCoordinate = 10f;
 	public float minXCoordinate = -10f;
-	void Start () {
-		
-	}
-	
-	void Update () {
+
+	void Update ()
+	{
 		// Rotation
 		Quaternion rot = transform.rotation;
 		float z = rot.eulerAngles.z;

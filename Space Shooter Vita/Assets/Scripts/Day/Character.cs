@@ -2,15 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Character : MonoBehaviour {
-
+public class Character : MonoBehaviour
+{
 	public Sprite[] characterPoses = null;
-
-	void Start () {
-		
-	}
-	
-	void Update () {
-		
-	}
 }

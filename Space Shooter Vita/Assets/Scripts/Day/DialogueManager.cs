@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DialogueManager : MonoBehaviour {
+public class DialogueManager : MonoBehaviour
+{
 
 	DialogueParser parser;
 	public Button dummyButton;
@@ -19,14 +20,16 @@ public class DialogueManager : MonoBehaviour {
 	public Text nameBox;
 	public GameObject choiceBox;
 
-	void Start () {
-		dialogue = "";
+	void Start ()
+	{
+		/*dialogue = "";
 		characterName = "";
 		pose = 0;
 		position = "L";
-		playerTalking = false;
+		playerTalking = false;*/
 		parser = GameObject.Find("DialogueParser").GetComponent<DialogueParser>();
 		lineNum = 0;
+		ShowDialogue();
 	}
 
 	void Update()

@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class showFPS : MonoBehaviour {
-
+public class ShowFPS : MonoBehaviour
+{
 	float deltaTime = 0.0f;
 
 	void Update()

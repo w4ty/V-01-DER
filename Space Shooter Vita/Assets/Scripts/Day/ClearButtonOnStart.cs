@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ClearButtonOnStart : MonoBehaviour {
+public class ClearButtonOnStart : MonoBehaviour
+{
 
-	void Start () {
+	void Start ()
+	{
 		Destroy(gameObject);
 	}
 	

@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class ChoiceButton : MonoBehaviour {
+public class ChoiceButton : MonoBehaviour
+{
 	public string option;
 	public DialogueManager box;
 

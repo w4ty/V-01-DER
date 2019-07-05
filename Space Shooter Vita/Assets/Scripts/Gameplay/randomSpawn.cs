@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class randomSpawn : MonoBehaviour {
+public class RandomSpawn : MonoBehaviour
+{
 	public GameObject UnitToSpawn;
 	public GameObject UnitToSpawn2;
 //	public GameObject UnitToSpawn3;
@@ -12,7 +13,8 @@ public class randomSpawn : MonoBehaviour {
 //	public float spawnCD3;
 
 
-	void Update () {
+	void Update ()
+	{
 		spawnCD -= 1;
 		if (spawnCD <= 0)
 		{

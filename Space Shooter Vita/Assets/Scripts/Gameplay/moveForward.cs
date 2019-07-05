@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class moveForward : MonoBehaviour {
+public class MoveForward : MonoBehaviour
+{
 	public float maxSpeed = 15f;
 	void Update()
 	{

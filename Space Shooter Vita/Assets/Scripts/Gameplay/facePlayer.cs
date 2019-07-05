@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class facePlayer : MonoBehaviour {
+public class FacePlayer : MonoBehaviour
+{
 
 	float rotSpeed = 90f;
 
