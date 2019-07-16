@@ -13,14 +13,16 @@ public class DialogueManager : MonoBehaviour
 	int pose;
 	string position;
 	string[] options;
-	public bool playerTalking;
+	int skip;
+	public static bool playerTalking;
+	public bool buttonClicked;
 	List<Button> buttons = new List<Button>();
 
 	public Text dialogueBox;
 	public Text nameBox;
 	public GameObject choiceBox;
 
-	void Start ()
+	void Start()
 	{
 		/*dialogue = "";
 		characterName = "";
@@ -28,23 +30,25 @@ public class DialogueManager : MonoBehaviour
 		position = "L";
 		playerTalking = false;*/
 		parser = GameObject.Find("DialogueParser").GetComponent<DialogueParser>();
-		lineNum = 0;
 		ShowDialogue();
+		lineNum = 1;
 	}
-
+	public void ContDialogue()
+	{
+		ShowDialogue();
+		lineNum += skip;
+	}
 	void Update()
 	{
-		if (Input.GetButtonDown("Submit") && playerTalking == false)
+		if (Input.GetButtonDown("Submit") && playerTalking == false && InfoMenu.isHidden == true)
 		{
-			ShowDialogue();
-
-			lineNum++;
+			ContDialogue();
 		}
-		if(playerTalking == true)
+		if (playerTalking == true || InfoMenu.isHidden == false)
 		{
 			dummyButton.interactable = false;
 		}
-		else
+		if (playerTalking == false && InfoMenu.isHidden == true)
 		{
 			dummyButton.interactable = true;
 			dummyButton.Select();
@@ -74,13 +78,14 @@ public class DialogueManager : MonoBehaviour
 			dialogue = parser.GetContent(lineNum);
 			pose = parser.GetPose(lineNum);
 			position = parser.GetPosition(lineNum);
+			skip = parser.GetSkip(lineNum);
 			DisplayImages();
 		}
 		else
 		{
 			playerTalking = true;
-			characterName = "Player";
-			dialogue = "What will you do?";
+			characterName = "Kyo";
+			//dialogue = "What will you do?";
 			pose = 0;
 			position = "L";
 			options = parser.GetOptions(lineNum);
@@ -99,17 +104,19 @@ public class DialogueManager : MonoBehaviour
 			SpriteRenderer currSprite = character.GetComponent<SpriteRenderer>();
 
 			currSprite.sprite = character.GetComponent<Character>().characterPoses[pose];
+
+			nameBox.color = character.GetComponent<Character>().nameColorEditor;
 		}
 	}
 	void SetSpritePositions(GameObject spriteObj)
 	{
 		if (position == "L")
 		{
-			spriteObj.transform.position = new Vector3(-6, 0, 0);
+			spriteObj.transform.position = new Vector3(-6, -1, 0);
 		}
 		else if (position == "R")
 		{
-			spriteObj.transform.position = new Vector3(6, 0, 0);
+			spriteObj.transform.position = new Vector3(6, -2, 0);
 		}
 
 	}
@@ -144,7 +151,6 @@ public class DialogueManager : MonoBehaviour
 		for (int i = 0; i < buttons.Count; i++)
 		{
 			dummyButton.Select();
-			print("Clearing buttons");
 			Button b = buttons[i];
 			buttons.Remove(b);
 			Destroy(b.gameObject);

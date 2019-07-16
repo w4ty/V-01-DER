@@ -79,34 +79,38 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Camera\cameraFollow.cs" />
+    <Compile Include="Assets\Scripts\Camera\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\Day\Character.cs" />
     <Compile Include="Assets\Scripts\Day\ChoiceButton.cs" />
     <Compile Include="Assets\Scripts\Day\ClearButtonOnStart.cs" />
     <Compile Include="Assets\Scripts\Day\DialogueManager.cs" />
     <Compile Include="Assets\Scripts\Day\DialogueParser.cs" />
+    <Compile Include="Assets\Scripts\Day\InfoMenu.cs" />
     <Compile Include="Assets\Scripts\Day\ShowPath.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\BulletDMGHandler.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\CrosshairAim.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\DamageHandler.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\EnemyFire.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\FacePlayer.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\MoveForward.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\PlayerFire.cs" />
     <Compile Include="Assets\Scripts\Gameplay\PlayerMovementAlt.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\PlayerStatistics.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\RandomSpawn.cs" />
     <Compile Include="Assets\Scripts\Gameplay\SelfDestruct.cs" />
     <Compile Include="Assets\Scripts\Gameplay\TransformExtension.cs" />
-    <Compile Include="Assets\Scripts\Gameplay\bulletDMGHandler.cs" />
-    <Compile Include="Assets\Scripts\Gameplay\crosshairAim.cs" />
-    <Compile Include="Assets\Scripts\Gameplay\damageHandler.cs" />
-    <Compile Include="Assets\Scripts\Gameplay\enemyFire.cs" />
-    <Compile Include="Assets\Scripts\Gameplay\facePlayer.cs" />
-    <Compile Include="Assets\Scripts\Gameplay\moveForward.cs" />
-    <Compile Include="Assets\Scripts\Gameplay\playerFire.cs" />
     <Compile Include="Assets\Scripts\Gameplay\playerMovement.cs" />
-    <Compile Include="Assets\Scripts\Gameplay\randomSpawn.cs" />
     <Compile Include="Assets\Scripts\MISC_\EngineSettings.cs" />
-    <Compile Include="Assets\Scripts\MISC_\showFPS.cs" />
+    <Compile Include="Assets\Scripts\MISC_\ShowFPS.cs" />
+    <Compile Include="Assets\Scripts\Menu\MenuButtons.cs" />
     <Compile Include="Assets\Scripts\Menu\alpha_ChangeLevel.cs" />
-    <Compile Include="Assets\Scripts\Menu\menuButtons.cs" />
     <Compile Include="Assets\Scripts\Quests\QuestHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Data\DialogueUniversal0.txt" />
-    <None Include="Assets\Fonts\LICENSE_OFL.txt" />
+    <None Include="Assets\Fonts\Lato\OFL.txt" />
+    <None Include="Assets\Fonts\Lato\README.txt" />
+    <None Include="Assets\Fonts\NotoSans\LICENSE_OFL.txt" />
     <None Include="Assets\StreamingAssets\DialogueUniversal0.txt" />
     <None Include="Assets\StreamingAssets\Placeholder Quest_pt1_dialogue_scene0.txt" />
     <None Include="Assets\StreamingAssets\Prologue_pt1_dialogue_scene0.txt" />

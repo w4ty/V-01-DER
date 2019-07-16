@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EngineSettings : MonoBehaviour
 {
-	void Start()
+	void Update()
 	{
 		// Value controls vSync
 		QualitySettings.vSyncCount = 1;

@@ -14,14 +14,16 @@ public class DialogueParser : MonoBehaviour
 		public string content;
 		public int pose;
 		public string position;
+		public int skip;
 		public string[] options;
 
-		public DialogueLine(string Name, string Content, int Pose, string Position)
+		public DialogueLine(string Name, string Content, int Pose, string Position, int Skip)
 		{
 			name = Name;
 			content = Content;
 			pose = Pose;
 			position = Position;
+			skip = Skip;
 			options = new string[0];
 		}
 	}
@@ -53,7 +55,7 @@ public class DialogueParser : MonoBehaviour
 					string[] lineData = line.Split(';');
 					if (lineData[0] == "Player")
 					{
-						DialogueLine lineEntry = new DialogueLine(lineData[0], "", 0, "");
+						DialogueLine lineEntry = new DialogueLine(lineData[0], "", 0, "", 0);
 						lineEntry.options = new string[lineData.Length - 1];
 						for (int i = 1; i < lineData.Length; i++)
 						{
@@ -63,7 +65,7 @@ public class DialogueParser : MonoBehaviour
 					}
 					else
 					{
-						DialogueLine lineEntry = new DialogueLine(lineData[0], lineData[1], int.Parse(lineData[2]), lineData[3]);
+						DialogueLine lineEntry = new DialogueLine(lineData[0], lineData[1], int.Parse(lineData[2]), lineData[3], int.Parse(lineData[4]));
 						lines.Add(lineEntry);
 					}
 				}
@@ -112,5 +114,13 @@ public class DialogueParser : MonoBehaviour
 			return lines[lineNumber].options;
 		}
 		return new string[0];
+	}
+	public int GetSkip(int lineNumber)
+	{
+		if (lineNumber < lines.Count)
+		{
+			return lines[lineNumber].skip;
+		}
+		return 0;
 	}
 }
