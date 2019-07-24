@@ -18,7 +18,7 @@ public class ShowFPS : MonoBehaviour
 		GUIStyle style = new GUIStyle();
 
 		Rect rect = new Rect(0, 0, w, h * 2 / 100);
-		style.alignment = TextAnchor.UpperRight;
+		style.alignment = TextAnchor.MiddleLeft;
 		style.fontSize = h * 4 / 100;
 		style.normal.textColor = new Color(1f, 1f, 1f, 1.0f);
 		float msec = deltaTime * 1000.0f;

@@ -11,14 +11,17 @@ public class EnemyFire : MonoBehaviour
 
 	void Update()
 	{
-		cooldownTimer -= Time.deltaTime;
-
-		if (cooldownTimer <= 0)
+		if (Pause.pauseOn == false)
 		{
-			Debug.Log("Enemy firing");
-			cooldownTimer = fireDelay;
-			Vector3 offset = transform.rotation * new Vector3(0, 0.5f, 0);
-			Instantiate(Bullet_PlayerPrefab, transform.position + offset, transform.rotation);
+			cooldownTimer -= Time.deltaTime;
+
+			if (cooldownTimer <= 0)
+			{
+				Debug.Log("Enemy firing");
+				cooldownTimer = fireDelay;
+				Vector3 offset = transform.rotation * new Vector3(0, 0.5f, 0);
+				Instantiate(Bullet_PlayerPrefab, transform.position + offset, transform.rotation);
+			}
 		}
 	}
 }

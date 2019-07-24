@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class DamageHandler : MonoBehaviour
+
 {
-	public int maxHP = 20;
-	public int hp;
+	public int maxHP;
+	public int damageAmount;
+	public float armorAmount;
+	public float hp;
 	public float invLength = 0;
 	int objectLayer;
 	float invFrames = 0;
@@ -26,10 +29,10 @@ public class DamageHandler : MonoBehaviour
 	{
 		Debug.Log("Triggered");
 
-			hp -= 10;
-			invFrames = invLength;
+		hp -= ActiveObjectStats.damageOnCol/armorAmount;
+		invFrames = invLength;
 
-			gameObject.layer = 10;
+		gameObject.layer = 10;
 	}
 	void Update()
 	{
