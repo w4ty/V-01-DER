@@ -8,7 +8,7 @@ public class MenuButtons : MonoBehaviour
 
 	public void BeginGame()
 	{
-		SceneManager.LoadScene("Gameplay_Other");
+		SceneManager.LoadScene("Gameplay_Battle");
 		QuestHandler.Prologue();
 	}
 	public void LoadSave()
