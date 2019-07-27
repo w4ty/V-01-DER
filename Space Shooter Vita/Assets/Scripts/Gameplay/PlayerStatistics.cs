@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerStatistics : MonoBehaviour {
+public class PlayerStatistics : MonoBehaviour
+{
 
 	public GameObject xpText;
 	public int perkSelected;

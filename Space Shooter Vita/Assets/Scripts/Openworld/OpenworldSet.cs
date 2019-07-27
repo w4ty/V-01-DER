@@ -18,7 +18,7 @@ public class OpenworldSet : MonoBehaviour
 	
 	public void BattleStart ()
 	{
-		if(LocationHandler.selectedLoc == 1)
+		if (LocationHandler.locationTypeStatic == 1)
 		{
 			openWorldPlanets.SetActive(false);
 			playerShip.GetComponent<PlayerMovementAlt>().maxYCoordinate = 20;
@@ -26,6 +26,10 @@ public class OpenworldSet : MonoBehaviour
 			playerShip.GetComponent<PlayerMovementAlt>().minYCoordinate = -20;
 			playerShip.GetComponent<PlayerMovementAlt>().minXCoordinate = -20;
 			Instantiate(portal1, new Vector3(-5, 5, 0), Quaternion.identity);
+		}
+		else
+		{
+			Debug.Log("Enter location");
 		}
 	}
 }

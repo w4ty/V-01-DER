@@ -12,7 +12,7 @@ public class SaveGame : MonoBehaviour
 	public GameObject playerShip;
 	string path;
 
-	void OnSaveGamePSTATS()
+	void SavePlayerStats()
 	{
 		/*path = Application.dataPath + "/StreamingAssets/Save/save_playerstats.txt";
 		StreamWriter w = new StreamWriter(path, false);
@@ -27,11 +27,22 @@ public class SaveGame : MonoBehaviour
 		ini.WriteValue("Player_Stats", "stt_perk", playerShip.GetComponent<PlayerStatistics>().perkSelected);
 		ini.Close();
 	}
+
+	void SavePlayerInfo()
+	{
+		INIParser ini = new INIParser();
+		ini.Open(Application.dataPath + "/StreamingAssets/Save/savedata_player.ini");
+		ini.WriteValue("Player_Info", "last_x", playerShip.transform.position.x);
+		ini.WriteValue("Player_Info", "last_y", playerShip.transform.position.y);
+		ini.Close();
+	}
+
 	void Update()
 	{
 		if (Input.GetButtonUp("Triangle"))
 		{
-			OnSaveGamePSTATS();
+			SavePlayerStats();
+			SavePlayerInfo();
 		}
 	}
 }

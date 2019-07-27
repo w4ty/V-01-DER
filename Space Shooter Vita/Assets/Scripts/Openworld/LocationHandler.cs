@@ -6,7 +6,8 @@ using System.Text;
 using System.IO;
 using System.Text.RegularExpressions;
 
-public class LocationHandler : MonoBehaviour {
+public class LocationHandler : MonoBehaviour
+{
 
 	static public string locFileToChange;
 	public int locationID;
@@ -17,6 +18,7 @@ public class LocationHandler : MonoBehaviour {
 	public GameObject blackoutImg;
 	public bool onLocation = false;
 	static public int selectedLoc;
+	static public int locationTypeStatic;
 	public GameObject worldMaster;
 
 	void Start()
@@ -28,29 +30,33 @@ public class LocationHandler : MonoBehaviour {
 	{
 		if (Input.GetButtonDown("Submit") && onLocation == true)
 		{
-			Blackout();
+			//Blackout();
 			selectedLoc = locationID;
+			locationTypeStatic = locationType;
+			Debug.Log(locationTypeStatic);
 			worldMaster.GetComponent<OpenworldSet>().BattleStart();
 			//Pause.pauseOn = true;
 		}
 	}
 	void OnTriggerEnter2D()
 	{
+		// Start ini and load file
+		INIParser ini = new INIParser();
+		ini.Open(Application.dataPath + "/StreamingAssets/Save/savedata_player.ini");
+
 		onLocation = true;
 		// Location IDs and names
 		if (locationID == 1)
 		{
-			filePath = Application.dataPath + "/StreamingAssets/Save/loc_starlessblack";
-			StreamReader r = new StreamReader(filePath);
-			locationType = int.Parse(r.ReadLine());
+			locationType = ini.ReadValue("loc_starlessblack", "state", -1);
 			locationText.text = "The Starless Black bar";
+			Debug.Log(locationType);
 		}
 		else if (locationID == 2)
 		{
-			filePath = Application.dataPath + "/StreamingAssets/Save/loc_oldruins";
-			StreamReader r = new StreamReader(filePath);
-			locationType = int.Parse(r.ReadLine());
+			locationType = ini.ReadValue("loc_oldruins", "state", -1);
 			locationText.text = "Old ruins";
+			Debug.Log(locationType);
 		}
 
 		// Location status descriptions
@@ -65,6 +71,10 @@ public class LocationHandler : MonoBehaviour {
 		else if (locationType == 2)
 		{
 			locationStatus.text = "Risk of getting attacked by a boss.";
+		}
+		else if (locationType == -1)
+		{
+			locationStatus.text = "Location cannot be loaded (error value -1).";
 		}
 	}
 	// Clean the text when exiting location

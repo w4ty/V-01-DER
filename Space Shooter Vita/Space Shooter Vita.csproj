@@ -260,6 +260,7 @@
     <Compile Include="Assets\Scripts\Openworld\LocationHandler.cs" />
     <Compile Include="Assets\Scripts\Openworld\OpenworldSet.cs" />
     <Compile Include="Assets\Scripts\Quests\QuestHandler.cs" />
+    <Compile Include="Assets\Scripts\SaveLoad\LoadGame.cs" />
     <Compile Include="Assets\Scripts\SaveLoad\SaveGame.cs" />
   </ItemGroup>
   <ItemGroup>

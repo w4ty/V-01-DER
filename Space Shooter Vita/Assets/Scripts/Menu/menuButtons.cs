@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class MenuButtons : MonoBehaviour
 {
-
 	public void BeginGame()
 	{
 		SceneManager.LoadScene("Gameplay_Battle");
@@ -13,7 +12,9 @@ public class MenuButtons : MonoBehaviour
 	}
 	public void LoadSave()
 	{
-		Debug.Log("Loading not yet implemented.");
+		this.GetComponent<LoadGame>().LoadPlayerStats();
+		this.GetComponent<LoadGame>().LoadPlayerInfo();
+		SceneManager.LoadScene("Gameplay_Battle");
 	}
 	public void OpenOptions()
 	{

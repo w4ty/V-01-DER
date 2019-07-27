@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerFire : MonoBehaviour
 {
-	public GameObject Bullet_PlayerPrefab;
+	public GameObject bulletPlayerPrefab;
 	public float fireDelay = 0.25f;
 	float cooldownTimer = 0;
 
@@ -17,7 +17,7 @@ public class PlayerFire : MonoBehaviour
 			Debug.Log("Firing");
 			cooldownTimer = fireDelay;
 			Vector3 offset = transform.rotation * new Vector3(0, 0.5f, 0);
-			Instantiate(Bullet_PlayerPrefab, transform.position + offset, transform.rotation);
+			Instantiate(bulletPlayerPrefab, transform.position + offset, transform.rotation);
 		}
 	}
 }
