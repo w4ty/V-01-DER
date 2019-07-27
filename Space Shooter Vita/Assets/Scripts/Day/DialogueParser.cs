@@ -28,12 +28,12 @@ public class DialogueParser : MonoBehaviour
 		}
 	}
 	List<DialogueLine> lines;
-	void Start()
+	void Awake()
 	{
 		string file = Application.dataPath + "/StreamingAssets/" + QuestHandler.questName + "_pt" + QuestHandler.questPart + "_dialogue_scene0";
-		string sceneNum = SceneManager.GetActiveScene().name;
-		sceneNum = Regex.Replace(sceneNum, "[^0-9]", "");
-		file += sceneNum;
+		//string sceneNum = SceneManager.GetActiveScene().name;
+		//sceneNum = Regex.Replace(sceneNum, "[^0-9]", "");
+		//file += sceneNum;
 		file += ".txt";
 
 		lines = new List<DialogueLine>();
