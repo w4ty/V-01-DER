@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Space Shooter Vita", "Space Shooter Vita.csproj", "{0AA0B299-FE8C-7F94-2751-4A5A0638F4CF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{8DD161AE-C4FB-E7D1-E893-A98EBBB700C3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,10 +9,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{0AA0B299-FE8C-7F94-2751-4A5A0638F4CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0AA0B299-FE8C-7F94-2751-4A5A0638F4CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0AA0B299-FE8C-7F94-2751-4A5A0638F4CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0AA0B299-FE8C-7F94-2751-4A5A0638F4CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DD161AE-C4FB-E7D1-E893-A98EBBB700C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DD161AE-C4FB-E7D1-E893-A98EBBB700C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DD161AE-C4FB-E7D1-E893-A98EBBB700C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DD161AE-C4FB-E7D1-E893-A98EBBB700C3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -14,6 +14,7 @@ public class MenuButtons : MonoBehaviour
 	{
 		this.GetComponent<LoadGame>().LoadPlayerStats();
 		this.GetComponent<LoadGame>().LoadPlayerInfo();
+		this.GetComponent<LoadGame>().QueueLoad();
 		SceneManager.LoadScene("Gameplay_Battle");
 	}
 	public void OpenOptions()

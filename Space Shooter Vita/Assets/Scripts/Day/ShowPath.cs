@@ -9,8 +9,8 @@ public class ShowPath : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
-		Debug.Log(Application.dataPath + "/StreamingAssets/");
-		showPathStr.text = Application.dataPath+"/StreamingAssets/";
+		Debug.Log(SetTarget.saveDataPath);
+		showPathStr.text = SetTarget.saveDataPath;
 	}
 	
 }

@@ -42,7 +42,7 @@ public class LocationHandler : MonoBehaviour
 	{
 		// Start ini and load file
 		INIParser ini = new INIParser();
-		ini.Open(Application.dataPath + "/StreamingAssets/Save/savedata_player.ini");
+		ini.Open(SetTarget.saveDataPath);
 
 		onLocation = true;
 		// Location IDs and names

@@ -8,8 +8,6 @@ using System.Text.RegularExpressions;
 
 public class SaveGame : MonoBehaviour
 {
-
-	public GameObject playerShip;
 	string path;
 
 	void SavePlayerStats()
@@ -21,19 +19,19 @@ public class SaveGame : MonoBehaviour
 		w.WriteLine(playerShip.GetComponent<PlayerStatistics>().perkSelected);
 		w.Close();*/
 		INIParser ini = new INIParser();
-		ini.Open(Application.dataPath + "/StreamingAssets/Save/savedata_player.ini");
-		ini.WriteValue("Player_Stats", "stt_shiplvl", playerShip.GetComponent<PlayerStatistics>().shipLVL);
-		ini.WriteValue("Player_Stats", "stt_xp", playerShip.GetComponent<PlayerStatistics>().currentXP);
-		ini.WriteValue("Player_Stats", "stt_perk", playerShip.GetComponent<PlayerStatistics>().perkSelected);
+		ini.Open(SetTarget.saveDataPath);
+		ini.WriteValue("Player_Stats", "stt_shiplvl", this.GetComponent<PlayerStatistics>().shipLVL);
+		ini.WriteValue("Player_Stats", "stt_xp", this.GetComponent<PlayerStatistics>().currentXP);
+		ini.WriteValue("Player_Stats", "stt_perk", this.GetComponent<PlayerStatistics>().perkSelected);
 		ini.Close();
 	}
 
 	void SavePlayerInfo()
 	{
 		INIParser ini = new INIParser();
-		ini.Open(Application.dataPath + "/StreamingAssets/Save/savedata_player.ini");
-		ini.WriteValue("Player_Info", "last_x", playerShip.transform.position.x);
-		ini.WriteValue("Player_Info", "last_y", playerShip.transform.position.y);
+		ini.Open(SetTarget.saveDataPath);
+		ini.WriteValue("Player_Info", "last_x", Mathf.RoundToInt(this.transform.position.x));
+		ini.WriteValue("Player_Info", "last_y", Mathf.RoundToInt(this.transform.position.y));
 		ini.Close();
 	}
 
