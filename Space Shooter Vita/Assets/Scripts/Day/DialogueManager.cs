@@ -112,7 +112,7 @@ public class DialogueManager : MonoBehaviour
 	{
 		if (position == "L")
 		{
-			spriteObj.transform.position = new Vector3(-6, -1, 0);
+			spriteObj.transform.position = new Vector3(-6, -2, 0);
 		}
 		else if (position == "R")
 		{

@@ -1,3 +1,0 @@
-REMOVE Ship level: 4
-REMOVE Current experience: 256
-REMOVE Perk selected: 1

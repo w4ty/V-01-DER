@@ -11,6 +11,7 @@ public class LocationHandler : MonoBehaviour
 
 	static public string locFileToChange;
 	public int locationID;
+	public int tempLocID;
 	public Text locationText;
 	public Text locationStatus;
 	string filePath;
@@ -20,11 +21,17 @@ public class LocationHandler : MonoBehaviour
 	static public int selectedLoc;
 	static public int locationTypeStatic;
 	public GameObject worldMaster;
+	// Start ini and load file
+	INIParser ini = new INIParser();
+
 
 	void Start()
 	{
 		worldMaster.GetComponent<OpenworldSet>().OpenWorldStart();
 		blackoutImg = GameObject.Find("blackout_img");
+		ini.Open(SetTarget.saveDataPath);
+		tempLocID = 0;
+		GetLocation();
 	}
 	void Update()
 	{
@@ -40,22 +47,30 @@ public class LocationHandler : MonoBehaviour
 	}
 	void OnTriggerEnter2D()
 	{
-		// Start ini and load file
-		INIParser ini = new INIParser();
-		ini.Open(SetTarget.saveDataPath);
-
+		tempLocID = locationID;
+		GetLocation();
+	}
+	
+	void GetLocation()
+	{
 		onLocation = true;
 		// Location IDs and names
-		if (locationID == 1)
+		if (tempLocID == 0)
 		{
-			locationType = ini.ReadValue("loc_starlessblack", "state", -1);
-			locationText.text = "The Starless Black bar";
+			locationType = ini.ReadValue("loc_" + tempLocID, "state", -1);
+			locationText.text = ini.ReadValue("loc_" + tempLocID, "name", "err");
 			Debug.Log(locationType);
 		}
-		else if (locationID == 2)
+		else if (tempLocID == 1)
 		{
-			locationType = ini.ReadValue("loc_oldruins", "state", -1);
-			locationText.text = "Old ruins";
+			locationType = ini.ReadValue("loc_" + tempLocID, "state", -1);
+			locationText.text = ini.ReadValue("loc_" + tempLocID, "name", "err");
+			Debug.Log(locationType);
+		}
+		else if (tempLocID == 2)
+		{
+			locationType = ini.ReadValue("loc_" + tempLocID, "state", -1);
+			locationText.text = ini.ReadValue("loc_" + tempLocID, "name", "err");
 			Debug.Log(locationType);
 		}
 
@@ -74,15 +89,23 @@ public class LocationHandler : MonoBehaviour
 		}
 		else if (locationType == -1)
 		{
-			locationStatus.text = "Location cannot be loaded (error value -1).";
+			locationStatus.text = "Location status cannot be loaded (error value -1).";
 		}
+		else if (locationType == -2)
+		{
+			locationStatus.text = "";
+		}
+		Debug.Log(tempLocID + " " + locationID);
 	}
 	// Clean the text when exiting location
 	private void OnTriggerExit2D(Collider2D collision)
 	{
+		ini.Close();
 		locationText.text = "";
 		locationStatus.text = "";
 		onLocation = false;
+		tempLocID = 0;
+		GetLocation();
 	}
 	void Blackout()
 	{

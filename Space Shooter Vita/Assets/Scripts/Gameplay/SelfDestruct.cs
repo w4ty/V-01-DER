@@ -5,13 +5,13 @@ using UnityEngine;
 public class SelfDestruct : MonoBehaviour
 {
 
-	float timer = 0;
+	public float timer = 0;
 
 	void Update ()
 	{
-		timer += 1;
+		timer -= 1;
 
-		if(timer >= 260)
+		if(timer <= 0)
 		{
 			Destroy(gameObject);
 		}

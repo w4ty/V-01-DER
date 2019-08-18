@@ -7,15 +7,13 @@ using UnityEngine.UI;
 public class DamageHandler : MonoBehaviour
 
 {
-	public int maxHP;
-	public int damageAmount;
-	public float armorAmount;
 	public float hp;
 	public float invLength = 0;
 	int objectLayer;
 	float invFrames = 0;
 	private Animator anim;
 	private SpriteRenderer spriteControl;
+	public GameObject damageText;
 
 	void Start()
 	{
@@ -23,17 +21,30 @@ public class DamageHandler : MonoBehaviour
 		{
 			spriteControl = this.transform.GetChild(0).GetComponent<SpriteRenderer>();
 		}
-		hp = maxHP;
+		hp = this.GetComponent<ActiveObjectStats>().objectMaxHp;
 		objectLayer = gameObject.layer;
 		anim = GetComponent<Animator>();
 	}
-	void OnTriggerEnter2D()
+	void OnTriggerEnter2D(Collider2D other)
 	{
+
 		Debug.Log("Triggered");
 
-		hp -= ActiveObjectStats.damageOnCol/armorAmount;
-		invFrames = invLength;
+		//Math for damage calculations
+		int dmgCalc = Mathf.RoundToInt(
+			(other.GetComponent<ActiveObjectStats>().objectDamage / this.GetComponent<ActiveObjectStats>().objectArmour)
+			+ Random.Range(other.GetComponent<ActiveObjectStats>().objectLowerRandomDamage, other.GetComponent<ActiveObjectStats>().objectHigherRandomDamage) * 10);
+		hp -= dmgCalc;
 
+		//Adding damage text next to the damaged unit
+		Vector3 ghostPos = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z);
+		Quaternion ghostRot = new Quaternion();
+		Instantiate(damageText, ghostPos, ghostRot, GameObject.Find("WorldSpaceCanvas").transform);
+		damageText.GetComponent<Text>().text = dmgCalc.ToString() + "!";
+
+
+		//Mess regarding invincibility frames
+		invFrames = invLength;
 		gameObject.layer = 10;
 	}
 	void Update()

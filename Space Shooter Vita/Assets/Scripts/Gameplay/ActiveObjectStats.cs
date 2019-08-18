@@ -4,11 +4,9 @@ using UnityEngine;
 
 public class ActiveObjectStats : MonoBehaviour
 {
-	static public int damageOnCol;
-	public int damageGetEditor;
-
-	void Start()
-	{
-		damageOnCol = damageGetEditor;
-	}
+	public int objectDamage;
+	public int objectLowerRandomDamage;
+	public int objectHigherRandomDamage;
+	public int objectArmour;
+	public int objectMaxHp;
 }
