@@ -9,4 +9,5 @@ public class ActiveObjectStats : MonoBehaviour
 	public int objectHigherRandomDamage;
 	public int objectArmour;
 	public int objectMaxHp;
+	public int objectXpGiven;
 }

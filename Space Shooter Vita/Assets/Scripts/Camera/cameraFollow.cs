@@ -10,7 +10,7 @@ public class CameraFollow : MonoBehaviour
 	public float followDistance = 10f;
 	Vector3 targPos;
 
-	void Update ()
+	void FixedUpdate ()
 	{
 		if(Target != null)
 		{

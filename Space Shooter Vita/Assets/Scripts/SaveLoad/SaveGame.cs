@@ -19,7 +19,7 @@ public class SaveGame : MonoBehaviour
 		w.WriteLine(playerShip.GetComponent<PlayerStatistics>().perkSelected);
 		w.Close();*/
 		INIParser ini = new INIParser();
-		ini.Open(SetTarget.saveDataPath);
+		ini.Open(SetTarget.saveDataPath + "savedata_player.ini");
 		ini.WriteValue("Player_Stats", "stt_shiplvl", this.GetComponent<PlayerStatistics>().shipLVL);
 		ini.WriteValue("Player_Stats", "stt_xp", this.GetComponent<PlayerStatistics>().currentXP);
 		ini.WriteValue("Player_Stats", "stt_perk", this.GetComponent<PlayerStatistics>().perkSelected);
@@ -29,7 +29,7 @@ public class SaveGame : MonoBehaviour
 	void SavePlayerInfo()
 	{
 		INIParser ini = new INIParser();
-		ini.Open(SetTarget.saveDataPath);
+		ini.Open(SetTarget.saveDataPath + "savedata_player.ini");
 		ini.WriteValue("Player_Info", "last_x", Mathf.RoundToInt(this.transform.position.x));
 		ini.WriteValue("Player_Info", "last_y", Mathf.RoundToInt(this.transform.position.y));
 		ini.Close();

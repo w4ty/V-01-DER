@@ -30,7 +30,7 @@ public class DialogueParser : MonoBehaviour
 	List<DialogueLine> lines;
 	void Awake()
 	{
-		string file = Application.dataPath + "/StreamingAssets/" + QuestHandler.questName + "_pt" + QuestHandler.questPart + "_dialogue_scene0";
+		string file = SetTarget.dialDataPath + SetTarget.lang + "/" + QuestHandler.questID + "_scene" + QuestHandler.questScene + "_0";
 		//string sceneNum = SceneManager.GetActiveScene().name;
 		//sceneNum = Regex.Replace(sceneNum, "[^0-9]", "");
 		//file += sceneNum;

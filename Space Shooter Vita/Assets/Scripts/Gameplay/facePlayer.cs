@@ -9,7 +9,7 @@ public class FacePlayer : MonoBehaviour
 
 	Transform player;
 
-	void Update()
+	void FixedUpdate()
 	{
 		if (player == null)
 		{

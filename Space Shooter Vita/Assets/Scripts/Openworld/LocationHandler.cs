@@ -29,7 +29,7 @@ public class LocationHandler : MonoBehaviour
 	{
 		worldMaster.GetComponent<OpenworldSet>().OpenWorldStart();
 		blackoutImg = GameObject.Find("blackout_img");
-		ini.Open(SetTarget.saveDataPath);
+		ini.Open(SetTarget.saveDataPath + "savedata_player.ini");
 		tempLocID = 0;
 		GetLocation();
 	}

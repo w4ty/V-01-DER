@@ -40,7 +40,7 @@ public class DamageHandler : MonoBehaviour
 		Vector3 ghostPos = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z);
 		Quaternion ghostRot = new Quaternion();
 		Instantiate(damageText, ghostPos, ghostRot, GameObject.Find("WorldSpaceCanvas").transform);
-		damageText.GetComponent<Text>().text = dmgCalc.ToString() + "!";
+		damageText.GetComponent<Text>().text = dmgCalc.ToString();
 
 
 		//Mess regarding invincibility frames
@@ -66,6 +66,10 @@ public class DamageHandler : MonoBehaviour
 	}
 	void kill()
 	{
+		if(this.gameObject != GameObject.Find("Player_Ship_a"))
+		{
+			GameObject.Find("Player_Ship_a").GetComponent<PlayerStatistics>().currentXP += this.GetComponent<ActiveObjectStats>().objectXpGiven;
+		}
 		Destroy(gameObject);
 	}
 	void HideSprite()

@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Advanced INI Parser\INIParser.cs" />
+     <Compile Include="Assets\Scripts\Additions\SimpleMath.cs" />
      <Compile Include="Assets\Scripts\Camera\CameraFollow.cs" />
      <Compile Include="Assets\Scripts\Day\Character.cs" />
      <Compile Include="Assets\Scripts\Day\ChoiceButton.cs" />
@@ -63,6 +64,7 @@
      <Compile Include="Assets\Scripts\Day\InfoMenu.cs" />
      <Compile Include="Assets\Scripts\Day\ShowPath.cs" />
      <Compile Include="Assets\Scripts\Gameplay\ActiveObjectStats.cs" />
+     <Compile Include="Assets\Scripts\Gameplay\BarHandler.cs" />
      <Compile Include="Assets\Scripts\Gameplay\BulletDMGHandler.cs" />
      <Compile Include="Assets\Scripts\Gameplay\CrosshairAim.cs" />
      <Compile Include="Assets\Scripts\Gameplay\DamageHandler.cs" />
@@ -78,6 +80,7 @@
      <Compile Include="Assets\Scripts\Gameplay\TransformExtension.cs" />
      <Compile Include="Assets\Scripts\Menu\alpha_ChangeLevel.cs" />
      <Compile Include="Assets\Scripts\Menu\MenuButtons.cs" />
+     <Compile Include="Assets\Scripts\Menu\VersionText.cs" />
      <Compile Include="Assets\Scripts\MISC_\EngineSettings.cs" />
      <Compile Include="Assets\Scripts\MISC_\Pause.cs" />
      <Compile Include="Assets\Scripts\MISC_\SetTarget.cs" />
@@ -91,11 +94,9 @@
      <Compile Include="Assets\Scripts\StartScreenScripts\StartScreen.cs" />
      <None Include="Assets\Fonts\Lato\README.txt" />
      <None Include="Assets\Fonts\NotoSans\LICENSE_OFL.txt" />
-     <None Include="Assets\StreamingAssets\Prologue_pt1_dialogue_scene0.txt" />
-     <None Include="Assets\StreamingAssets\DialogueUniversal0.txt" />
-     <None Include="Assets\StreamingAssets\SaveData\save_playerstats.txt" />
+     <None Include="Assets\StreamingAssets\DialData\English\1_scene1_0.txt" />
+     <None Include="Assets\StreamingAssets\DialData\English\0_scene1_0.txt" />
      <None Include="Assets\Fonts\Lato\OFL.txt" />
-     <None Include="Assets\StreamingAssets\Placeholder Quest_pt1_dialogue_scene0.txt" />
      <None Include="Assets\Data\DialogueUniversal0.txt" />
  <Reference Include="UnityEditor.StandardEvents">
  <HintPath>C:/Users/Bruno/Documents/GitHub/V-01-DER/Space Shooter Vita/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>

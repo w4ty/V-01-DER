@@ -5,7 +5,7 @@ using UnityEngine;
 public class MoveForward : MonoBehaviour
 {
 	public float maxSpeed = 15f;
-	void Update()
+	void FixedUpdate()
 	{
 		if (Pause.pauseOn == false)
 		{

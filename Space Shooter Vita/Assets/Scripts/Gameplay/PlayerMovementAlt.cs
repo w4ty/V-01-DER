@@ -12,7 +12,7 @@ public class PlayerMovementAlt : MonoBehaviour
 	public float minXCoordinate = -10f;
 	public Text xyText;
 	
-	void Update ()
+	void FixedUpdate ()
 	{
 		if (Pause.pauseOn == false)
 		{

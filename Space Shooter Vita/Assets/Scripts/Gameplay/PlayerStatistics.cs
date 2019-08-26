@@ -14,10 +14,10 @@ public class PlayerStatistics : MonoBehaviour
 	void LevelUp()
 	{
 		currentXP = 0;
-		nextXP = shipLVL * shipLVL * 64;
+		nextXP = Mathf.RoundToInt((Mathf.Pow(1.06f, shipLVL)) * 100);
 	}
 	void Update()
 	{
-		nextXP = shipLVL*shipLVL*64;
+		nextXP = Mathf.RoundToInt((Mathf.Pow(1.06f, shipLVL)) * 100);
 	}
 }

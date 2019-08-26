@@ -84,7 +84,7 @@ public class StartScreen : MonoBehaviour
 			Uri downUri = new Uri(newsUrl, UriKind.Absolute);
 			wc.Headers.Add("User-Agent", "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.33 Safari/537.36");
 			ServicePointManager.ServerCertificateValidationCallback = delegate { return true; };
-			wc.DownloadFileAsync(downUri, SetTarget.dataDownPath + "V1.ini");
+			wc.DownloadFileAsync(downUri, SetTarget.webDataPath + "V1.ini");
 			readyToMove = true;
 		}
 	}

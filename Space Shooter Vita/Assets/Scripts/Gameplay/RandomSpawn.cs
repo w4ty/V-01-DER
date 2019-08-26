@@ -10,23 +10,28 @@ public class RandomSpawn : MonoBehaviour
 	public GameObject Portal;
 	public float spawnCD;
 	public float spawnCD2;
-//	public float spawnCD3;
+	//	public float spawnCD3;
+	int enemyCount1;
+	int enemyCount2;
 
 
 	void Update ()
 	{
 		spawnCD -= 1;
-		if (spawnCD <= 0)
+		if (spawnCD <= 0 && SetTarget.maxUnits > enemyCount2 + enemyCount1)
 		{
 			spawnCD = 180f;
 			Instantiate(UnitToSpawn, Portal.transform.position, transform.rotation);
 		}
 		spawnCD2 -= 1;
-		if (spawnCD2 <= 0)
+		if (spawnCD2 <= 0 && SetTarget.maxUnits > enemyCount2 + enemyCount1)
 		{
 			spawnCD2 = 240f;
 			Instantiate(UnitToSpawn2, Portal.transform.position, transform.rotation);
 		}
+		enemyCount1 = GameObject.FindGameObjectsWithTag("Enemy1").Length;
+		enemyCount2 = GameObject.FindGameObjectsWithTag("Enemy2").Length;
+		Debug.Log("NObjects " + (enemyCount1 + enemyCount2));
 		/* spawnCD3 -= 1;
 		if (spawnCD3 <= 0)
 		{
