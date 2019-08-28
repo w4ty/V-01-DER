@@ -17,5 +17,6 @@ public class BarHandler : MonoBehaviour
 	void Update ()
 	{
 		xpBar.GetComponent<Image>().fillAmount = pShip.GetComponent<PlayerStatistics>().currentXP / pShip.GetComponent<PlayerStatistics>().nextXP;
+		Debug.Log(xpBar.GetComponent<Image>().fillAmount);
 	}
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class InfoMenu : MonoBehaviour
 {
@@ -11,12 +12,13 @@ public class InfoMenu : MonoBehaviour
 	public Button buttonQuit;
 	public Text infoBar;
 	public Text infoDesc;
+	public Text levelInfo;
 	public static bool isHidden = true;
 	public int buttonCD;
 
 	void Update()
 	{
-		if(buttonCD > 0)
+		if (buttonCD > 0)
 		{
 			buttonCD -= 1;
 		}
@@ -30,10 +32,12 @@ public class InfoMenu : MonoBehaviour
 			hideMenu();
 			buttonCD = 100;
 		}
+		levelInfo.text = "Current ship level:\n" + GameObject.Find("Player_Ship_a").GetComponent<PlayerStatistics>().shipLVL + "\n" + "Experience for next level up:\n" + GameObject.Find("Player_Ship_a").GetComponent<PlayerStatistics>().currentXP + "/" + GameObject.Find("Player_Ship_a").GetComponent<PlayerStatistics>().nextXP;
 	}
-	void showMenu()
+	public void showMenu()
 	{
-		infoBar.text = "Current quest: " + QuestHandler.questName + " pt. " + QuestHandler.questPart + ".";
+		Pause.pauseOn = true;
+		infoBar.text = QuestHandler.questName + " pt. " + QuestHandler.questPart + ".";
 		infoDesc.text = QuestHandler.questDesc;
 		menuCanvas.SetActive(true);
 		isHidden = false;
@@ -42,13 +46,19 @@ public class InfoMenu : MonoBehaviour
 		buttonQuit.interactable = true;
 		buttonContinue.Select();
 	}
-	void hideMenu()
+	public void hideMenu()
 	{
+		Pause.pauseOn = false;
 		/*dummyButton.interactable = true;
 		buttonContinue.interactable = false;
 		buttonQuit.interactable = false;
 		dummyButton.Select();*/
 		menuCanvas.SetActive(false);
 		isHidden = true;
+	}
+
+	public void ToMain()
+	{
+		SceneManager.LoadScene("Main_Menu");
 	}
 }

@@ -6,7 +6,7 @@ public class BulletDMGHandler : MonoBehaviour
 {
 	void OnTriggerEnter2D()
 	{
-		Debug.Log("Bullet triggered");
+		//Debug.Log("Bullet triggered");
 		Destroy(gameObject);
 	}
 }

@@ -18,20 +18,20 @@ public class RandomSpawn : MonoBehaviour
 	void Update ()
 	{
 		spawnCD -= 1;
-		if (spawnCD <= 0 && SetTarget.maxUnits > enemyCount2 + enemyCount1)
+		if (spawnCD <= 0 && SetTarget.maxUnits > enemyCount2 + enemyCount1 && Pause.pauseOn == false)
 		{
 			spawnCD = 180f;
 			Instantiate(UnitToSpawn, Portal.transform.position, transform.rotation);
 		}
 		spawnCD2 -= 1;
-		if (spawnCD2 <= 0 && SetTarget.maxUnits > enemyCount2 + enemyCount1)
+		if (spawnCD2 <= 0 && SetTarget.maxUnits > enemyCount2 + enemyCount1 && Pause.pauseOn == false)
 		{
 			spawnCD2 = 240f;
 			Instantiate(UnitToSpawn2, Portal.transform.position, transform.rotation);
 		}
 		enemyCount1 = GameObject.FindGameObjectsWithTag("Enemy1").Length;
 		enemyCount2 = GameObject.FindGameObjectsWithTag("Enemy2").Length;
-		Debug.Log("NObjects " + (enemyCount1 + enemyCount2));
+		//Debug.Log("NObjects " + (enemyCount1 + enemyCount2));
 		/* spawnCD3 -= 1;
 		if (spawnCD3 <= 0)
 		{

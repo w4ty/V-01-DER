@@ -28,7 +28,12 @@ public class DialogueParser : MonoBehaviour
 		}
 	}
 	List<DialogueLine> lines;
-	void Awake()
+	void Start()
+	{
+		LoadFile();
+	}
+
+	void LoadFile()
 	{
 		string file = SetTarget.dialDataPath + SetTarget.lang + "/" + QuestHandler.questID + "_scene" + QuestHandler.questScene + "_0";
 		//string sceneNum = SceneManager.GetActiveScene().name;
@@ -40,6 +45,7 @@ public class DialogueParser : MonoBehaviour
 
 		LoadDialogue(file);
 	}
+
 	void LoadDialogue(string filename)
 	{
 		string line;

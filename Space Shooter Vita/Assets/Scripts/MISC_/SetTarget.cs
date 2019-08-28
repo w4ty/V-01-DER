@@ -20,6 +20,11 @@ public class SetTarget : MonoBehaviour
 	static public int versionType = 4;
 	static public string versionActual = versionGeneration + "." + versionMajor + "." + versionMinor + "." + versionType;
 
+	// SetTarget.cs explanation.
+	// SetTarget is used for better multiplat support by redirecting the game to proper file directories and setting various platform specific options.
+	// If you want to port the game to a new platform, add a new 'else if (targetPlatform == yourPlatformName' and put all of the dirs and settings there.
+	// Remember to change the value of the targetPlatform string to your selected platform before building.
+
 	void Awake()
 	{
 		if (targetPlatform == "PSVita")
@@ -41,5 +46,6 @@ public class SetTarget : MonoBehaviour
 			dialDataPath = Application.dataPath + "/StreamingAssets/DialData/";
 		}
 		Debug.Log(saveDataPath);
+		Debug.Log(dialDataPath);
 	}
 }

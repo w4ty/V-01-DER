@@ -16,6 +16,7 @@ public class CrosshairAim : MonoBehaviour
 	void FixedUpdate()
 	{
 		crossTransform.LookAt2D(crosshair.transform.position);
+		crosshair.transform.rotation = GameObject.Find("Player_Ship_a").transform.rotation;
 	}
 
 }

@@ -35,7 +35,7 @@ public class LocationHandler : MonoBehaviour
 	}
 	void Update()
 	{
-		if (Input.GetButtonDown("Submit") && onLocation == true)
+		if (Input.GetButtonDown("Submit") && onLocation == true && Pause.pauseOn == false)
 		{
 			//Blackout();
 			selectedLoc = locationID;

@@ -16,7 +16,7 @@ public class PlayerMovementAlt : MonoBehaviour
 	{
 		if (Pause.pauseOn == false)
 		{
-			xyText.text = "X: " + Mathf.RoundToInt(this.transform.position.x).ToString() + " / Y: " + Mathf.RoundToInt(this.transform.position.y).ToString();
+			xyText.text = "X: " + Mathf.RoundToInt(this.transform.position.x * 10).ToString() + " / Y: " + Mathf.RoundToInt(this.transform.position.y * 10).ToString();
 			// Turn inputs to short floats for easier access
 			float lh = Input.GetAxis("Horizontal");
 			float lv = Input.GetAxis("Vertical");

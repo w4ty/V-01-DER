@@ -55,7 +55,9 @@
   <ItemGroup>
      <Compile Include="Assets\Advanced INI Parser\INIParser.cs" />
      <Compile Include="Assets\Scripts\Additions\SimpleMath.cs" />
+     <Compile Include="Assets\Scripts\Camera\CameraControl.cs" />
      <Compile Include="Assets\Scripts\Camera\CameraFollow.cs" />
+     <Compile Include="Assets\Scripts\Camera\CameraFree.cs" />
      <Compile Include="Assets\Scripts\Day\Character.cs" />
      <Compile Include="Assets\Scripts\Day\ChoiceButton.cs" />
      <Compile Include="Assets\Scripts\Day\ClearButtonOnStart.cs" />
@@ -85,8 +87,10 @@
      <Compile Include="Assets\Scripts\MISC_\Pause.cs" />
      <Compile Include="Assets\Scripts\MISC_\SetTarget.cs" />
      <Compile Include="Assets\Scripts\MISC_\ShowFPS.cs" />
+     <Compile Include="Assets\Scripts\Openworld\BattleHandler.cs" />
      <Compile Include="Assets\Scripts\Openworld\LocationHandler.cs" />
      <Compile Include="Assets\Scripts\Openworld\OpenworldSet.cs" />
+     <Compile Include="Assets\Scripts\Openworld\RandomizedMusic.cs" />
      <Compile Include="Assets\Scripts\Quests\QuestHandler.cs" />
      <Compile Include="Assets\Scripts\SaveLoad\LoadGame.cs" />
      <Compile Include="Assets\Scripts\SaveLoad\SaveGame.cs" />

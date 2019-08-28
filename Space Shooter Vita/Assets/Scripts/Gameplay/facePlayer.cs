@@ -11,26 +11,29 @@ public class FacePlayer : MonoBehaviour
 
 	void FixedUpdate()
 	{
-		if (player == null)
+		if (Pause.pauseOn == false)
 		{
-			// Check for player
-			GameObject go = GameObject.Find("Player_Ship_a");
-
-			if (go != null)
+			if (player == null)
 			{
-				player = go.transform;
+				// Check for player
+				GameObject go = GameObject.Find("Player_Ship_a");
+
+				if (go != null)
+				{
+					player = go.transform;
+				}
 			}
+
+			if (player == null)
+				return;
+
+			Vector3 dir = player.position - transform.position;
+			dir.Normalize();
+
+			float zAngle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90;
+
+			Quaternion desiredRot = Quaternion.Euler(0, 0, zAngle);
+			transform.rotation = Quaternion.RotateTowards(transform.rotation, desiredRot, rotSpeed * Time.deltaTime);
 		}
-
-		if (player == null)
-			return;
-
-		Vector3 dir = player.position - transform.position;
-		dir.Normalize();
-
-		float zAngle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90;
-
-		Quaternion desiredRot = Quaternion.Euler(0, 0, zAngle);
-		transform.rotation = Quaternion.RotateTowards(transform.rotation, desiredRot, rotSpeed * Time.deltaTime);
 	}
 }

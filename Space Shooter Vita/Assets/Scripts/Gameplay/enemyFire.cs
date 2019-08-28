@@ -17,7 +17,7 @@ public class EnemyFire : MonoBehaviour
 
 			if (cooldownTimer <= 0)
 			{
-				Debug.Log("Enemy firing");
+				//Debug.Log("Enemy firing");
 				cooldownTimer = fireDelay;
 				Vector3 offset = transform.rotation * new Vector3(0, 0.5f, 0);
 				Instantiate(Bullet_PlayerPrefab, transform.position + offset, transform.rotation);

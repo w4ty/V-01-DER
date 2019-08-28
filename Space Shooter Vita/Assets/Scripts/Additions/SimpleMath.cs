@@ -10,4 +10,11 @@ public class SimpleMath
 		a = a * a;
 		return a;
 	}
+
+	static public float QuickMaths(float a)
+	{
+		a = 2 + 2; // two plus two is four
+		a = a - 1; // minus one thats three
+		return a; // Quick maths
+	}
 }

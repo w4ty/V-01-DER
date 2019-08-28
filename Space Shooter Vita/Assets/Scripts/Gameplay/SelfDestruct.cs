@@ -9,11 +9,14 @@ public class SelfDestruct : MonoBehaviour
 
 	void Update ()
 	{
-		timer -= 1;
-
-		if(timer <= 0)
+		if (Pause.pauseOn == false)
 		{
-			Destroy(gameObject);
+			timer -= 1;
+
+			if (timer <= 0)
+			{
+				Destroy(gameObject);
+			}
 		}
 	}
 }

@@ -8,6 +8,7 @@ public class DamageHandler : MonoBehaviour
 
 {
 	public float hp;
+	int dmgCalc;
 	public float invLength = 0;
 	int objectLayer;
 	float invFrames = 0;
@@ -28,10 +29,10 @@ public class DamageHandler : MonoBehaviour
 	void OnTriggerEnter2D(Collider2D other)
 	{
 
-		Debug.Log("Triggered");
+		//Debug.Log("Triggered");
 
 		//Math for damage calculations
-		int dmgCalc = Mathf.RoundToInt(
+		dmgCalc = Mathf.RoundToInt(
 			(other.GetComponent<ActiveObjectStats>().objectDamage / this.GetComponent<ActiveObjectStats>().objectArmour)
 			+ Random.Range(other.GetComponent<ActiveObjectStats>().objectLowerRandomDamage, other.GetComponent<ActiveObjectStats>().objectHigherRandomDamage) * 10);
 		hp -= dmgCalc;
@@ -39,9 +40,8 @@ public class DamageHandler : MonoBehaviour
 		//Adding damage text next to the damaged unit
 		Vector3 ghostPos = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z);
 		Quaternion ghostRot = new Quaternion();
-		Instantiate(damageText, ghostPos, ghostRot, GameObject.Find("WorldSpaceCanvas").transform);
 		damageText.GetComponent<Text>().text = dmgCalc.ToString();
-
+		Instantiate(damageText, ghostPos, ghostRot, GameObject.Find("WorldSpaceCanvas").transform);
 
 		//Mess regarding invincibility frames
 		invFrames = invLength;

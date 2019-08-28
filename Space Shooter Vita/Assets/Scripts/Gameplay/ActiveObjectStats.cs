@@ -7,7 +7,7 @@ public class ActiveObjectStats : MonoBehaviour
 	public int objectDamage;
 	public int objectLowerRandomDamage;
 	public int objectHigherRandomDamage;
-	public int objectArmour;
+	public float objectArmour;
 	public int objectMaxHp;
 	public int objectXpGiven;
 }
