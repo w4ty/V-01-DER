@@ -25,7 +25,7 @@ public class OpenworldSet : MonoBehaviour
 			playerShip.GetComponent<PlayerMovementAlt>().maxXCoordinate = 20;
 			playerShip.GetComponent<PlayerMovementAlt>().minYCoordinate = -20;
 			playerShip.GetComponent<PlayerMovementAlt>().minXCoordinate = -20;
-			Instantiate(portal1, new Vector3(-5, 5, 0), Quaternion.identity);
+			this.GetComponent<BattleHandler>().PrepareBattle();
 		}
 		else
 		{

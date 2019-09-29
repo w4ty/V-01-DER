@@ -44,13 +44,25 @@ public class PlayerMovementAlt : MonoBehaviour
 			}
 			transform.position = temp;
 			// Rotation
-			Vector3 vNewInput = new Vector3(rh, rv, 0);
-			if (vNewInput.sqrMagnitude < 0.05f)
+			if (SetTarget.controllerName == "ps_generic")
 			{
-				return;
+				Vector3 vNewInput = new Vector3(rh, rv, 0);
+				if (vNewInput.sqrMagnitude < 0.05f)
+				{
+					return;
+				}
+				var angle = Mathf.Atan2(rh, rv) * Mathf.Rad2Deg;
+				transform.rotation = Quaternion.Euler(0, 0, angle);
 			}
-			var angle = Mathf.Atan2(rh, rv) * Mathf.Rad2Deg;
-			transform.rotation = Quaternion.Euler(0, 0, angle);
+			else if (SetTarget.controllerName == "keyboard")
+			{
+				Vector3 worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+				float mousePosX = worldPoint.x - transform.position.x;
+				float mousePosY = worldPoint.y - transform.position.y;
+				float angle = (Mathf.Atan2(mousePosY, mousePosX) * Mathf.Rad2Deg) - 90;
+				transform.rotation = Quaternion.Euler(0, 0, angle);
+				//Debug.Log("Mouse angle: " + angle + " | Object angle: " + transform.rotation);
+			}
 		}
 	}
 }

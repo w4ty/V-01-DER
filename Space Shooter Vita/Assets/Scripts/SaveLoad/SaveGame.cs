@@ -30,8 +30,8 @@ public class SaveGame : MonoBehaviour
 	{
 		INIParser ini = new INIParser();
 		ini.Open(SetTarget.saveDataPath + "savedata_player.ini");
-		ini.WriteValue("Player_Info", "last_x", Mathf.RoundToInt(this.transform.position.x));
-		ini.WriteValue("Player_Info", "last_y", Mathf.RoundToInt(this.transform.position.y));
+		ini.WriteValue("Player_Info", "last_x", Mathf.RoundToInt(this.transform.position.x * 10));
+		ini.WriteValue("Player_Info", "last_y", Mathf.RoundToInt(this.transform.position.y * 10));
 		ini.Close();
 	}
 

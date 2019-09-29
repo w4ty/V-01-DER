@@ -4,20 +4,30 @@ using UnityEngine;
 
 public class PlayerStatistics : MonoBehaviour
 {
-
+	public GameObject levelAnimHandle;
 	public GameObject xpText;
 	public int perkSelected;
 	public int shipLVL;
 	public int currentXP;
 	public float nextXP;
+	public int skillPoints;
 
 	void LevelUp()
 	{
-		currentXP = 0;
+		if (shipLVL > 0)
+		{
+			levelAnimHandle.GetComponent<LevelUpAnim>().CallAnims();
+		}
+		shipLVL += 1;
 		nextXP = Mathf.RoundToInt((Mathf.Pow(1.06f, shipLVL)) * 100);
+		skillPoints += 4;
 	}
 	void Update()
 	{
-		nextXP = Mathf.RoundToInt((Mathf.Pow(1.06f, shipLVL)) * 100);
+		if(currentXP >= nextXP)
+		{
+			currentXP -= Mathf.RoundToInt(nextXP);
+			LevelUp();
+		}
 	}
 }

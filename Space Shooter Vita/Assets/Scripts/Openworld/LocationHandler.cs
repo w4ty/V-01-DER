@@ -15,10 +15,10 @@ public class LocationHandler : MonoBehaviour
 	public Text locationText;
 	public Text locationStatus;
 	string filePath;
-	public int locationType;
 	public GameObject blackoutImg;
 	public bool onLocation = false;
 	static public int selectedLoc;
+	public int locationType;
 	static public int locationTypeStatic;
 	public GameObject worldMaster;
 	// Start ini and load file
@@ -27,6 +27,7 @@ public class LocationHandler : MonoBehaviour
 
 	void Start()
 	{
+		//GameObject.Find("BattleHandler").GetComponent<BattleHandler>().PrepareBattle();
 		worldMaster.GetComponent<OpenworldSet>().OpenWorldStart();
 		blackoutImg = GameObject.Find("blackout_img");
 		ini.Open(SetTarget.saveDataPath + "savedata_player.ini");

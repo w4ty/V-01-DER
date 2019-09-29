@@ -5,18 +5,17 @@ using UnityEngine.UI;
 
 public class BarHandler : MonoBehaviour
 {
-	public GameObject xpBar;
-	public GameObject pShip;
+	GameObject xpBar;
+	GameObject pShip;
 
-	/*void Awake()
+	void Awake()
 	{
-		GameObject pShip = GameObject.Find("Player_Ship_a");
-		GameObject xpBar = GameObject.Find("XpBar");
-	}*/
+		pShip = GameObject.FindGameObjectWithTag("Player");
+	}
 
 	void Update ()
 	{
-		xpBar.GetComponent<Image>().fillAmount = pShip.GetComponent<PlayerStatistics>().currentXP / pShip.GetComponent<PlayerStatistics>().nextXP;
-		Debug.Log(xpBar.GetComponent<Image>().fillAmount);
+		this.GetComponent<Image>().fillAmount = pShip.GetComponent<PlayerStatistics>().currentXP / pShip.GetComponent<PlayerStatistics>().nextXP;
+		//Debug.Log(this.GetComponent<Image>().fillAmount + "/" + pShip.GetComponent<PlayerStatistics>().currentXP / pShip.GetComponent<PlayerStatistics>().nextXP);
 	}
 }

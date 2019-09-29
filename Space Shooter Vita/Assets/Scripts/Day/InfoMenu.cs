@@ -13,7 +13,7 @@ public class InfoMenu : MonoBehaviour
 	public Text infoBar;
 	public Text infoDesc;
 	public Text levelInfo;
-	public static bool isHidden = true;
+	static public bool isHidden = true;
 	public int buttonCD;
 
 	void Update()
@@ -24,17 +24,17 @@ public class InfoMenu : MonoBehaviour
 		}
 		if (Input.GetButtonDown("Triangle") && isHidden == true && buttonCD <= 0 && DialogueManager.playerTalking == false)
 		{
-			showMenu();
+			ShowMenu();
 			buttonCD = 100;
 		}
-		if (Input.GetButtonDown("Triangle") && isHidden == false && buttonCD <= 0 && DialogueManager.playerTalking == false)
+		if (Input.GetButtonDown("Triangle") && isHidden == false && buttonCD <= 0 && DialogueManager.playerTalking == false && CameraSwitcher.screenshotEnabled == false)
 		{
-			hideMenu();
+			HideMenu();
 			buttonCD = 100;
 		}
 		levelInfo.text = "Current ship level:\n" + GameObject.Find("Player_Ship_a").GetComponent<PlayerStatistics>().shipLVL + "\n" + "Experience for next level up:\n" + GameObject.Find("Player_Ship_a").GetComponent<PlayerStatistics>().currentXP + "/" + GameObject.Find("Player_Ship_a").GetComponent<PlayerStatistics>().nextXP;
 	}
-	public void showMenu()
+	public void ShowMenu()
 	{
 		Pause.pauseOn = true;
 		infoBar.text = QuestHandler.questName + " pt. " + QuestHandler.questPart + ".";
@@ -46,7 +46,7 @@ public class InfoMenu : MonoBehaviour
 		buttonQuit.interactable = true;
 		buttonContinue.Select();
 	}
-	public void hideMenu()
+	public void HideMenu()
 	{
 		Pause.pauseOn = false;
 		/*dummyButton.interactable = true;
@@ -59,6 +59,7 @@ public class InfoMenu : MonoBehaviour
 
 	public void ToMain()
 	{
+		Pause.pauseOn = false;
 		SceneManager.LoadScene("Main_Menu");
 	}
 }

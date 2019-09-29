@@ -28,7 +28,7 @@ public class DialogueParser : MonoBehaviour
 		}
 	}
 	List<DialogueLine> lines;
-	void Start()
+	void Awake()
 	{
 		LoadFile();
 	}
@@ -40,6 +40,7 @@ public class DialogueParser : MonoBehaviour
 		//sceneNum = Regex.Replace(sceneNum, "[^0-9]", "");
 		//file += sceneNum;
 		file += ".txt";
+		Debug.Log(file);
 
 		lines = new List<DialogueLine>();
 

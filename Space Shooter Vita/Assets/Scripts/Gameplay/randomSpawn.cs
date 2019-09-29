@@ -1,43 +1,34 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class RandomSpawn : MonoBehaviour
 {
-	public GameObject UnitToSpawn;
-	public GameObject UnitToSpawn2;
-//	public GameObject UnitToSpawn3;
-	public GameObject Portal;
-	public float spawnCD;
-	public float spawnCD2;
-	//	public float spawnCD3;
-	int enemyCount1;
-	int enemyCount2;
+	public GameObject[] spawnableUnits;
+	public int[] spawnCooldowns;
+	public int[] initialCooldowns;
 
 
-	void Update ()
+	void FixedUpdate()
 	{
-		spawnCD -= 1;
-		if (spawnCD <= 0 && SetTarget.maxUnits > enemyCount2 + enemyCount1 && Pause.pauseOn == false)
+		for (int i = 0; i < spawnCooldowns.Length; i++)
 		{
-			spawnCD = 180f;
-			Instantiate(UnitToSpawn, Portal.transform.position, transform.rotation);
+			if (spawnCooldowns[i] <= 0)
+			{
+				Instantiate(spawnableUnits[i], this.transform.position, this.transform.rotation);
+				spawnCooldowns[i] = initialCooldowns[i];
+			}
 		}
-		spawnCD2 -= 1;
-		if (spawnCD2 <= 0 && SetTarget.maxUnits > enemyCount2 + enemyCount1 && Pause.pauseOn == false)
+		StartCoroutine(SpawnCooldown());
+	}
+
+	IEnumerator SpawnCooldown()
+	{
+		for(int i=0; i < spawnCooldowns.Length; i++)
 		{
-			spawnCD2 = 240f;
-			Instantiate(UnitToSpawn2, Portal.transform.position, transform.rotation);
+			spawnCooldowns[i]--;
+			yield return new WaitForSeconds(1f);
 		}
-		enemyCount1 = GameObject.FindGameObjectsWithTag("Enemy1").Length;
-		enemyCount2 = GameObject.FindGameObjectsWithTag("Enemy2").Length;
-		//Debug.Log("NObjects " + (enemyCount1 + enemyCount2));
-		/* spawnCD3 -= 1;
-		if (spawnCD3 <= 0)
-		{
-			spawnCD3 = 180f;
-			Instantiate(UnitToSpawn3, Portal.transform.position, transform.rotation);
-		}
-		*/
 	}
 }

@@ -25,7 +25,7 @@ public class LoadGame : MonoBehaviour
 	{
 		INIParser ini = new INIParser();
 		ini.Open(SetTarget.saveDataPath + "savedata_player.ini");
-		pos = new Vector3(ini.ReadValue("Player_Info", "last_x", 0), ini.ReadValue("Player_Info", "last_y", 0), 0);
+		pos = new Vector3(ini.ReadValue("Player_Info", "last_x", 0) / 10, ini.ReadValue("Player_Info", "last_y", 0) / 10, 0);
 		ini.Close();
 	}
 

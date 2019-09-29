@@ -58,6 +58,7 @@
      <Compile Include="Assets\Scripts\Camera\CameraControl.cs" />
      <Compile Include="Assets\Scripts\Camera\CameraFollow.cs" />
      <Compile Include="Assets\Scripts\Camera\CameraFree.cs" />
+     <Compile Include="Assets\Scripts\Camera\CameraSwitcher.cs" />
      <Compile Include="Assets\Scripts\Day\Character.cs" />
      <Compile Include="Assets\Scripts\Day\ChoiceButton.cs" />
      <Compile Include="Assets\Scripts\Day\ClearButtonOnStart.cs" />
@@ -71,8 +72,11 @@
      <Compile Include="Assets\Scripts\Gameplay\CrosshairAim.cs" />
      <Compile Include="Assets\Scripts\Gameplay\DamageHandler.cs" />
      <Compile Include="Assets\Scripts\Gameplay\EnemyFire.cs" />
+     <Compile Include="Assets\Scripts\Gameplay\EnemySpawn.cs" />
      <Compile Include="Assets\Scripts\Gameplay\FacePlayer.cs" />
+     <Compile Include="Assets\Scripts\Gameplay\LevelUpAnim.cs" />
      <Compile Include="Assets\Scripts\Gameplay\MoveForward.cs" />
+     <Compile Include="Assets\Scripts\Gameplay\PlayerDeath.cs" />
      <Compile Include="Assets\Scripts\Gameplay\PlayerFire.cs" />
      <Compile Include="Assets\Scripts\Gameplay\playerMovement.cs" />
      <Compile Include="Assets\Scripts\Gameplay\PlayerMovementAlt.cs" />
