@@ -11,7 +11,7 @@ public class PlayerMovementAlt : MonoBehaviour
 	public float maxXCoordinate = 10f;
 	public float minXCoordinate = -10f;
 	public Text xyText;
-	
+
 	void FixedUpdate ()
 	{
 		if (Pause.pauseOn == false)

@@ -62,4 +62,15 @@ public class InfoMenu : MonoBehaviour
 		Pause.pauseOn = false;
 		SceneManager.LoadScene("Main_Menu");
 	}
+
+	public void ShowShipStatScreen()
+	{
+		GameObject.Find("skilltrees_BGRight").GetComponent<UniversalFillAnim>().CallAnimations(0);
+		GameObject.Find("skilltrees_BGLeft").GetComponent<UniversalFillAnim>().CallAnimations(0);
+	}
+
+	public void ShowInfoSubmenu()
+	{
+		GameObject.Find("infosubmenu_BGCentral").GetComponent<UniversalFillAnim>().CallAnimations(0);
+	}
 }

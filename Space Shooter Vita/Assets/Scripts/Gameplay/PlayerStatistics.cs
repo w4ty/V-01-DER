@@ -11,6 +11,7 @@ public class PlayerStatistics : MonoBehaviour
 	public int currentXP;
 	public float nextXP;
 	public int skillPoints;
+	public int skillInTree;
 
 	void LevelUp()
 	{

@@ -11,6 +11,7 @@ using System.IO;
 
 public class StartScreen : MonoBehaviour
 {
+	GameObject overlapEffectImage;
 	GameObject logoObject;
 	GameObject infoText;
 	GameObject startButton;
@@ -23,6 +24,7 @@ public class StartScreen : MonoBehaviour
 
 	void Start()
 	{
+		overlapEffectImage = GameObject.Find("OverlapEffect");
 		logoObject = GameObject.Find("LOGO");
 		infoText = GameObject.Find("InfoText");
 		startButton = GameObject.Find("CrossButton");
@@ -90,8 +92,15 @@ public class StartScreen : MonoBehaviour
 	}
 	IEnumerator GoToNextDelayed()
 	{
-		yield return new WaitForSeconds(2f);
-		readyToMove = true;
+		if (overlapEffectImage.GetComponent<UniversalFillAnim>().state == 1)
+		{
+			yield return new WaitForSeconds(0.2f);
+			StartCoroutine("GoToNextDelayed");
+		}
+		else
+		{
+			readyToMove = true;
+		}
 	}
 
 	IEnumerator CheckFiles(string univPath)
@@ -116,8 +125,8 @@ public class StartScreen : MonoBehaviour
 			checkFilesText.GetComponent<Text>().text = checkFilesText.GetComponent<Text>().text + "\n save data file check fail";
 		}
 
-		yield return new WaitForSeconds(0.1f);
-
+		yield return new WaitForSeconds(1f);
+		overlapEffectImage.GetComponent<UniversalFillAnim>().CallAnimations(0);
 		StartCoroutine(GoToNextDelayed());
 	}
 }

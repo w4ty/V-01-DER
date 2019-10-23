@@ -24,7 +24,7 @@ public class LevelUpAnim : MonoBehaviour
 			detailSprites[z].GetComponent<Image>().fillAmount = 0;
 			this.GetComponentInChildren<Text>().color = new Color(255, 255, 255, 0);
 		}
-		Debug.Log("Starting " + this.GetComponentInChildren<Image>().fillAmount);
+		//Debug.Log("Starting " + this.GetComponentInChildren<Image>().fillAmount);
 	}
 	public void CallAnims()
 	{

@@ -2,13 +2,34 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MenuButtons : MonoBehaviour
 {
+	public GameObject overlapEffectImage;
+
+	void Start()
+	{
+		overlapEffectImage.GetComponent<Image>().fillAmount = 1;
+		overlapEffectImage.GetComponent<UniversalFillAnim>().CallAnimations(1);
+	}
 	public void BeginGame()
 	{
-		SceneManager.LoadScene("Gameplay_Battle");
-		QuestHandler.Prologue();
+		overlapEffectImage.GetComponent<UniversalFillAnim>().CallAnimations(0);
+		StartCoroutine(GoGameplayNew());
+	}
+	public IEnumerator GoGameplayNew()
+	{
+		if (overlapEffectImage.GetComponent<UniversalFillAnim>().state == 1)
+		{
+			yield return new WaitForSeconds(0.2f);
+			StartCoroutine("GoGameplayNew");
+		}
+		else
+		{
+			SceneManager.LoadScene("Gameplay_Battle");
+			QuestHandler.Prologue();
+		}
 	}
 	public void LoadSave()
 	{

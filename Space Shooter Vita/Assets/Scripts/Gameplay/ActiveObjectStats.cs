@@ -5,6 +5,7 @@ using UnityEngine;
 public class ActiveObjectStats : MonoBehaviour
 {
 	public int objectDamage;
+	public float objectAttackDelay;
 	public int objectLowerRandomDamage;
 	public int objectHigherRandomDamage;
 	public float objectArmour;

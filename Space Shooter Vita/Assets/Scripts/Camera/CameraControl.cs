@@ -52,7 +52,7 @@ public class CameraControl : MonoBehaviour
 	void SizeChange()
 	{
 		zoomText.GetComponent<Text>().text = string.Format("{0:#.0}x", ((cameraSize) / 6.0f));
-		Debug.Log(cameraSize);
+		//Debug.Log(cameraSize);
 		cooldown = 3;
 		zoomUI.SetActive(true);
 		zoomAlpha = 1f;

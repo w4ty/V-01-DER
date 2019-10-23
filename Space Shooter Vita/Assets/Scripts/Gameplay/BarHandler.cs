@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class BarHandler : MonoBehaviour
 {
-	GameObject xpBar;
 	GameObject pShip;
 
 	void Awake()

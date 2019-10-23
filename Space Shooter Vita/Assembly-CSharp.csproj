@@ -74,6 +74,7 @@
      <Compile Include="Assets\Scripts\Gameplay\EnemyFire.cs" />
      <Compile Include="Assets\Scripts\Gameplay\EnemySpawn.cs" />
      <Compile Include="Assets\Scripts\Gameplay\FacePlayer.cs" />
+     <Compile Include="Assets\Scripts\Gameplay\HpHandler.cs" />
      <Compile Include="Assets\Scripts\Gameplay\LevelUpAnim.cs" />
      <Compile Include="Assets\Scripts\Gameplay\MoveForward.cs" />
      <Compile Include="Assets\Scripts\Gameplay\PlayerDeath.cs" />
@@ -81,11 +82,13 @@
      <Compile Include="Assets\Scripts\Gameplay\playerMovement.cs" />
      <Compile Include="Assets\Scripts\Gameplay\PlayerMovementAlt.cs" />
      <Compile Include="Assets\Scripts\Gameplay\PlayerStatistics.cs" />
+     <Compile Include="Assets\Scripts\Gameplay\PreparationHandler.cs" />
      <Compile Include="Assets\Scripts\Gameplay\RandomSpawn.cs" />
      <Compile Include="Assets\Scripts\Gameplay\SelfDestruct.cs" />
      <Compile Include="Assets\Scripts\Gameplay\TransformExtension.cs" />
      <Compile Include="Assets\Scripts\Menu\alpha_ChangeLevel.cs" />
      <Compile Include="Assets\Scripts\Menu\MenuButtons.cs" />
+     <Compile Include="Assets\Scripts\Menu\UniversalFillAnim.cs" />
      <Compile Include="Assets\Scripts\Menu\VersionText.cs" />
      <Compile Include="Assets\Scripts\MISC_\EngineSettings.cs" />
      <Compile Include="Assets\Scripts\MISC_\Pause.cs" />
@@ -103,8 +106,11 @@
      <None Include="Assets\Fonts\Lato\README.txt" />
      <None Include="Assets\Fonts\NotoSans\LICENSE_OFL.txt" />
      <None Include="Assets\StreamingAssets\DialData\English\1_scene1_0.txt" />
+     <None Include="Assets\Fonts\NovaMono\OFL.txt" />
+     <None Include="Assets\Fonts\ShareTechMono\OFL.txt" />
      <None Include="Assets\StreamingAssets\DialData\English\0_scene1_0.txt" />
      <None Include="Assets\Fonts\Lato\OFL.txt" />
+     <None Include="Assets\Fonts\MajorMonoDisplay\OFL.txt" />
      <None Include="Assets\Data\DialogueUniversal0.txt" />
  <Reference Include="UnityEditor.StandardEvents">
  <HintPath>C:/Users/Bruno/Documents/GitHub/V-01-DER/Space Shooter Vita/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>

@@ -60,19 +60,19 @@ public class LocationHandler : MonoBehaviour
 		{
 			locationType = ini.ReadValue("loc_" + tempLocID, "state", -1);
 			locationText.text = ini.ReadValue("loc_" + tempLocID, "name", "err");
-			Debug.Log(locationType);
+			//Debug.Log(locationType);
 		}
 		else if (tempLocID == 1)
 		{
 			locationType = ini.ReadValue("loc_" + tempLocID, "state", -1);
 			locationText.text = ini.ReadValue("loc_" + tempLocID, "name", "err");
-			Debug.Log(locationType);
+			//Debug.Log(locationType);
 		}
 		else if (tempLocID == 2)
 		{
 			locationType = ini.ReadValue("loc_" + tempLocID, "state", -1);
 			locationText.text = ini.ReadValue("loc_" + tempLocID, "name", "err");
-			Debug.Log(locationType);
+			//Debug.Log(locationType);
 		}
 
 		// Location status descriptions
@@ -96,7 +96,7 @@ public class LocationHandler : MonoBehaviour
 		{
 			locationStatus.text = "";
 		}
-		Debug.Log(tempLocID + " " + locationID);
+	//	Debug.Log(tempLocID + " " + locationID);
 	}
 	// Clean the text when exiting location
 	private void OnTriggerExit2D(Collider2D collision)

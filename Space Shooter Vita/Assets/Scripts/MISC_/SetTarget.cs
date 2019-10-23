@@ -15,8 +15,8 @@ public class SetTarget : MonoBehaviour
 	static public string dialDataPath;
 	static public string buildType = "Alpha";
 	static public string buildName = "";
-	static public int versionGeneration = 0;
-	static public int versionMajor = 6;
+	static public int versionGeneration = 1;
+	static public int versionMajor = 0;
 	static public int versionMinor = 0;
 	static public int versionType = 4;
 	static public string versionActual = versionGeneration + "." + versionMajor + "." + versionMinor + "." + versionType;
