@@ -11,12 +11,13 @@ using System.IO;
 
 public class StartScreen : MonoBehaviour
 {
-	GameObject overlapEffectImage;
-	GameObject logoObject;
-	GameObject infoText;
-	GameObject startButton;
-	GameObject loadingIcon;
-	GameObject checkFilesText;
+	private GameObject overlapEffectImage;
+	private GameObject logoObject;
+	private GameObject infoText;
+	private GameObject startButton;
+	private GameObject loadingIcon;
+	private GameObject checkFilesText;
+	private Text checkFiles;
 	int i;
 	float logoSpeed = 0.1f;
 	bool wasDone;
@@ -24,6 +25,7 @@ public class StartScreen : MonoBehaviour
 
 	void Start()
 	{
+		checkFiles = checkFilesText.GetComponent<Text>();
 		overlapEffectImage = GameObject.Find("OverlapEffect");
 		logoObject = GameObject.Find("LOGO");
 		infoText = GameObject.Find("InfoText");
@@ -107,22 +109,22 @@ public class StartScreen : MonoBehaviour
 	{
 		if (Directory.Exists(univPath + "SaveData") == true)
 		{
-			checkFilesText.GetComponent<Text>().text = checkFilesText.GetComponent<Text>().text + "\n save data folder check success";
+			checkFiles.text += "\n save data folder check success";
 		}
 		else
 		{
-			checkFilesText.GetComponent<Text>().text = checkFilesText.GetComponent<Text>().text + "\n save data folder check fail";
+			checkFiles.text += "\n save data folder check fail";
 		}
 
 		yield return new WaitForSeconds(0.1f);
 
 		if (File.Exists(univPath + "SaveData/savedata_player.ini") == true)
 		{
-			checkFilesText.GetComponent<Text>().text = checkFilesText.GetComponent<Text>().text + "\n save data file check success";
+			checkFiles.text += "\n save data file check success";
 		}
 		else
 		{
-			checkFilesText.GetComponent<Text>().text = checkFilesText.GetComponent<Text>().text + "\n save data file check fail";
+			checkFiles.text += "\n save data file check fail";
 		}
 
 		yield return new WaitForSeconds(1f);

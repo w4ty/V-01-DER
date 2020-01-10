@@ -6,10 +6,10 @@ using UnityEngine.UI;
 public class PlayerMovementAlt : MonoBehaviour
 {
 	public float moveSpeed = 10f;
-	public float maxYCoordinate = 10f;
-	public float minYCoordinate = -10f;
-	public float maxXCoordinate = 10f;
-	public float minXCoordinate = -10f;
+	static public float maxYCoordinate;
+	static public float minYCoordinate;
+	static public float maxXCoordinate;
+	static public float minXCoordinate;
 	public Text xyText;
 
 	void FixedUpdate ()

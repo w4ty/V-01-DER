@@ -20,12 +20,12 @@ public class PlayerStatistics : MonoBehaviour
 			levelAnimHandle.GetComponent<LevelUpAnim>().CallAnims();
 		}
 		shipLVL += 1;
-		nextXP = Mathf.RoundToInt((Mathf.Pow(1.06f, shipLVL)) * 100);
+		nextXP = Mathf.RoundToInt((Mathf.Pow(1.09f, shipLVL)) * 100 + shipLVL);
 		skillPoints += 4;
 	}
 	void Update()
 	{
-		if(currentXP >= nextXP)
+		if (currentXP >= nextXP)
 		{
 			currentXP -= Mathf.RoundToInt(nextXP);
 			LevelUp();

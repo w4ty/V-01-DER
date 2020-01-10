@@ -5,6 +5,9 @@ using UnityEngine;
 public class ActiveObjectStats : MonoBehaviour
 {
 	public int objectDamage;
+	public float hpScaleMX;
+	public float armorScaleMX;
+	public float damageScaleMX;
 	public float objectAttackDelay;
 	public int objectLowerRandomDamage;
 	public int objectHigherRandomDamage;

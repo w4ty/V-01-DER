@@ -7,20 +7,22 @@ using UnityEngine.UI;
 public class MenuButtons : MonoBehaviour
 {
 	public GameObject overlapEffectImage;
+	private UniversalFillAnim fillAnim;
 
 	void Start()
 	{
+		fillAnim = overlapEffectImage.GetComponent<UniversalFillAnim>();
 		overlapEffectImage.GetComponent<Image>().fillAmount = 1;
-		overlapEffectImage.GetComponent<UniversalFillAnim>().CallAnimations(1);
+		fillAnim.CallAnimations(1);
 	}
 	public void BeginGame()
 	{
-		overlapEffectImage.GetComponent<UniversalFillAnim>().CallAnimations(0);
+		fillAnim.CallAnimations(0);
 		StartCoroutine(GoGameplayNew());
 	}
 	public IEnumerator GoGameplayNew()
 	{
-		if (overlapEffectImage.GetComponent<UniversalFillAnim>().state == 1)
+		if (fillAnim.state == 1)
 		{
 			yield return new WaitForSeconds(0.2f);
 			StartCoroutine("GoGameplayNew");

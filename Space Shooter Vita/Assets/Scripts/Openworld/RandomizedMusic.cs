@@ -10,6 +10,12 @@ public class RandomizedMusic : MonoBehaviour
 	bool timerRunning;
 	bool readyToPlay;
 	public AudioClip[] songList;
+	AudioSource audioEngine;
+
+	void Start()
+	{
+		audioEngine = this.GetComponent<AudioSource>();
+	}
 
 	void Update()
 	{
@@ -18,15 +24,15 @@ public class RandomizedMusic : MonoBehaviour
 			timerRunning = false;
 			readyToPlay = true;
 		}*/
-		/*if (this.GetComponent<AudioSource>().isPlaying == false && timer <= 0 && readyToPlay == false)
+		/*if (audioEngine.isPlaying == false && timer <= 0 && readyToPlay == false)
 		{
 			RandomizeTimer();
 		}*/
-		if (this.GetComponent<AudioSource>().isPlaying == false && timer > 0 && timerRunning == false && readyToPlay == false)
+		if (audioEngine.isPlaying == false && timer > 0 && timerRunning == false && readyToPlay == false)
 		{
 			StartCoroutine(SubFromTimer());
 		}
-		if (this.GetComponent<AudioSource>().isPlaying == false && timer <= 0 && readyToPlay == true && timerRunning == false)
+		if (audioEngine.isPlaying == false && timer <= 0 && readyToPlay == true && timerRunning == false)
 		{
 			currentSongId = Random.Range(0, 3);
 		//	Debug.LogWarning("Selected: " + currentSongId);
@@ -63,13 +69,14 @@ public class RandomizedMusic : MonoBehaviour
 	{
 		readyToPlay = false;
 		lastSongId = currentSongId;
-		this.GetComponent<AudioSource>().clip = songList[currentSongId];
-		this.GetComponent<AudioSource>().Play();
-		//Debug.LogError(Mathf.RoundToInt(this.GetComponent<AudioSource>().clip.length));
-		yield return new WaitForSeconds(Mathf.RoundToInt(this.GetComponent<AudioSource>().clip.length));
-		this.GetComponent<AudioSource>().Stop();
-		this.GetComponent<AudioSource>().clip = null;
-		//Debug.LogError("Ended song and state " + this.GetComponent<AudioSource>().isPlaying + "/" + timer + "/" + readyToPlay + "/" + timerRunning);
+		audioEngine.clip = songList[currentSongId];
+		audioEngine.Play();
+		Debug.Log("Playing: " + audioEngine.clip.name);
+		//Debug.LogError(Mathf.RoundToInt(audioEngine.clip.length));
+		yield return new WaitForSeconds(Mathf.RoundToInt(audioEngine.clip.length));
+		audioEngine.Stop();
+		audioEngine.clip = null;
+		//Debug.LogError("Ended song and state " + audioEngine.isPlaying + "/" + timer + "/" + readyToPlay + "/" + timerRunning);
 		RandomizeTimer();
 	}
 

@@ -5,17 +5,19 @@ using UnityEngine;
 public class SelfDestruct : MonoBehaviour
 {
 
-	public float timer = 0;
+	public float timer;
 
-	void Update ()
+	void FixedUpdate ()
 	{
 		if (Pause.pauseOn == false)
 		{
-			timer -= 1;
-
 			if (timer <= 0)
 			{
 				Destroy(gameObject);
+			}
+			else
+			{
+				timer--;
 			}
 		}
 	}

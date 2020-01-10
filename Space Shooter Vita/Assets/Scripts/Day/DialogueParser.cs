@@ -28,18 +28,17 @@ public class DialogueParser : MonoBehaviour
 		}
 	}
 	List<DialogueLine> lines;
-	void Awake()
+	void Start()
 	{
 		LoadFile();
 	}
 
 	void LoadFile()
 	{
-		string file = SetTarget.dialDataPath + SetTarget.lang + "/" + QuestHandler.questID + "_scene" + QuestHandler.questScene + "_0";
+		string file = SetTarget.dialDataPath + SetTarget.lang + "/" + QuestHandler.questID + "_scene" + QuestHandler.questScene + "_0.txt";
 		//string sceneNum = SceneManager.GetActiveScene().name;
 		//sceneNum = Regex.Replace(sceneNum, "[^0-9]", "");
 		//file += sceneNum;
-		file += ".txt";
 		Debug.Log(file);
 
 		lines = new List<DialogueLine>();

@@ -2,13 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerDeath : MonoBehaviour 
+public class PlayerDeath : MonoBehaviour
 {
+	private DamageHandler damageHandlerComp;
+	void Start()
+	{
+		damageHandlerComp = this.GetComponent<DamageHandler>();
+	}
 	void Update () 
 	{
-		if (this.GetComponent<DamageHandler>().hp <= 0)
+		if (damageHandlerComp.hp <= 0)
 		{
-			Debug.Log("PlayerDeath");
+			//damageHandlerComp.kill();
 		}
 	}
 }

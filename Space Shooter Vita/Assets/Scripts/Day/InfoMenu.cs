@@ -6,6 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class InfoMenu : MonoBehaviour
 {
+	GameObject pShip;
+	public GameObject mainGroup;
+	public GameObject loadoutGroup;
+	PlayerStatistics pStats;
 	public GameObject menuCanvas;
 	public Button dummyButton;
 	public Button buttonContinue;
@@ -15,6 +19,12 @@ public class InfoMenu : MonoBehaviour
 	public Text levelInfo;
 	static public bool isHidden = true;
 	public int buttonCD;
+
+	void Start()
+	{
+		pShip = GameObject.Find("Player_Ship_a");
+		pStats = pShip.GetComponent<PlayerStatistics>();
+	}
 
 	void Update()
 	{
@@ -32,7 +42,10 @@ public class InfoMenu : MonoBehaviour
 			HideMenu();
 			buttonCD = 100;
 		}
-		levelInfo.text = "Current ship level:\n" + GameObject.Find("Player_Ship_a").GetComponent<PlayerStatistics>().shipLVL + "\n" + "Experience for next level up:\n" + GameObject.Find("Player_Ship_a").GetComponent<PlayerStatistics>().currentXP + "/" + GameObject.Find("Player_Ship_a").GetComponent<PlayerStatistics>().nextXP;
+		if (!isHidden && pShip)
+		{
+			levelInfo.text = "Current ship level:\n" + pStats.shipLVL + "\n" + "Experience for next:\n" + pStats.currentXP + "/" + pStats.nextXP;
+		}
 	}
 	public void ShowMenu()
 	{
@@ -40,6 +53,10 @@ public class InfoMenu : MonoBehaviour
 		infoBar.text = QuestHandler.questName + " pt. " + QuestHandler.questPart + ".";
 		infoDesc.text = QuestHandler.questDesc;
 		menuCanvas.SetActive(true);
+	//	mainGroup = GameObject.Find("MainPauseMenu");
+	//	loadoutGroup = GameObject.Find("SkillTreesGroup");
+		mainGroup.SetActive(true);
+		loadoutGroup.SetActive(false);
 		isHidden = false;
 		dummyButton.interactable = false;
 		buttonContinue.interactable = true;
@@ -65,6 +82,8 @@ public class InfoMenu : MonoBehaviour
 
 	public void ShowShipStatScreen()
 	{
+		mainGroup.SetActive(false);
+		loadoutGroup.SetActive(true);
 		GameObject.Find("skilltrees_BGRight").GetComponent<UniversalFillAnim>().CallAnimations(0);
 		GameObject.Find("skilltrees_BGLeft").GetComponent<UniversalFillAnim>().CallAnimations(0);
 	}

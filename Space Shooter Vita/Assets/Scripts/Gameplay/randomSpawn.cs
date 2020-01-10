@@ -8,27 +8,34 @@ public class RandomSpawn : MonoBehaviour
 	public GameObject[] spawnableUnits;
 	public int[] spawnCooldowns;
 	public int[] initialCooldowns;
+	public GameObject enemyGroup;
 
 
 	void FixedUpdate()
 	{
-		for (int i = 0; i < spawnCooldowns.Length; i++)
+		if (Pause.pauseOn == false)
 		{
-			if (spawnCooldowns[i] <= 0)
+			for (int i = 0; i < spawnCooldowns.Length; i++)
 			{
-				Instantiate(spawnableUnits[i], this.transform.position, this.transform.rotation);
-				spawnCooldowns[i] = initialCooldowns[i];
+				if (spawnCooldowns[i] <= 0)
+				{
+					Instantiate(spawnableUnits[i], this.transform.position, this.transform.rotation, this.transform.parent);
+					spawnCooldowns[i] = initialCooldowns[i];
+				}
 			}
+			StartCoroutine(SpawnCooldown());
 		}
-		StartCoroutine(SpawnCooldown());
 	}
 
 	IEnumerator SpawnCooldown()
 	{
-		for(int i=0; i < spawnCooldowns.Length; i++)
+		if (Pause.pauseOn == false)
 		{
-			spawnCooldowns[i]--;
-			yield return new WaitForSeconds(1f);
+			for (int i = 0; i < spawnCooldowns.Length; i++)
+			{
+				spawnCooldowns[i]--;
+				yield return new WaitForSeconds(1f);
+			}
 		}
 	}
 }
