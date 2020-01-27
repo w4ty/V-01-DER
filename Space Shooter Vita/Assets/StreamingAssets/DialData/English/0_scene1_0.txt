@@ -1,0 +1,11 @@
+System;Hello, my name is System. Nice to meetcha.;0;R;1
+System;As you might've noticed, I'm not a character included in this game's plot.;1;R;1
+System;I'm a test entity programmed to help debug the dialogue system.;1;R;1
+System;So, now that's out of the way...;1;R;1
+System;Do you want to go back to the Main Menu, start the early battle test or check dialogues?;1;R;1
+Player;Back to menu:scene,Main_Menu;Start Battle Test:scene,Gameplay_Battle;Test the dialogue:line,6
+System;Okay, I'm now going to show a really long message to check how the engine handles it;1;R;1
+System;TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST 1TEST TEST TEST TEST TEST TEST 2TEST TEST TEST 3TEST TESTTEST TEST TEST TEST TEST TEST TEST TEST 4TEST;1;R;1
+System;Man, that was tiring.;1;R;1
+System;What do you wanna do now?;1;R;1
+Player;Back to menu:scene,Main_Menu;Start Battle Test:scene,Gameplay_Battle;Restart intro sequence:line,0

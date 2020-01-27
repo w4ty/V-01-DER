@@ -1,0 +1,14 @@
+Nijin;Uh, hello...?;0;R;1
+Nijin;Damn, there's a lot of stuff here.;0;R;1
+Nijin;...;0;R;1
+Nijin;Woah!;0;R;1
+Nijin;Oh, sorry I got a bit spooked. Are you ok?;0;R;1
+Player;Do I know you?:line,6;Yeah, I'm fine.:line,13;Where am I?:line,11
+Nijin;No, I don't think so.;0;R;1
+Nijin;Although I might've just forgotten, as I meet a lot of people everyday.;0;R;1
+Player;Nevermind that, where am I?.:line,11;You're Nijin, I think.:line,9
+Nijin;You know my name? Maybe we did indeed meet before.;0;R;1
+Nijin;You have landed next to the Starless Black bar by the way. You might know that considering you recognize me, but I am a bartender there.;0;R;2
+Nijin;You are in a ship next to the Starless Black bar. I am, in fact, a bartender there.;0;R;1
+Nijin;I'm guessing that this ship is yours? I'm just hoping you didn't steal it and are running from someone hunting you down.;0;R;1
+Nijin;That's good to hear. When I walked in here, I was expecting the worst.;0;R;-8
