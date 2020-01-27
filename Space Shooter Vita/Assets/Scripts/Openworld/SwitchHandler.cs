@@ -26,7 +26,7 @@ public class SwitchHandler : MonoBehaviour
 			case 401:
 				Debug.Log("case 401");
 				GameObject.Find("WorldMaster").GetComponent<WorldAction>().DestroyButtons();
-				GameObject.Find("WorldMaster").GetComponent<OpenworldSet>().BattleStart();
+				GameObject.Find("WorldMaster").GetComponent<OpenworldSet>().BattleStart(ini.ReadValue("Planet" + locID, "battle_type", "Generic"));
 				break;
 		}
 

@@ -7,8 +7,8 @@ public class EngineSettings : MonoBehaviour
 	void Update()
 	{
 		// Value controls vSync
-		QualitySettings.vSyncCount = 1;
+		QualitySettings.vSyncCount = 0;
 		// Value controls the max FPS
-		Application.targetFrameRate = 60;
+		Application.targetFrameRate = 999;
 	}
 }

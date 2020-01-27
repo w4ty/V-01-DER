@@ -16,12 +16,21 @@ public class PlayerMovementAlt : MonoBehaviour
 	{
 		if (Pause.pauseOn == false)
 		{
-			xyText.text = "X: " + Mathf.RoundToInt(this.transform.position.x * 10).ToString() + " / Y: " + Mathf.RoundToInt(this.transform.position.y * 10).ToString();
+			
 			// Turn inputs to short floats for easier access
 			float lh = Input.GetAxis("Horizontal");
 			float lv = Input.GetAxis("Vertical");
 			float rh = Input.GetAxis("HorizontalR");
 			float rv = Input.GetAxis("VerticalR");
+			// Debug input info
+			if (Input.GetButton("Submit") && Input.GetButton("Cancel"))
+			{
+				xyText.text = "lh " + Mathf.Round(lh * 100f) / 100f + " " + "lv " + Mathf.Round(lv * 100f) / 100f + " " + maxXCoordinate + "/" + minXCoordinate + "/" + maxYCoordinate + "/" + minYCoordinate;
+			}
+			else
+			{
+				xyText.text = "X: " + Mathf.RoundToInt(this.transform.position.x * 10).ToString() + " / Y: " + Mathf.RoundToInt(this.transform.position.y * 10).ToString();
+			}
 			// Classic movement
 			Vector3 Move = new Vector3(lh / moveSpeed, lv / moveSpeed, 0);
 			Vector3 temp = transform.position + Move;

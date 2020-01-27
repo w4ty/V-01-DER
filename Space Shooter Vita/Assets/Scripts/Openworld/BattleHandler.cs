@@ -15,7 +15,7 @@ public class BattleHandler : MonoBehaviour
 	public GameObject explminePref;
 	public BattleSystem battleSystem;
 	public GameObject enemyGroup;
-	GameObject locationHud;
+	public GameObject locationHud;
 
 	void Start()
 	{

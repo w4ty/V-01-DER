@@ -34,7 +34,7 @@ public class RandomizedMusic : MonoBehaviour
 		}
 		if (audioEngine.isPlaying == false && timer <= 0 && readyToPlay == true && timerRunning == false)
 		{
-			currentSongId = Random.Range(0, 3);
+			currentSongId = Random.Range(0, songList.Length);
 		//	Debug.LogWarning("Selected: " + currentSongId);
 			if (currentSongId != lastSongId)
 			{

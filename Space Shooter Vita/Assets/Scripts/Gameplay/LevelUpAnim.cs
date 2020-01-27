@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class LevelUpAnim : MonoBehaviour 
 {
 	public GameObject[] detailSprites;
-	static string levelUpText = "Level Up";
+	static string levelUpText = "level up";
 	static bool animDone;
 	static bool textDone;
 

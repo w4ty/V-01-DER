@@ -11,47 +11,41 @@ using System.IO;
 
 public class StartScreen : MonoBehaviour
 {
-	private GameObject overlapEffectImage;
-	private GameObject logoObject;
-	private GameObject infoText;
-	private GameObject startButton;
-	private GameObject loadingIcon;
-	private GameObject checkFilesText;
+	public GameObject overlapEffectImage;
+	public GameObject logoObject;
+	public GameObject infoText;
+	public GameObject startButton;
+	public GameObject loadingIcon;
+	public GameObject checkFilesText;
 	private Text checkFiles;
 	int i;
 	float logoSpeed = 0.1f;
-	bool wasDone;
 	bool readyToMove;
 
 	void Start()
 	{
 		checkFiles = checkFilesText.GetComponent<Text>();
-		overlapEffectImage = GameObject.Find("OverlapEffect");
-		logoObject = GameObject.Find("LOGO");
-		infoText = GameObject.Find("InfoText");
-		startButton = GameObject.Find("CrossButton");
-		loadingIcon = GameObject.Find("LoadingIcon");
-		checkFilesText = GameObject.Find("FileCheckText");
+		startButton.GetComponent<Button>().Select();
 		loadingIcon.SetActive(false);
 	}
 
 	void Update()
 	{
-		if (Input.GetButton("Cross") && wasDone == false)
-		{
-			wasDone = true;
-			StartCoroutine(WaitLogo());
-			StartCoroutine(MoveLogo());
-			startButton.SetActive(false);
-			loadingIcon.SetActive(true);
-			infoText.GetComponent<Text>().text = "Welcome to the Void!";
-			//DownloadNews();
-			StartCoroutine(CheckFiles(SetTarget.universalPath));
-		}
 		if (readyToMove == true)
 		{
 			SceneManager.LoadScene("Main_Menu");
 		}
+	}
+
+	public void OnButton()
+	{
+		StartCoroutine(WaitLogo());
+		StartCoroutine(MoveLogo());
+		startButton.SetActive(false);
+		loadingIcon.SetActive(true);
+		infoText.GetComponent<Text>().text = "Welcome to the Void!";
+		//DownloadNews();
+		StartCoroutine(CheckFiles(SetTarget.universalPath));
 	}
 
 	IEnumerator MoveLogo()

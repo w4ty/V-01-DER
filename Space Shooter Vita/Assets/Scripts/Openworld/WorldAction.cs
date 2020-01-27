@@ -43,6 +43,8 @@ public class WorldAction : MonoBehaviour
 	{
 		if (Input.GetButtonUp("Submit") && onLocation == true && Pause.pauseOn == false && lockAction == 0)
 		{
+			buttonCanvas.SetActive(true);
+			onLocation = false;
 			buttonAmount = pAD.ReadValue("Planet" + selectedLocID, "buttons_amount", -1);
 			Debug.Log(selectedLocID + " counted " + buttonAmount + " buttons " + pAD.ReadValue("Planet" + selectedLocID, "buttons_amount", -1));
 			CreateButtons();
@@ -66,7 +68,7 @@ public class WorldAction : MonoBehaviour
 			Button b = button.GetComponent<Button>();
 			b.Select();
 			b.transform.SetParent(buttonCanvas.transform);
-			b.transform.localPosition = new Vector3(256, 0 + (i * -50));
+			b.transform.localPosition = new Vector3(350, 0 + (i * -64));
 			b.transform.localScale = new Vector3(1, 1, 1);
 			buttons.Add(b);
 		//	Debug.LogWarning("BUTTONS: " + buttons.Count);
@@ -80,6 +82,7 @@ public class WorldAction : MonoBehaviour
 
 	public void DestroyButtons()
 	{
+		buttonCanvas.SetActive(false);
 		//Debug.LogError("START");
 		for (int i = 0; i < buttons.Count; i++)
 		{

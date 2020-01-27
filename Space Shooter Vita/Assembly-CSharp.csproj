@@ -101,7 +101,9 @@
      <Compile Include="Assets\Scripts\MISC_\SetTarget.cs" />
      <Compile Include="Assets\Scripts\MISC_\ShowFPS.cs" />
      <Compile Include="Assets\Scripts\Openworld\BattleHandler.cs" />
+     <Compile Include="Assets\Scripts\Openworld\BattleRewards.cs" />
      <Compile Include="Assets\Scripts\Openworld\BattleSystem.cs" />
+     <Compile Include="Assets\Scripts\Openworld\InventoryHandler.cs" />
      <Compile Include="Assets\Scripts\Openworld\LocationHandler.cs" />
      <Compile Include="Assets\Scripts\Openworld\OpenworldSet.cs" />
      <Compile Include="Assets\Scripts\Openworld\RandomizedMusic.cs" />

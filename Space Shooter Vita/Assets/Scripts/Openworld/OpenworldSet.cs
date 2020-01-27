@@ -15,14 +15,14 @@ public class OpenworldSet : MonoBehaviour
 		this.GetComponent<BattleHandler>().EndBattle();
 		openWorldPlanets.SetActive(true);
 		WorldAction.worldName = worldName;
-		wINFO.Open(SetTarget.worldDataPath + "Worlds/" + worldName + "/Planets/planets.ini");
 		PlayerMovementAlt.maxYCoordinate = 50;
 		PlayerMovementAlt.maxXCoordinate = 50;
 		PlayerMovementAlt.minYCoordinate = -50;
 		PlayerMovementAlt.minXCoordinate = -50;
+		wINFO.Open(SetTarget.worldDataPath + "Worlds/" + worldName + "/Planets/planets.ini");
 	}
 	
-	public void BattleStart ()
+	public void BattleStart (string battleType )
 	{
 			openWorldPlanets.SetActive(false);
 			this.GetComponent<BattleHandler>().PrepareBattle();

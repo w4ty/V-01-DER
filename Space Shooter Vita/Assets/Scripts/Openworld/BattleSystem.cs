@@ -9,6 +9,7 @@ public class BattleSystem : MonoBehaviour
 	public Text objectiveText;
 	public GameObject enemyGroup;
 	public GameObject worldMaster;
+	public GameObject endBattleGroup;
 	private string[] objToDestroy;
 	private int[] objAmountToDestroy;
 	private int[] objPlayerDone;
@@ -83,10 +84,22 @@ public class BattleSystem : MonoBehaviour
 			Debug.Log("All done? " + allDone);
 			if (allDone == true)
 			{
+				Pause.pauseOn = true;
+				endBattleGroup.SetActive(true);
+				endBattleGroup.GetComponentInChildren<Button>().Select();
 				KillChildren();
-				worldMaster.GetComponent<OpenworldSet>().OpenWorldStart();
+				this.GetComponent<BattleRewards>().DropLoot(matiaz.ReadValue("Rewards", "BonusItemTable", 0), matiaz.ReadValue("Rewards", "BonusExp", 0));
 			}
 		}
+	}
+
+	public void EndBattle()
+	{
+		objectiveText.text = "";
+		Pause.pauseOn = false;
+		this.GetComponent<BattleRewards>().DestroyButtons();
+		worldMaster.GetComponent<OpenworldSet>().OpenWorldStart();
+		endBattleGroup.SetActive(false);
 	}
 
 	void KillChildren()
