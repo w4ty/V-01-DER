@@ -7,7 +7,6 @@ public class CameraFollow : MonoBehaviour
 
 	public Transform Target;
 	public float followSpeed = 5f;
-	public float followDistance = 10f;
 	Vector3 targPos;
 
 	void FixedUpdate ()

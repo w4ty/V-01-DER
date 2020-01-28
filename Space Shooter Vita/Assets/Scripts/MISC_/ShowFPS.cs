@@ -7,12 +7,12 @@ public class ShowFPS : MonoBehaviour
 {
 	float deltaTime = 0.0f;
 
-	void Update()
+	void LateUpdate()
 	{
 		deltaTime += (Time.unscaledDeltaTime - deltaTime) * 0.1f;
 		float msec = deltaTime * 1000.0f;
 		float fps = 1.0f / deltaTime;
-		this.GetComponent<Text>().text = Mathf.RoundToInt(fps).ToString() + "/" + (msec).ToString().Substring(0, 5) + "ms";
+		this.GetComponent<Text>().text = string.Format("{0}/{1}ms", Mathf.RoundToInt(fps), (msec).ToString().Substring(0, 4));
 	}
 
 	/*void OnGUI()

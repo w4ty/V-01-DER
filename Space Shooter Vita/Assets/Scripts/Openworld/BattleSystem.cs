@@ -41,8 +41,8 @@ public class BattleSystem : MonoBehaviour
 			DamageHandler.objAmount = objectiveAmount;
 			for (int objA = 0; objA < objectiveAmount; objA++)
 			{
-				objToDestroy[objA] = matiaz.ReadValue("Objective" + (objA + 1), "ObjToDestroy", "nullObject");
-				objAmountToDestroy[objA] = matiaz.ReadValue("Objective" + (objA + 1), "ObjAmountToDestroy", 0);
+				objToDestroy[objA] = matiaz.ReadValue(string.Format("Objective{0}", (objA + 1)), "ObjToDestroy", "nullObject");
+				objAmountToDestroy[objA] = matiaz.ReadValue(string.Format("Objective{0}", (objA + 1)), "ObjAmountToDestroy", 0);
 				UpdateObjective();
 			}
 		}
@@ -61,7 +61,7 @@ public class BattleSystem : MonoBehaviour
 		objectiveText.text = "";
 		for (int objA = 0; objA < objectiveAmount; objA++)
 		{
-			textArray[objA] = "Destroy " + objToDestroy[objA] + " " + objPlayerDone[objA] + "/" + objAmountToDestroy[objA] + "\n";
+			textArray[objA] = string.Format("Destroy {0} {1}/{2}\n", objToDestroy[objA], objPlayerDone[objA], objAmountToDestroy[objA]);
 			objectiveText.text += textArray[objA];
 			if (objPlayerDone[objA] >= objAmountToDestroy[objA])
 			{
@@ -71,7 +71,7 @@ public class BattleSystem : MonoBehaviour
 			{
 				objectiveDone[objA] = false;
 			}
-			Debug.Log("Objective " + objA + " done: " + objectiveDone[objA]);
+			Debug.Log(string.Format("Objective {0} done: {1}", objA, objectiveDone[objA]));
 			allDone = true;
 			for (int i = 0; i < objectiveDone.Length; i++)
 			{
@@ -81,7 +81,7 @@ public class BattleSystem : MonoBehaviour
 					break;
 				}
 			}
-			Debug.Log("All done? " + allDone);
+			Debug.Log(string.Format("All done? {0}", allDone));
 			if (allDone == true)
 			{
 				Pause.pauseOn = true;
