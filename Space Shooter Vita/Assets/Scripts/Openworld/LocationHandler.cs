@@ -21,6 +21,8 @@ public class LocationHandler : MonoBehaviour
 	static public int locationControl;
 	static public int locationTypeStatic;
 	public GameObject worldMaster;
+	public GameObject locBG;
+	UniversalFillAnim bgFill;
 	// Start ini and load file
 	INIParser planetSaveData = new INIParser();
 	INIParser planetActualData = new INIParser();
@@ -31,11 +33,13 @@ public class LocationHandler : MonoBehaviour
 		planetSaveData.Open(SetTarget.saveDataPath + "planetdata.ini");
 		planetActualData.Open(SetTarget.worldDataPath + "Worlds/" + worldName + "/Planets/planets.ini");
 		tempLocID = 0;
+		bgFill = locBG.GetComponent<UniversalFillAnim>();
 		GetLocation();
 	}
 
 	private void OnTriggerEnter2D()
 	{
+		bgFill.CallAnimations(0);
 		tempLocID = locationID;
 		WorldAction.selectedLocID = tempLocID;
 		GetLocation();
@@ -59,6 +63,7 @@ public class LocationHandler : MonoBehaviour
 	// Clean the text when exiting location
 	private void OnTriggerExit2D(Collider2D collision)
 	{
+		bgFill.CallAnimations(1);
 		planetSaveData.Close();
 		locationText.text = "";
 		locationStatus.text = "";

@@ -18,7 +18,7 @@ public class SwitchHandler : MonoBehaviour
 			case 0:
 				Debug.Log("case 0");
 				//button.GetComponent<Text>().text = ini.ReadValue("BUTTONID" + reqID, "text", "");
-				GameObject.Find("WorldMaster").GetComponent<WorldAction>().DestroyButtons();
+				GameObject.Find("WorldMaster").GetComponent<WorldAction>().DoOutAnim();
 				break;
 			case 101:
 				Debug.Log("case 101");

@@ -11,9 +11,11 @@ public class InfoMenu : MonoBehaviour
 	public GameObject loadoutGroup;
 	PlayerStatistics pStats;
 	public GameObject menuCanvas;
+	public GameObject visualGroup;
 	public Button dummyButton;
 	public Button buttonContinue;
 	public Button buttonQuit;
+	public GameObject menuBG;
 	public Text infoBar;
 	public Text infoDesc;
 	public Text levelInfo;
@@ -44,34 +46,53 @@ public class InfoMenu : MonoBehaviour
 		}
 		if (!isHidden && pShip)
 		{
-			levelInfo.text = "Current ship level:\n" + pStats.shipLVL + "\n" + "Experience for next:\n" + pStats.currentXP + "/" + pStats.nextXP;
+			levelInfo.text = string.Format("level {0} exp {1}/{2}", pStats.shipLVL, pStats.currentXP, pStats.nextXP);
 		}
 	}
 	public void ShowMenu()
 	{
 		Pause.pauseOn = true;
-		infoBar.text = QuestHandler.questName + " pt. " + QuestHandler.questPart + ".";
-		infoDesc.text = QuestHandler.questDesc;
 		menuCanvas.SetActive(true);
-	//	mainGroup = GameObject.Find("MainPauseMenu");
-	//	loadoutGroup = GameObject.Find("SkillTreesGroup");
+		//	mainGroup = GameObject.Find("MainPauseMenu");
+		//	loadoutGroup = GameObject.Find("SkillTreesGroup");
 		mainGroup.SetActive(true);
 		loadoutGroup.SetActive(false);
 		isHidden = false;
+		menuBG.GetComponent<UniversalFillAnim>().CallAnimations(0);
+		visualGroup.SetActive(true);
+		infoBar.text = QuestHandler.questName + " pt. " + QuestHandler.questPart + ".";
+		infoDesc.text = QuestHandler.questDesc;
 		dummyButton.interactable = false;
 		buttonContinue.interactable = true;
 		buttonQuit.interactable = true;
 		buttonContinue.Select();
 	}
+
+	IEnumerator DoAnimations()
+	{
+		
+		if (menuBG.GetComponent<UniversalFillAnim>().state == 1)
+		{
+			yield return new WaitForSeconds(0.2f);
+			StartCoroutine("DoAnimations");
+		}
+		else
+		{
+			menuCanvas.SetActive(false);
+			isHidden = true;
+		}
+	}
 	public void HideMenu()
 	{
 		Pause.pauseOn = false;
+		menuBG.GetComponent<UniversalFillAnim>().CallAnimations(1);
+		visualGroup.SetActive(false);
+		StartCoroutine("DoAnimations");
 		/*dummyButton.interactable = true;
 		buttonContinue.interactable = false;
 		buttonQuit.interactable = false;
 		dummyButton.Select();*/
-		menuCanvas.SetActive(false);
-		isHidden = true;
+
 	}
 
 	public void ToMain()

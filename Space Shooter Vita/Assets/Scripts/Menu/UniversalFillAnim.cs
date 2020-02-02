@@ -22,12 +22,12 @@ public class UniversalFillAnim : MonoBehaviour
 	{
 		state = 1;
 		Debug.Log("Starting InAnim for " + this.name);
-		for (float a = 0; a < 1.1f; a += 0.015f)
+		for (float a = 0; a < 1.1f; a += 0.020f)
 		{
 			this.GetComponent<Image>().fillAmount = a;
 			yield return new WaitForSeconds(0.005f);
 		}
-		Debug.Log("Ending OutAnim for " + this.name);
+		Debug.Log("Ending InAnim for " + this.name);
 		state = 0;
 		yield return new WaitForSeconds(0.005f);
 	}
@@ -36,7 +36,7 @@ public class UniversalFillAnim : MonoBehaviour
 	{
 		state = 1;
 		Debug.Log("Starting OutAnim for " + this.name);
-		for (float a = 1; a > -0.1f; a -= 0.015f)
+		for (float a = 1; a > -0.1f; a -= 0.020f)
 		{
 			this.GetComponent<Image>().fillAmount = a;
 			yield return new WaitForSeconds(0.005f);

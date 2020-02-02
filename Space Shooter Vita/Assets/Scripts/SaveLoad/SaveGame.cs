@@ -35,7 +35,7 @@ public class SaveGame : MonoBehaviour
 		ini.Close();
 	}
 
-	void Update()
+	void A()
 	{
 		if (Input.GetButtonUp("Triangle"))
 		{

@@ -11,6 +11,8 @@ public class WorldAction : MonoBehaviour
 	static public string worldName;
 	public GameObject buttonPrefb;
 	public GameObject buttonCanvas;
+	public GameObject bgImage;
+	UniversalFillAnim bgFill;
 	List<Button> buttons = new List<Button>();
 	static public int buttonAmount;
 	static public bool onLocation;
@@ -26,6 +28,7 @@ public class WorldAction : MonoBehaviour
 
 	void Start()
 	{
+		bgFill = bgImage.GetComponent<UniversalFillAnim>();
 		this.GetComponent<OpenworldSet>().OpenWorldStart();
 		blackoutImg = GameObject.Find("blackout_img");
 		pAD.Open(SetTarget.worldDataPath + "Worlds/" + worldName + "/Planets/planets.ini");
@@ -44,6 +47,7 @@ public class WorldAction : MonoBehaviour
 		if (Input.GetButtonUp("Submit") && onLocation == true && Pause.pauseOn == false && lockAction == 0)
 		{
 			buttonCanvas.SetActive(true);
+			bgFill.CallAnimations(0);
 			onLocation = false;
 			buttonAmount = pAD.ReadValue("Planet" + selectedLocID, "buttons_amount", -1);
 			Debug.Log(selectedLocID + " counted " + buttonAmount + " buttons " + pAD.ReadValue("Planet" + selectedLocID, "buttons_amount", -1));
@@ -68,7 +72,7 @@ public class WorldAction : MonoBehaviour
 			Button b = button.GetComponent<Button>();
 			b.Select();
 			b.transform.SetParent(buttonCanvas.transform);
-			b.transform.localPosition = new Vector3(350, 0 + (i * -64));
+			b.transform.localPosition = new Vector3(416, 0 + (i * -32));
 			b.transform.localScale = new Vector3(1, 1, 1);
 			buttons.Add(b);
 		//	Debug.LogWarning("BUTTONS: " + buttons.Count);
@@ -77,6 +81,25 @@ public class WorldAction : MonoBehaviour
 			Debug.Log("Planet" + selectedLocID + "button" + (i + 1));
 			Debug.Log("OptionID " + optionID);
 			b.GetComponentInChildren<Text>().text = pAD.ReadValue("ButtonID" + optionID, "text", "err");
+		}
+	}
+
+	public void DoOutAnim()
+	{
+		bgFill.CallAnimations(1);
+		StartCoroutine("CheckAnims");
+	}
+
+	IEnumerator CheckAnims()
+	{
+		if (bgFill.state == 1)
+		{
+			yield return new WaitForSeconds(0.1f);
+			StartCoroutine("CheckAnims");
+		}
+		else
+		{
+			DestroyButtons();
 		}
 	}
 
