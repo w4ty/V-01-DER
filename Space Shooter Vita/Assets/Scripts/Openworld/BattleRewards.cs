@@ -9,6 +9,8 @@ public class BattleRewards : MonoBehaviour
 	int tableLength;
 	int slotToFill;
 	public GameObject dropTextGroup;
+	public GameObject dropBg;
+	UniversalFillAnim dropBgFill;
 	public Text xpAmountText;
 	public GameObject buttonPrefab;
 	public GameObject scrollrect;
@@ -16,8 +18,14 @@ public class BattleRewards : MonoBehaviour
 	public GameObject inventory;
 	List<Button> buttons = new List<Button>();
 
+	private void Start()
+	{
+		dropBgFill = dropBg.GetComponent<UniversalFillAnim>();
+	}
+
 	public void DropLoot(int tableId, int expAmount)
 	{
+		dropBgFill.CallAnimations(0);
 		StartCoroutine(CountExp(expAmount));
 		boc.Open(string.Format("{0}DropTables/drop.ini", SetTarget.worldDataPath));
 		tableLength = boc.ReadValue(string.Format("Table{0}", tableId), "Table_Length", 0);
@@ -49,10 +57,11 @@ public class BattleRewards : MonoBehaviour
 	}
 	public void DestroyButtons()
 	{
+		StopCoroutine("CountItem");
+		dropBgFill.AskToDo(this.GetComponent<BattleSystem>(), "SwitchAfterEnd");
+		dropBgFill.CallAnimations(1);
 		for (int i = 0; i < buttons.Count; i++)
 		{
-			//	Debug.Log("COUNT : " + i + " / " + buttons.Count);
-			//	Debug.LogError("OBJECT " + i + " " + buttons[i]);
 			Destroy(buttons[i].gameObject);
 		}
 		buttons.Clear();
@@ -63,7 +72,7 @@ public class BattleRewards : MonoBehaviour
 		for (int i = 0; i <= maxVal; i++)
 		{
 			xpAmountText.text = string.Format("+{0} exp", i);
-			yield return new WaitForSeconds(0.05f);
+			yield return new WaitForFixedUpdate();
 		}
 	}
 
@@ -71,8 +80,16 @@ public class BattleRewards : MonoBehaviour
 	{
 		for (int i = 0; i <= maxVal; i += 5)
 		{
-			text.text = string.Format("{0} {1}", i, name);
-			yield return new WaitForSeconds(0.001f);
+			if (text != null)
+			{
+				text.text = string.Format("{0} {1}", i, name);
+				yield return new WaitForFixedUpdate();
+			}
+			else
+			{
+				StopCoroutine("CountItem");
+				break;
+			}
 		}
 		text.text = string.Format("{0} {1}", maxVal, name);
 	}

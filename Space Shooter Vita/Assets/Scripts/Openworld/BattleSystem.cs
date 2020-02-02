@@ -95,9 +95,13 @@ public class BattleSystem : MonoBehaviour
 
 	public void EndBattle()
 	{
+		this.GetComponent<BattleRewards>().DestroyButtons();
+	}
+
+	public void SwitchAfterEnd()
+	{
 		objectiveText.text = "";
 		Pause.pauseOn = false;
-		this.GetComponent<BattleRewards>().DestroyButtons();
 		worldMaster.GetComponent<OpenworldSet>().OpenWorldStart();
 		endBattleGroup.SetActive(false);
 	}

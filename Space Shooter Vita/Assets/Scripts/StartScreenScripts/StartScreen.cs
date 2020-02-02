@@ -86,17 +86,10 @@ public class StartScreen : MonoBehaviour
 			readyToMove = true;
 		}
 	}
-	IEnumerator GoToNextDelayed()
+
+	public void GoToNext()
 	{
-		if (overlapEffectImage.GetComponent<UniversalFillAnim>().state == 1)
-		{
-			yield return new WaitForSeconds(0.2f);
-			StartCoroutine("GoToNextDelayed");
-		}
-		else
-		{
-			readyToMove = true;
-		}
+		readyToMove = true;
 	}
 
 	IEnumerator CheckFiles(string univPath)
@@ -122,7 +115,7 @@ public class StartScreen : MonoBehaviour
 		}
 
 		yield return new WaitForSeconds(1f);
+		overlapEffectImage.GetComponent<UniversalFillAnim>().AskToDo(this, "GoToNext");
 		overlapEffectImage.GetComponent<UniversalFillAnim>().CallAnimations(0);
-		StartCoroutine(GoToNextDelayed());
 	}
 }

@@ -7,19 +7,19 @@ public class SetTarget : MonoBehaviour
 	static public string controllerName;
 	static public string lang = "English";
 	static public int maxUnits;
-	static public string targetPlatform = "Windows";
+	static public string targetPlatform = "windows";
 	static public string saveDataPath;
 	static public string worldDataPath;
 	static public string universalPath;
 	static public string webDataPath;
 	static public string dialDataPath;
-	static public string buildType = "Alpha";
+	static public string buildType = "alpha";
 	static public string buildName = "";
 	static public int versionGeneration = 1;
 	static public int versionMajor = 4;
-	static public int versionMinor = 1;
+	static public int versionMinor = 4;
 	static public int versionType = 4;
-	static public string versionActual = versionGeneration + "." + versionMajor + "." + versionMinor + "." + versionType;
+	static public string versionActual = string.Format("{0}.{1}.{2}.{3}", versionGeneration, versionMajor, versionMinor, versionType);
 
 	// SetTarget.cs explanation.
 	// SetTarget is used for better multiplat support by redirecting the game to proper file directories and setting various platform specific options.
@@ -30,7 +30,7 @@ public class SetTarget : MonoBehaviour
 	{
 		switch (targetPlatform)
 		{
-			case "Windows":
+			case "windows":
 				controllerName = "keyboard";
 				maxUnits = 100;
 				universalPath = Application.dataPath + "/StreamingAssets/";
@@ -39,7 +39,7 @@ public class SetTarget : MonoBehaviour
 				webDataPath = Application.dataPath + "/StreamingAssets/WebData/";
 				dialDataPath = Application.dataPath + "/StreamingAssets/DialData/";
 				break;
-			case "PSVita":
+			case "psp2":
 				controllerName = "ps_generic";
 				maxUnits = 50;
 				universalPath = "ux0:data/V-01-DER/";

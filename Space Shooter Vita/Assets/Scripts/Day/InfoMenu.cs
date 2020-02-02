@@ -68,26 +68,19 @@ public class InfoMenu : MonoBehaviour
 		buttonContinue.Select();
 	}
 
-	IEnumerator DoAnimations()
+	public void DoHide()
 	{
-		
-		if (menuBG.GetComponent<UniversalFillAnim>().state == 1)
-		{
-			yield return new WaitForSeconds(0.2f);
-			StartCoroutine("DoAnimations");
-		}
-		else
-		{
-			menuCanvas.SetActive(false);
-			isHidden = true;
-		}
+		menuCanvas.SetActive(false);
+		isHidden = true;
 	}
+
 	public void HideMenu()
 	{
 		Pause.pauseOn = false;
+		menuBG.GetComponent<UniversalFillAnim>().AskToDo(this, "DoHide");
 		menuBG.GetComponent<UniversalFillAnim>().CallAnimations(1);
 		visualGroup.SetActive(false);
-		StartCoroutine("DoAnimations");
+	//	StartCoroutine("DoAnimations");
 		/*dummyButton.interactable = true;
 		buttonContinue.interactable = false;
 		buttonQuit.interactable = false;

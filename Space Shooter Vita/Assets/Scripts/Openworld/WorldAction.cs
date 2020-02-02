@@ -86,21 +86,8 @@ public class WorldAction : MonoBehaviour
 
 	public void DoOutAnim()
 	{
+		bgFill.AskToDo(this, "DestroyButtons");
 		bgFill.CallAnimations(1);
-		StartCoroutine("CheckAnims");
-	}
-
-	IEnumerator CheckAnims()
-	{
-		if (bgFill.state == 1)
-		{
-			yield return new WaitForSeconds(0.1f);
-			StartCoroutine("CheckAnims");
-		}
-		else
-		{
-			DestroyButtons();
-		}
 	}
 
 	public void DestroyButtons()
