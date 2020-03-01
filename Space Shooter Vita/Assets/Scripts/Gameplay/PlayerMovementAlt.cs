@@ -11,12 +11,44 @@ public class PlayerMovementAlt : MonoBehaviour
 	static public float maxXCoordinate;
 	static public float minXCoordinate;
 	public Text xyText;
+	float dashCD;
+	float invTimer;
+	bool invState;
+	GameObject dashObj;
+	Image dashBar;
 
-	void FixedUpdate ()
+	private void Start()
 	{
+		dashObj = GameObject.Find("DashBar");
+		dashBar = dashObj.GetComponent<Image>();
+	}
+
+	void UpdateBar(float fillVal)
+	{
+		dashBar.fillAmount = fillVal / 3;
+	}
+
+	void FixedUpdate()
+	{
+		//Debug.Log("Layer: " + gameObject.layer + " " + invTimer);
 		if (Pause.pauseOn == false)
 		{
-			
+			if (dashCD > 0)
+			{
+				dashCD -= Time.deltaTime;
+				UpdateBar(dashCD);
+			}
+			if (invTimer > 0)
+			{
+				invTimer -= Time.deltaTime;
+			}
+			else if (invState == true)
+			{
+				invState = false;
+				invTimer = 0;
+				InvFrames();
+			}
+
 			// Turn inputs to short floats for easier access
 			float lh = Input.GetAxis("Horizontal");
 			float lv = Input.GetAxis("Vertical");
@@ -33,7 +65,19 @@ public class PlayerMovementAlt : MonoBehaviour
 			}
 			// Classic movement
 			Vector3 Move = new Vector3(lh / moveSpeed, lv / moveSpeed, 0);
+
+			// Dash
+			if (Input.GetButton("L1") && dashCD <= 0 && Mathf.Abs(lh) + Mathf.Abs(lv) != 0)
+			{
+				Move = new Vector3(lh * 2.5f, lv * 2.5f, 0);
+				dashCD = 3;
+				invTimer = 1;
+				invState = true;
+				InvFrames();
+			}
+
 			Vector3 temp = transform.position + Move;
+
 			// Movement restriction
 			if (temp.y > maxYCoordinate)
 			{
@@ -73,5 +117,20 @@ public class PlayerMovementAlt : MonoBehaviour
 				//Debug.Log("Mouse angle: " + angle + " | Object angle: " + transform.rotation);
 			}
 		}
+	}
+
+	void InvFrames()
+	{
+		switch (invState)
+		{
+			case (true):
+				gameObject.layer = 10;
+				break;
+			case (false):
+				gameObject.layer = 8;
+				break;
+		}
+
+		
 	}
 }

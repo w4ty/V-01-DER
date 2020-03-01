@@ -30,6 +30,10 @@ public class LocationHandler : MonoBehaviour
 
 	void Start()
 	{
+		locationText = GameObject.Find("location_text").GetComponent<Text>();
+		locationStatus = GameObject.Find("locationtype_text").GetComponent<Text>();
+		worldMaster = GameObject.Find("WorldMaster");
+		locBG = GameObject.Find("locBG");
 		planetSaveData.Open(SetTarget.saveDataPath + "planetdata.ini");
 		planetActualData.Open(SetTarget.worldDataPath + "Worlds/" + worldName + "/Planets/planets.ini");
 		tempLocID = 0;

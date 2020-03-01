@@ -16,10 +16,14 @@ public class BattleRewards : MonoBehaviour
 	public GameObject scrollrect;
 	public GameObject scrollbar;
 	public GameObject inventory;
+	GameObject pShip;
+	PlayerStatistics pStats;
 	List<Button> buttons = new List<Button>();
 
 	private void Start()
 	{
+		pShip = GameObject.FindGameObjectWithTag("Player");
+		pStats = pShip.GetComponent<PlayerStatistics>();
 		dropBgFill = dropBg.GetComponent<UniversalFillAnim>();
 	}
 
@@ -27,6 +31,7 @@ public class BattleRewards : MonoBehaviour
 	{
 		dropBgFill.CallAnimations(0);
 		StartCoroutine(CountExp(expAmount));
+		pStats.currentXP += expAmount;
 		boc.Open(string.Format("{0}DropTables/drop.ini", SetTarget.worldDataPath));
 		tableLength = boc.ReadValue(string.Format("Table{0}", tableId), "Table_Length", 0);
 		for (int t = 1; t <= tableLength; t++, slotToFill++)

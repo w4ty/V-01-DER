@@ -49,6 +49,7 @@ public class UniversalFillAnim : MonoBehaviour
 			MethodInfo functionToCall = component.GetType().GetMethod(functionName);
 			functionToCall.Invoke(component, null);
 		}
+		CleanData();
 	}
 
 	public IEnumerator OutAnim()
@@ -69,5 +70,13 @@ public class UniversalFillAnim : MonoBehaviour
 			MethodInfo functionToCall = component.GetType().GetMethod(functionName);
 			functionToCall.Invoke(component, null);
 		}
+		CleanData();
+	}
+
+	public void CleanData()
+	{
+		doAfter = false;
+		component = null;
+		functionName = null;
 	}
 }

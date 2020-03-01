@@ -7,12 +7,14 @@ using UnityEngine.UI;
 public class DamageHandler : MonoBehaviour
 
 {
+	HpHandler hpHandler;
 	public float hp;
 	int dmgCalc;
 	public float invLength = 0;
-	int objectLayer;
-	float invFrames = 0;
+	//int objectLayer;
+	//float invFrames = 0;
 	public string objectGrouping;
+	GhostHpBar ghostBar;
 	private Animator anim;
 	private SpriteRenderer spriteControl;
 	public GameObject damageText;
@@ -28,6 +30,8 @@ public class DamageHandler : MonoBehaviour
 
 	void Start()
 	{
+		ghostBar = GameObject.FindGameObjectWithTag("GhostBar").GetComponent<GhostHpBar>();
+		hpHandler = GameObject.FindGameObjectWithTag("Hp").GetComponent<HpHandler>();
 		battleSystem = GameObject.Find("BattleHandler").GetComponent<BattleSystem>();
 		playerShip = GameObject.Find("Player_Ship_a");
 		currentObjectStats = this.GetComponent<ActiveObjectStats>();
@@ -42,12 +46,11 @@ public class DamageHandler : MonoBehaviour
 			spriteControl = this.transform.GetChild(0).GetComponent<SpriteRenderer>();
 		}
 		hp = currentObjectStats.objectMaxHp;
-		objectLayer = gameObject.layer;
+	//	objectLayer = gameObject.layer;
 		anim = GetComponent<Animator>();
 	}
 	void OnTriggerEnter2D(Collider2D other)
 	{
-
 		otherObjectStats = other.GetComponent<ActiveObjectStats>();
 		//Debug.Log("Triggered");
 
@@ -74,16 +77,24 @@ public class DamageHandler : MonoBehaviour
 		Instantiate(damageText, ghostPos, ghostRot, GameObject.Find("WorldSpaceCanvas").transform);
 
 		//Mess regarding invincibility frames
-		invFrames = invLength;
-		gameObject.layer = 10;
+		/*invFrames = invLength;
+		gameObject.layer = 10;*/
+
+		//Handle hp bar animation for player damage
+		if (this.gameObject == playerShip)
+		{
+			hpHandler.OnDamaged();
+			ghostBar.LowerBar();
+		}
+
 	}
 	void Update()
 	{
-		invFrames -= Time.deltaTime;
+		/*invFrames -= Time.deltaTime;
 		if (invFrames <= 0)
 		{
 			gameObject.layer = objectLayer;
-		}
+		}*/
 		if (hp <= 0)
 		{
 			try
@@ -109,10 +120,6 @@ public class DamageHandler : MonoBehaviour
 			{
 				battleSystem.ObjectiveAdd(objToSeek[i], i);
 			}
-		}
-		if (objectGrouping != "Player")
-		{
-			playerShip.GetComponent<PlayerStatistics>().currentXP += currentObjectStats.objectXpGiven;
 		}
 		CleanUp();
 	}

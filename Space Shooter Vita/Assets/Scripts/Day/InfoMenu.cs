@@ -6,10 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class InfoMenu : MonoBehaviour
 {
-	GameObject pShip;
+	//GameObject pShip;
 	public GameObject mainGroup;
 	public GameObject loadoutGroup;
-	PlayerStatistics pStats;
+//	PlayerStatistics pStats;
 	public GameObject menuCanvas;
 	public GameObject visualGroup;
 	public Button dummyButton;
@@ -24,8 +24,8 @@ public class InfoMenu : MonoBehaviour
 
 	void Start()
 	{
-		pShip = GameObject.Find("Player_Ship_a");
-		pStats = pShip.GetComponent<PlayerStatistics>();
+		//pShip = GameObject.Find("Player_Ship_a");
+		//pStats = pShip.GetComponent<PlayerStatistics>();
 	}
 
 	void Update()
@@ -43,10 +43,6 @@ public class InfoMenu : MonoBehaviour
 		{
 			HideMenu();
 			buttonCD = 100;
-		}
-		if (!isHidden && pShip)
-		{
-			levelInfo.text = string.Format("level {0} exp {1}/{2}", pStats.shipLVL, pStats.currentXP, pStats.nextXP);
 		}
 	}
 	public void ShowMenu()
