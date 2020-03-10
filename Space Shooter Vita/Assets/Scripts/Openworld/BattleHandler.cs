@@ -28,7 +28,7 @@ public class BattleHandler : MonoBehaviour
 		INIParser ini = new INIParser();
 		ini.Open(SetTarget.worldDataPath + "Battles/" + battleType + "/Difficulty" + battleDifficulty + "/" + battleType + battleId + ".ini");
 		battleSystem.GetObjectives(ini.FileName);
-		Debug.LogWarning(ini.FileName);
+		//Debug.LogWarning(ini.FileName);
 
 		GameObject.Find("Player_Ship_a").transform.position = new Vector3(ini.ReadValue("InitialProperties", "PlayerPosX", 1), ini.ReadValue("InitialProperties", "PlayerPosY", 1), 0);
 

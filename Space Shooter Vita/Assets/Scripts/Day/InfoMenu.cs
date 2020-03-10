@@ -87,6 +87,10 @@ public class InfoMenu : MonoBehaviour
 	public void ToMain()
 	{
 		Pause.pauseOn = false;
+		menuBG.GetComponent<UniversalFillAnim>().AskToDo(this, "DoHide");
+		menuBG.GetComponent<UniversalFillAnim>().CallAnimations(1);
+		visualGroup.SetActive(false);
+		DoHide();
 		SceneManager.LoadScene("Main_Menu");
 	}
 

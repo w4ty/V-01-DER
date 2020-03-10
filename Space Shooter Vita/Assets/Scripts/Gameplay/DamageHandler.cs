@@ -51,42 +51,44 @@ public class DamageHandler : MonoBehaviour
 	}
 	void OnTriggerEnter2D(Collider2D other)
 	{
-		otherObjectStats = other.GetComponent<ActiveObjectStats>();
-		//Debug.Log("Triggered");
+		if (other.gameObject.tag != "Obstacle")
+		{
+			otherObjectStats = other.GetComponent<ActiveObjectStats>();
+			//Debug.Log("Triggered");
 
-		//Math for damage calculations
-		dmgCalc = Mathf.RoundToInt
-			(
+			//Math for damage calculations
+			dmgCalc = Mathf.RoundToInt
 				(
 					(
-					otherObjectStats.objectDamage
-					+ Random.Range
 						(
-						otherObjectStats.objectLowerRandomDamage, otherObjectStats.objectHigherRandomDamage
+						otherObjectStats.objectDamage
+						+ Random.Range
+							(
+							otherObjectStats.objectLowerRandomDamage, otherObjectStats.objectHigherRandomDamage
+							)
 						)
+						/ currentObjectStats.objectArmour
 					)
-					/ currentObjectStats.objectArmour
-				)
-			);
-		hp -= dmgCalc;
+				);
+			hp -= dmgCalc;
 
-		//Adding damage text next to the damaged unit
-		Vector3 ghostPos = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z);
-		Quaternion ghostRot = new Quaternion();
-		damageText.GetComponentInChildren<Text>().text = dmgCalc.ToString();
-		Instantiate(damageText, ghostPos, ghostRot, GameObject.Find("WorldSpaceCanvas").transform);
+			//Adding damage text next to the damaged unit
+			Vector3 ghostPos = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z);
+			Quaternion ghostRot = new Quaternion();
+			damageText.GetComponentInChildren<Text>().text = dmgCalc.ToString();
+			Instantiate(damageText, ghostPos, ghostRot, GameObject.Find("WorldSpaceCanvas").transform);
 
-		//Mess regarding invincibility frames
-		/*invFrames = invLength;
-		gameObject.layer = 10;*/
+			//Mess regarding invincibility frames
+			/*invFrames = invLength;
+			gameObject.layer = 10;*/
 
-		//Handle hp bar animation for player damage
-		if (this.gameObject == playerShip)
-		{
-			hpHandler.OnDamaged();
-			ghostBar.LowerBar();
+			//Handle hp bar animation for player damage
+			if (this.gameObject == playerShip)
+			{
+				hpHandler.OnDamaged();
+				ghostBar.LowerBar();
+			}
 		}
-
 	}
 	void Update()
 	{

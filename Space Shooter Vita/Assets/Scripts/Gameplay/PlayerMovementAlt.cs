@@ -11,21 +11,11 @@ public class PlayerMovementAlt : MonoBehaviour
 	static public float maxXCoordinate;
 	static public float minXCoordinate;
 	public Text xyText;
-	float dashCD;
-	float invTimer;
-	bool invState;
-	GameObject dashObj;
-	Image dashBar;
+	DashHandler dash;
 
 	private void Start()
 	{
-		dashObj = GameObject.Find("DashBar");
-		dashBar = dashObj.GetComponent<Image>();
-	}
-
-	void UpdateBar(float fillVal)
-	{
-		dashBar.fillAmount = fillVal / 3;
+		dash = this.GetComponent<DashHandler>();
 	}
 
 	void FixedUpdate()
@@ -33,22 +23,6 @@ public class PlayerMovementAlt : MonoBehaviour
 		//Debug.Log("Layer: " + gameObject.layer + " " + invTimer);
 		if (Pause.pauseOn == false)
 		{
-			if (dashCD > 0)
-			{
-				dashCD -= Time.deltaTime;
-				UpdateBar(dashCD);
-			}
-			if (invTimer > 0)
-			{
-				invTimer -= Time.deltaTime;
-			}
-			else if (invState == true)
-			{
-				invState = false;
-				invTimer = 0;
-				InvFrames();
-			}
-
 			// Turn inputs to short floats for easier access
 			float lh = Input.GetAxis("Horizontal");
 			float lv = Input.GetAxis("Vertical");
@@ -65,36 +39,22 @@ public class PlayerMovementAlt : MonoBehaviour
 			}
 			// Classic movement
 			Vector3 Move = new Vector3(lh / moveSpeed, lv / moveSpeed, 0);
-
+			
 			// Dash
-			if (Input.GetButton("L1") && dashCD <= 0 && Mathf.Abs(lh) + Mathf.Abs(lv) != 0)
+			if (Input.GetButton("L1") && dash.canDash == true && Mathf.Abs(lh) + Mathf.Abs(lv) != 0)
 			{
-				Move = new Vector3(lh * 2.5f, lv * 2.5f, 0);
-				dashCD = 3;
-				invTimer = 1;
-				invState = true;
-				InvFrames();
+				Move = new Vector2(lh * 2.5f, lv * 2.5f);
+				dash.SetCooldown();
 			}
 
-			Vector3 temp = transform.position + Move;
+			Vector2 temp = transform.position + Move;
 
-			// Movement restriction
-			if (temp.y > maxYCoordinate)
+			// Check if player can move into the area
+			if (temp.y > maxYCoordinate || temp.y < minYCoordinate || temp.x > maxXCoordinate || temp.x < minXCoordinate)
 			{
-				temp.y = maxYCoordinate;
+				temp = transform.position;
 			}
-			if (temp.y < minYCoordinate)
-			{
-				temp.y = minYCoordinate;
-			}
-			if (temp.x > maxXCoordinate)
-			{
-				temp.x = maxXCoordinate;
-			}
-			if (temp.x < minXCoordinate)
-			{
-				temp.x = minXCoordinate;
-			}
+
 			transform.position = temp;
 			// Rotation
 			if (SetTarget.controllerName == "ps_generic")
@@ -117,20 +77,5 @@ public class PlayerMovementAlt : MonoBehaviour
 				//Debug.Log("Mouse angle: " + angle + " | Object angle: " + transform.rotation);
 			}
 		}
-	}
-
-	void InvFrames()
-	{
-		switch (invState)
-		{
-			case (true):
-				gameObject.layer = 10;
-				break;
-			case (false):
-				gameObject.layer = 8;
-				break;
-		}
-
-		
 	}
 }
