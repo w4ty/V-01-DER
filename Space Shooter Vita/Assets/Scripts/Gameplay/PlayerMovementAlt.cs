@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerMovementAlt : MonoBehaviour
 {
-	public float moveSpeed = 10f;
+	[System.NonSerialized] public float moveSpeed = 0.1f;
 	static public float maxYCoordinate;
 	static public float minYCoordinate;
 	static public float maxXCoordinate;
@@ -38,7 +38,7 @@ public class PlayerMovementAlt : MonoBehaviour
 				xyText.text = "X: " + Mathf.RoundToInt(this.transform.position.x * 10).ToString() + " / Y: " + Mathf.RoundToInt(this.transform.position.y * 10).ToString();
 			}
 			// Classic movement
-			Vector3 Move = new Vector3(lh / moveSpeed, lv / moveSpeed, 0);
+			Vector3 Move = new Vector3(lh * moveSpeed, lv * moveSpeed, 0);
 			
 			// Dash
 			if (Input.GetButton("L1") && dash.canDash == true && Mathf.Abs(lh) + Mathf.Abs(lv) != 0)
