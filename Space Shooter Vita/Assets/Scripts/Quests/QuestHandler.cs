@@ -4,17 +4,47 @@ using UnityEngine;
 
 public class QuestHandler : MonoBehaviour
 {
-	public static string questName = "Prologue";
-	public static int questID = 0;
-	public static int questPart = 1;
-	public static int questScene = 1;
-	public static string questDesc = "Placeholder quest description.";
+	public static string questName;
+	public static int questID;
+	public static int questPart;
+	public static int questScene;
+	public static string questDesc;
+	public static string questType;
+	public static int questState;
+	public GameObject[] quests;
+	private Quest currentQuest;
 
-	public static void Prologue()
+	public void Start()
 	{
-		questName = "Prologue";
-		questID = 1;
-		questPart = 1;
-		questDesc = "You've awoken on an unknown ship in an unknown place. Time to find some answers.";
+		//Quest.player = playerShip;
+		//Quest.Prologue.OnQuestSet();
+		SetQuest(0);
+	}
+
+	protected void SetQuest(int idToSet)
+	{
+		for (int i = 0; i < quests.Length; i++)
+		{
+			if (i == idToSet)
+			{
+				quests[idToSet].SetActive(true);
+				currentQuest = quests[idToSet].GetComponent<Quest>();
+				GetData();
+			}
+			else
+			{
+				quests[i].SetActive(false);
+			}
+		}
+	}
+	public void GetData()
+	{
+		questName = currentQuest.questName;
+		questID = currentQuest.questID;
+		questPart = currentQuest.questPart;
+		questScene = currentQuest.questScene;
+		questDesc = currentQuest.questDesc;
+		questType = currentQuest.questType;
+		questState = currentQuest.questState;
 	}
 }

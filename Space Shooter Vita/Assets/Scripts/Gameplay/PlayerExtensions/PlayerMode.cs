@@ -8,15 +8,21 @@ public class PlayerMode : MonoBehaviour
 	PlayerMovementClassic moveClassic;
 	PlayerMovementAlt moveNormal;
 	SpriteRenderer playerSprite;
+	public Sprite[] sprites;
 
 	void Start()
 	{
-		playerSprite = this.GetComponent<SpriteRenderer>();
+		playerSprite = this.gameObject.GetComponent<SpriteRenderer>();
 		moveClassic = this.GetComponent<PlayerMovementClassic>();
 		moveNormal = this.GetComponent<PlayerMovementAlt>();
 		camControl = GameObject.Find("Cameras").GetComponent<CameraSwitcher>();
 		TwinStick();
 	}
+
+/*	private void Update()
+	{
+		Debug.Log("SPRITE: " + playerSprite.sprite);
+	}*/
 
 	public void SideScroller()
 	{
@@ -26,6 +32,8 @@ public class PlayerMode : MonoBehaviour
 		moveNormal.enabled = false;
 		CameraSwitcher.cameraReturnTo = 1;
 		camControl.ReloadCams();
+		playerSprite.sprite = sprites[1];
+		Debug.Log("sprite: " + playerSprite.sprite + " array: " + sprites[1] + " " + sprites[0] + " this " + this.gameObject);
 	}
 
 	public void TwinStick()
@@ -34,6 +42,7 @@ public class PlayerMode : MonoBehaviour
 		moveNormal.enabled = true;
 		CameraSwitcher.cameraReturnTo = 0;
 		camControl.ReloadCams();
+		playerSprite.sprite = sprites[0];
 	}
 
 	public void Classic()
@@ -44,5 +53,6 @@ public class PlayerMode : MonoBehaviour
 		moveNormal.enabled = false;
 		CameraSwitcher.cameraReturnTo = 1;
 		camControl.ReloadCams();
+		playerSprite.sprite = sprites[0];
 	}
 }

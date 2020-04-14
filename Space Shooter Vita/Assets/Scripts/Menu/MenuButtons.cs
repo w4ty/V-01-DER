@@ -30,7 +30,6 @@ public class MenuButtons : MonoBehaviour
 		else
 		{
 			SceneManager.LoadScene("Gameplay_Battle");
-			QuestHandler.Prologue();
 		}
 	}
 	public void LoadSave()

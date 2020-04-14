@@ -16,7 +16,7 @@ public class SetTarget : MonoBehaviour
 	static public string buildType = "alpha";
 	static public string buildName = "";
 	static public int versionGeneration = 1;
-	static public int versionMajor = 4;
+	static public int versionMajor = 5;
 	static public int versionMinor = 4;
 	static public int versionType = 4;
 	static public string versionActual = string.Format("{0}.{1}.{2}.{3}", versionGeneration, versionMajor, versionMinor, versionType);

@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerDeath : MonoBehaviour
 {
 	private DamageHandler damageHandlerComp;
+
+
 	void Start()
 	{
 		damageHandlerComp = this.GetComponent<DamageHandler>();
