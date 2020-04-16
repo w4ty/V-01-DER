@@ -7,6 +7,7 @@ public class PlayerMode : MonoBehaviour
 	CameraSwitcher camControl;
 	PlayerMovementClassic moveClassic;
 	PlayerMovementAlt moveNormal;
+	PlayerMovementCinematic moveCinematic;
 	SpriteRenderer playerSprite;
 	public Sprite[] sprites;
 
@@ -15,6 +16,7 @@ public class PlayerMode : MonoBehaviour
 		playerSprite = this.gameObject.GetComponent<SpriteRenderer>();
 		moveClassic = this.GetComponent<PlayerMovementClassic>();
 		moveNormal = this.GetComponent<PlayerMovementAlt>();
+		moveCinematic = this.GetComponent<PlayerMovementCinematic>();
 		camControl = GameObject.Find("Cameras").GetComponent<CameraSwitcher>();
 		TwinStick();
 	}
@@ -23,6 +25,16 @@ public class PlayerMode : MonoBehaviour
 	{
 		Debug.Log("SPRITE: " + playerSprite.sprite);
 	}*/
+
+	public void Cinematic()
+	{
+		moveClassic.enabled = false;
+		moveNormal.enabled = false;
+		moveCinematic.enabled = true;
+		CameraSwitcher.cameraReturnTo = 1;
+		camControl.ReloadCams();
+		playerSprite.sprite = sprites[0];
+	}
 
 	public void SideScroller()
 	{

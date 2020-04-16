@@ -65,7 +65,7 @@ public class DialogueManager : MonoBehaviour
 		if (characterName != "")
 		{
 			GameObject character = GameObject.Find(characterName);
-			SpriteRenderer currSprite = character.GetComponent<SpriteRenderer>();
+			Image currSprite = character.GetComponent<Image>();
 			currSprite.sprite = null;
 		}
 	}
@@ -101,7 +101,7 @@ public class DialogueManager : MonoBehaviour
 
 			SetSpritePositions(character);
 
-			SpriteRenderer currSprite = character.GetComponent<SpriteRenderer>();
+			Image currSprite = character.GetComponent<Image>();
 
 			currSprite.sprite = character.GetComponent<Character>().characterPoses[pose];
 
@@ -112,11 +112,11 @@ public class DialogueManager : MonoBehaviour
 	{
 		if (position == "L")
 		{
-			spriteObj.transform.position = new Vector3(-6, -2, 0);
+			spriteObj.transform.position = new Vector2(215, 351);
 		}
 		else if (position == "R")
 		{
-			spriteObj.transform.position = new Vector3(6, -2, 0);
+			spriteObj.transform.position = new Vector2(1422, 251);
 		}
 
 	}

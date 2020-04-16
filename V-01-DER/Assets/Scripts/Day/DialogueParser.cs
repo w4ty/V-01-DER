@@ -35,7 +35,7 @@ public class DialogueParser : MonoBehaviour
 
 	void LoadFile()
 	{
-		string file = SetTarget.dialDataPath + SetTarget.lang + "/" + QuestHandler.questID + "_scene" + QuestHandler.questScene + "_0.txt";
+		string file = SetTarget.dialDataPath + SetTarget.lang + "/" + QuestHandler.Instance.questID + "_scene" + QuestHandler.Instance.questScene + "_0.txt";
 		//string sceneNum = SceneManager.GetActiveScene().name;
 		//sceneNum = Regex.Replace(sceneNum, "[^0-9]", "");
 		//file += sceneNum;

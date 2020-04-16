@@ -4,20 +4,24 @@ using UnityEngine;
 
 public class QuestHandler : MonoBehaviour
 {
-	public static string questName;
-	public static int questID;
-	public static int questPart;
-	public static int questScene;
-	public static string questDesc;
-	public static string questType;
-	public static int questState;
+	public static QuestHandler Instance;
+	public string questName;
+	public int questID;
+	public int questPart;
+	public int questScene;
+	public string questDesc;
+	public string questType;
+	public int questState;
 	public GameObject[] quests;
 	private Quest currentQuest;
 
-	public void Start()
+	private void Awake()
 	{
-		//Quest.player = playerShip;
-		//Quest.Prologue.OnQuestSet();
+		Instance = this;
+	}
+
+	private void Start()
+	{
 		SetQuest(0);
 	}
 

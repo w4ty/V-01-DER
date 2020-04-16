@@ -56,8 +56,8 @@ public class InfoMenu : MonoBehaviour
 		isHidden = false;
 		menuBG.GetComponent<UniversalFillAnim>().CallAnimations(0);
 		visualGroup.SetActive(true);
-		infoBar.text = QuestHandler.questName + " pt. " + QuestHandler.questPart + ".";
-		infoDesc.text = QuestHandler.questDesc;
+		infoBar.text = QuestHandler.Instance.questName + " pt. " + QuestHandler.Instance.questPart + ".";
+		infoDesc.text = QuestHandler.Instance.questDesc;
 		dummyButton.interactable = false;
 		buttonContinue.interactable = true;
 		buttonQuit.interactable = true;
