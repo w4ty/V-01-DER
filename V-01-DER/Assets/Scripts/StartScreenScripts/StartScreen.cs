@@ -11,9 +11,10 @@ using System.IO;
 
 public class StartScreen : MonoBehaviour
 {
+	public UniversalFillAnim bar;
 	public GameObject overlapEffectImage;
 	public GameObject logoObject;
-	public GameObject infoText;
+	 public GameObject infoText;
 	public GameObject startButton;
 	public GameObject loadingIcon;
 	public GameObject checkFilesText;
@@ -43,7 +44,9 @@ public class StartScreen : MonoBehaviour
 		StartCoroutine(MoveLogo());
 		startButton.SetActive(false);
 		loadingIcon.SetActive(true);
-		infoText.GetComponent<Text>().text = "Welcome to the Void!";
+		bar.CallAnimations(1);
+		infoText.SetActive(false);
+		//infoText.GetComponent<Text>().text = "Welcome to the Void!";
 		//DownloadNews();
 		StartCoroutine(CheckFiles(SetTarget.universalPath));
 	}

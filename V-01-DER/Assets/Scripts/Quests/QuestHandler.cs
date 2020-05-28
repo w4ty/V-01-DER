@@ -22,7 +22,7 @@ public class QuestHandler : MonoBehaviour
 
 	private void Start()
 	{
-		SetQuest(0);
+	//	SetQuest(0);
 	}
 
 	protected void SetQuest(int idToSet)

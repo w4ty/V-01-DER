@@ -9,13 +9,13 @@ public class CameraFollow : MonoBehaviour
 	public float followSpeed = 5f;
 	Vector3 targPos;
 
-	void Update ()
+	void FixedUpdate ()
 	{
 		if(Target != null)
 		{
 			targPos = Target.position;
 			targPos.z = transform.position.z;
-			transform.position = Vector3.Lerp(transform.position, targPos, followSpeed);
+			transform.position = Vector3.Lerp(transform.position, targPos, Time.deltaTime * followSpeed);
 		}
 	}
 }

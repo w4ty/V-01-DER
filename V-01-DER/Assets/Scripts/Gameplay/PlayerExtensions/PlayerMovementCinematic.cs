@@ -11,8 +11,8 @@ public class PlayerMovementCinematic : MonoBehaviour
 
 	public void Start()
 	{
-		StartCoroutine(RotatePlayer(270, 1));
-		StartCoroutine(MoveForward(100, 0.1f));
+	//	StartCoroutine(RotatePlayer(270, 1));
+	//	StartCoroutine(MoveForward(100, 0.1f));
 	}
 
 	public IEnumerator MoveForward(int dist, float speed) 
