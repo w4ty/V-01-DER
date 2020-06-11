@@ -1,0 +1,242 @@
+-debug
+-target:library
+-nowarn:0169
+-langversion:4
+-out:Temp/Assembly-CSharp.dll
+-nostdlib
+-unsafe
+-r:"C:\Program Files\Unity\Editor\Data\PlaybackEngines\PSP2Player/Tools/UnityEngine.dll"
+-r:"C:\Program Files\Unity\Editor\Data\PlaybackEngines\PSP2Player/Tools/UnityEngine.AIModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\PlaybackEngines\PSP2Player/Tools/UnityEngine.ARModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\PlaybackEngines\PSP2Player/Tools/UnityEngine.AccessibilityModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\PlaybackEngines\PSP2Player/Tools/UnityEngine.AnimationModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\PlaybackEngines\PSP2Player/Tools/UnityEngine.AssetBundleModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\PlaybackEngines\PSP2Player/Tools/UnityEngine.AudioModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\PlaybackEngines\PSP2Player/Tools/UnityEngine.BaselibModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\PlaybackEngines\PSP2Player/Tools/UnityEngine.ClothModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\PlaybackEngines\PSP2Player/Tools/UnityEngine.CloudWebServicesModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\PlaybackEngines\PSP2Player/Tools/UnityEngine.CoreModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\PlaybackEngines\PSP2Player/Tools/UnityEngine.DirectorModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\PlaybackEngines\PSP2Player/Tools/UnityEngine.FacebookModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\PlaybackEngines\PSP2Player/Tools/UnityEngine.FileSystemHttpModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\PlaybackEngines\PSP2Player/Tools/UnityEngine.GameCenterModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\PlaybackEngines\PSP2Player/Tools/UnityEngine.GridModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\PlaybackEngines\PSP2Player/Tools/UnityEngine.HotReloadModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\PlaybackEngines\PSP2Player/Tools/UnityEngine.IMGUIModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\PlaybackEngines\PSP2Player/Tools/UnityEngine.ImageConversionModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\PlaybackEngines\PSP2Player/Tools/UnityEngine.InputModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\PlaybackEngines\PSP2Player/Tools/UnityEngine.JSONSerializeModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\PlaybackEngines\PSP2Player/Tools/UnityEngine.LocalizationModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\PlaybackEngines\PSP2Player/Tools/UnityEngine.PSVitaModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\PlaybackEngines\PSP2Player/Tools/UnityEngine.ParticleSystemModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\PlaybackEngines\PSP2Player/Tools/UnityEngine.ParticlesLegacyModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\PlaybackEngines\PSP2Player/Tools/UnityEngine.PerformanceReportingModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\PlaybackEngines\PSP2Player/Tools/UnityEngine.PhysicsModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\PlaybackEngines\PSP2Player/Tools/UnityEngine.Physics2DModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\PlaybackEngines\PSP2Player/Tools/UnityEngine.ProfilerModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\PlaybackEngines\PSP2Player/Tools/UnityEngine.ScreenCaptureModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\PlaybackEngines\PSP2Player/Tools/UnityEngine.SharedInternalsModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\PlaybackEngines\PSP2Player/Tools/UnityEngine.SpriteMaskModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\PlaybackEngines\PSP2Player/Tools/UnityEngine.SpriteShapeModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\PlaybackEngines\PSP2Player/Tools/UnityEngine.StreamingModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\PlaybackEngines\PSP2Player/Tools/UnityEngine.StyleSheetsModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\PlaybackEngines\PSP2Player/Tools/UnityEngine.SubstanceModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\PlaybackEngines\PSP2Player/Tools/UnityEngine.TLSModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\PlaybackEngines\PSP2Player/Tools/UnityEngine.TerrainModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\PlaybackEngines\PSP2Player/Tools/UnityEngine.TerrainPhysicsModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\PlaybackEngines\PSP2Player/Tools/UnityEngine.TextRenderingModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\PlaybackEngines\PSP2Player/Tools/UnityEngine.TilemapModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\PlaybackEngines\PSP2Player/Tools/UnityEngine.TimelineModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\PlaybackEngines\PSP2Player/Tools/UnityEngine.UIModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\PlaybackEngines\PSP2Player/Tools/UnityEngine.UIElementsModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\PlaybackEngines\PSP2Player/Tools/UnityEngine.UNETModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\PlaybackEngines\PSP2Player/Tools/UnityEngine.UmbraModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\PlaybackEngines\PSP2Player/Tools/UnityEngine.UnityAnalyticsModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\PlaybackEngines\PSP2Player/Tools/UnityEngine.UnityConnectModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\PlaybackEngines\PSP2Player/Tools/UnityEngine.UnityWebRequestModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\PlaybackEngines\PSP2Player/Tools/UnityEngine.UnityWebRequestAssetBundleModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\PlaybackEngines\PSP2Player/Tools/UnityEngine.UnityWebRequestAudioModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\PlaybackEngines\PSP2Player/Tools/UnityEngine.UnityWebRequestTextureModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\PlaybackEngines\PSP2Player/Tools/UnityEngine.UnityWebRequestWWWModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\PlaybackEngines\PSP2Player/Tools/UnityEngine.VRModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\PlaybackEngines\PSP2Player/Tools/UnityEngine.VehiclesModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\PlaybackEngines\PSP2Player/Tools/UnityEngine.VideoModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\PlaybackEngines\PSP2Player/Tools/UnityEngine.WindModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\PlaybackEngines\PSP2Player/Tools/UnityEngine.XRModule.dll"
+-r:"C:\Program Files\Unity\Editor\Data\Managed/UnityEditor.dll"
+-r:"C:\Program Files\Unity\Editor\Data\Managed/Unity.Locator.dll"
+-r:Library/ScriptAssemblies/UnityEditor.StandardEvents.dll
+-r:Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll
+-r:Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll
+-r:Library/ScriptAssemblies/Unity.TextMeshPro.dll
+-r:"C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll"
+-r:"C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Timeline/RuntimeEditor/UnityEngine.Timeline.dll"
+-r:"C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll"
+-r:"C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityGoogleAudioSpatializer/RuntimeEditor/UnityEngine.GoogleAudioSpatializer.dll"
+-r:"C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll"
+-r:"C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll"
+-r:C:/Users/Admin/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.16/UnityEngine.Analytics.dll
+-r:C:/Users/Admin/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.13/UnityEngine.StandardEvents.dll
+-r:"C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\lib\mono\unity\mscorlib.dll"
+-r:"C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\lib\mono\unity\System.dll"
+-r:"C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\lib\mono\unity\System.Core.dll"
+-r:"C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\lib\mono\unity\System.Runtime.Serialization.dll"
+-r:"C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\lib\mono\unity\System.Xml.dll"
+-r:"C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\lib\mono\unity\System.Xml.Linq.dll"
+-r:"C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\lib\mono\unity\UnityScript.dll"
+-r:"C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\lib\mono\unity\UnityScript.Lang.dll"
+-r:"C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\lib\mono\unity\Boo.Lang.dll"
+-define:UNITY_5_3_OR_NEWER
+-define:UNITY_5_4_OR_NEWER
+-define:UNITY_5_5_OR_NEWER
+-define:UNITY_5_6_OR_NEWER
+-define:UNITY_2017_1_OR_NEWER
+-define:UNITY_2017_2_OR_NEWER
+-define:UNITY_2017_3_OR_NEWER
+-define:UNITY_2017_4_OR_NEWER
+-define:UNITY_2018_1_OR_NEWER
+-define:UNITY_2018_2_OR_NEWER
+-define:UNITY_2018_2_19
+-define:UNITY_2018_2
+-define:UNITY_2018
+-define:ENABLE_AUDIO
+-define:ENABLE_CLOTH
+-define:ENABLE_MULTIPLE_DISPLAYS
+-define:ENABLE_PHYSICS
+-define:ENABLE_SPRITES
+-define:ENABLE_GRID
+-define:ENABLE_TILEMAP
+-define:ENABLE_TERRAIN
+-define:ENABLE_TEXTURE_STREAMING
+-define:ENABLE_DIRECTOR
+-define:ENABLE_UNET
+-define:ENABLE_LZMA
+-define:ENABLE_UNITYEVENTS
+-define:ENABLE_CLOUD_SERVICES_COLLAB
+-define:ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS
+-define:ENABLE_CLOUD_HUB
+-define:ENABLE_CLOUD_PROJECT_ID
+-define:ENABLE_CLOUD_SERVICES_USE_WEBREQUEST
+-define:ENABLE_CLOUD_SERVICES_UNET
+-define:ENABLE_CLOUD_SERVICES_BUILD
+-define:ENABLE_CLOUD_LICENSE
+-define:ENABLE_EDITOR_HUB
+-define:ENABLE_EDITOR_HUB_LICENSE
+-define:ENABLE_WEBSOCKET_CLIENT
+-define:ENABLE_DIRECTOR_AUDIO
+-define:ENABLE_DIRECTOR_TEXTURE
+-define:ENABLE_TIMELINE
+-define:ENABLE_EDITOR_METRICS
+-define:ENABLE_EDITOR_METRICS_CACHING
+-define:ENABLE_MANAGED_JOBS
+-define:ENABLE_MANAGED_TRANSFORM_JOBS
+-define:ENABLE_MANAGED_ANIMATION_JOBS
+-define:INCLUDE_DYNAMIC_GI
+-define:INCLUDE_GI
+-define:ENABLE_MONO_BDWGC
+-define:PLATFORM_SUPPORTS_MONO
+-define:RENDER_SOFTWARE_CURSOR
+-define:INCLUDE_PUBNUB
+-define:ENABLE_PACKMAN
+-define:ENABLE_CUSTOM_RENDER_TEXTURE
+-define:ENABLE_LOCALIZATION
+-define:PLATFORM_PSVITA
+-define:UNITY_PSP2
+-define:UNITY_PSP2_API
+-define:UNITY_GFX_USE_PLATFORM_VSYNC
+-define:ENABLE_AUDIO_MANAGER_BASED_SCHEDULING
+-define:ENABLE_MICROPHONE
+-define:ENABLE_EVENT_QUEUE
+-define:ENABLE_NETWORK
+-define:ENABLE_WEBCAM
+-define:ENABLE_WWW
+-define:ENABLE_CRUNCH_TEXTURE_COMPRESSION
+-define:ENABLE_LOG_MIXED_STACKTRACE
+-define:ENABLE_UNITYWEBREQUEST
+-define:ENABLE_MONO
+-define:NET_2_0_SUBSET
+-define:ENABLE_PROFILER
+-define:DEBUG
+-define:TRACE
+-define:UNITY_ASSERTIONS
+-define:UNITY_EDITOR
+-define:UNITY_EDITOR_64
+-define:UNITY_EDITOR_WIN
+-define:ENABLE_UNITY_COLLECTIONS_CHECKS
+-define:ENABLE_BURST_AOT
+-define:UNITY_TEAM_LICENSE
+-define:UNITY_PRO_LICENSE
+-define:UNITY_POST_PROCESSING_STACK_V2
+"Assets/Advanced INI Parser/INIParser.cs"
+Assets/FastMobileBloom/FastMobileBloom.cs
+Assets/Scripts/Additions/SimpleMath.cs
+Assets/Scripts/Camera/CameraControl.cs
+Assets/Scripts/Camera/CameraFollow.cs
+Assets/Scripts/Camera/CameraFree.cs
+Assets/Scripts/Camera/CameraSwitcher.cs
+Assets/Scripts/Day/Character.cs
+Assets/Scripts/Day/ChoiceButton.cs
+Assets/Scripts/Day/ClearButtonOnStart.cs
+Assets/Scripts/Day/DialogueManager.cs
+Assets/Scripts/Day/DialogueParser.cs
+Assets/Scripts/Day/InfoMenu.cs
+Assets/Scripts/Day/LocationButtons.cs
+Assets/Scripts/Day/ShowPath.cs
+Assets/Scripts/Gameplay/ActiveObjectStats.cs
+Assets/Scripts/Gameplay/BarHandler.cs
+Assets/Scripts/Gameplay/BulletDMGHandler.cs
+Assets/Scripts/Gameplay/CrosshairAim.cs
+Assets/Scripts/Gameplay/DamageHandler.cs
+Assets/Scripts/Gameplay/EnemyAIExtended/TurretAI.cs
+Assets/Scripts/Gameplay/EnemyFire.cs
+Assets/Scripts/Gameplay/EnemySpawn.cs
+Assets/Scripts/Gameplay/FacePlayer.cs
+Assets/Scripts/Gameplay/GhostHpBar.cs
+Assets/Scripts/Gameplay/HpHandler.cs
+Assets/Scripts/Gameplay/KillSwitch.cs
+Assets/Scripts/Gameplay/LevelUpAnim.cs
+Assets/Scripts/Gameplay/MoveForward.cs
+Assets/Scripts/Gameplay/PlayerDeath.cs
+Assets/Scripts/Gameplay/PlayerExtensions/AfterimageAnimation.cs
+Assets/Scripts/Gameplay/PlayerExtensions/DashHandler.cs
+Assets/Scripts/Gameplay/PlayerExtensions/PlayerMode.cs
+Assets/Scripts/Gameplay/PlayerExtensions/PlayerMovementCinematic.cs
+Assets/Scripts/Gameplay/PlayerExtensions/PlayerMovementClassic.cs
+Assets/Scripts/Gameplay/PlayerFire.cs
+Assets/Scripts/Gameplay/playerMovement.cs
+Assets/Scripts/Gameplay/PlayerMovementAlt.cs
+Assets/Scripts/Gameplay/PlayerStatistics.cs
+Assets/Scripts/Gameplay/PreparationHandler.cs
+Assets/Scripts/Gameplay/RandomSpawn.cs
+Assets/Scripts/Gameplay/SelfDestruct.cs
+Assets/Scripts/Gameplay/Specific/EnemyLeveling.cs
+Assets/Scripts/Gameplay/Specific/Explosion.cs
+Assets/Scripts/Gameplay/Specific/ExplosiveBeh.cs
+Assets/Scripts/Gameplay/TransformExtension.cs
+Assets/Scripts/Menu/alpha_ChangeLevel.cs
+Assets/Scripts/Menu/MenuButtons.cs
+Assets/Scripts/Menu/UniversalFillAnim.cs
+Assets/Scripts/Menu/VersionText.cs
+Assets/Scripts/MISC_/AccentColor.cs
+Assets/Scripts/MISC_/EngineSettings.cs
+Assets/Scripts/MISC_/Pause.cs
+Assets/Scripts/MISC_/SetTarget.cs
+Assets/Scripts/MISC_/ShowFPS.cs
+Assets/Scripts/Openworld/BattleHandler.cs
+Assets/Scripts/Openworld/BattleRewards.cs
+Assets/Scripts/Openworld/BattleSystem.cs
+Assets/Scripts/Openworld/InventoryHandler.cs
+Assets/Scripts/Openworld/LocationHandler.cs
+Assets/Scripts/Openworld/OpenworldSet.cs
+Assets/Scripts/Openworld/PlanetSprites.cs
+Assets/Scripts/Openworld/RandomizedMusic.cs
+Assets/Scripts/Openworld/SwitchHandler.cs
+Assets/Scripts/Openworld/WorldAction.cs
+Assets/Scripts/Quests/Quest.cs
+Assets/Scripts/Quests/Quest0.cs
+Assets/Scripts/Quests/Quest1.cs
+Assets/Scripts/Quests/QuestHandler.cs
+Assets/Scripts/SaveLoad/LoadGame.cs
+Assets/Scripts/SaveLoad/SaveGame.cs
+Assets/Scripts/SaveLoad/TransferLoadData.cs
+Assets/Scripts/StartScreenScripts/StartScreen.cs

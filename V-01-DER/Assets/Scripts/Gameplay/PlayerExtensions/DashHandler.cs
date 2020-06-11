@@ -12,6 +12,7 @@ public class DashHandler : MonoBehaviour
 	GameObject dashObj;
 	Image dashBar;
 	public bool canDash;
+	public GameObject afterImage;
 
 	private void Start()
 	{
@@ -32,6 +33,17 @@ public class DashHandler : MonoBehaviour
 		InvFrames();
 	}
 
+	public void SetAfterImage(Vector2[] positions, Quaternion rotation)
+	{
+		for (int i = 0; i < positions.Length; i++)
+		{
+
+			GameObject temp = Instantiate(afterImage);
+			temp.transform.position = positions[i];
+			temp.transform.rotation = rotation;
+		}
+	}
+
 	void FixedUpdate()
 	{
 		//Debug.Log("Layer: " + gameObject.layer + " " + invTimer);
@@ -50,6 +62,7 @@ public class DashHandler : MonoBehaviour
 			if (invTimer > 0)
 			{
 				invTimer -= Time.deltaTime;
+
 			}
 			else if (invState == true)
 			{

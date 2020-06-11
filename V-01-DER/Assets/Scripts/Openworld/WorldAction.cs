@@ -72,7 +72,7 @@ public class WorldAction : MonoBehaviour
 			Button b = button.GetComponent<Button>();
 			b.Select();
 			b.transform.SetParent(buttonCanvas.transform);
-			b.transform.localPosition = new Vector3(416, 0 + (i * -32));
+			b.transform.localPosition = new Vector3(386, 0 + (i * -32));
 			b.transform.localScale = new Vector3(1, 1, 1);
 			buttons.Add(b);
 		//	Debug.LogWarning("BUTTONS: " + buttons.Count);

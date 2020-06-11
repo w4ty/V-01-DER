@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -24,6 +25,7 @@ public class BattleSystem : MonoBehaviour
 	void Start()
 	{
 		objectiveText = GameObject.Find("objectiveText").GetComponent<Text>();
+		//objectiveText.text = "Battle objectives: \n";
 	}
 
 	public void GetObjectives(string path)
@@ -58,7 +60,7 @@ public class BattleSystem : MonoBehaviour
 	public void UpdateObjective()
 	{
 		textArray = new string[objectiveAmount];
-		objectiveText.text = "";
+		objectiveText.text = "Battle objectives: \n";
 		for (int objA = 0; objA < objectiveAmount; objA++)
 		{
 			textArray[objA] = string.Format("Destroy {0} {1}/{2}\n", objToDestroy[objA], objPlayerDone[objA], objAmountToDestroy[objA]);
@@ -84,11 +86,14 @@ public class BattleSystem : MonoBehaviour
 			Debug.Log(string.Format("All done? {0}", allDone));
 			if (allDone == true)
 			{
+				allDone = false;
+				Array.Clear(objectiveDone, 0, objectiveDone.Length);
 				Pause.pauseOn = true;
 				endBattleGroup.SetActive(true);
 				endBattleGroup.GetComponentInChildren<Button>().Select();
 				KillChildren();
 				this.GetComponent<BattleRewards>().DropLoot(matiaz.ReadValue("Rewards", "BonusItemTable", 0), matiaz.ReadValue("Rewards", "BonusExp", 0));
+				Debug.Log("EXP " + matiaz.ReadValue("Rewards", "BonusExp", 0));
 			}
 		}
 	}

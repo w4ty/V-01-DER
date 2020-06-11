@@ -14,7 +14,7 @@ public class LocationHandler : MonoBehaviour
 	public int locationID;
 	int tempLocID;
 	public Text locationText;
-	public Text locationStatus;
+	//public Text locationStatus;
 	string filePath;
 	static public int selectedLoc;
 	public int locationType;
@@ -31,7 +31,7 @@ public class LocationHandler : MonoBehaviour
 	void Start()
 	{
 		locationText = GameObject.Find("location_text").GetComponent<Text>();
-		locationStatus = GameObject.Find("locationtype_text").GetComponent<Text>();
+		//locationStatus = GameObject.Find("locationtype_text").GetComponent<Text>();
 		worldMaster = GameObject.Find("WorldMaster");
 		locBG = GameObject.Find("locBG");
 		planetSaveData.Open(SetTarget.saveDataPath + "planetdata.ini");
@@ -56,11 +56,11 @@ public class LocationHandler : MonoBehaviour
 		locationText.text = planetActualData.ReadValue("Planet" + tempLocID, "name", "err");
 		if (planetSaveData.ReadValue("Planet" + tempLocID, "planetctrl", -1) >= 0)
 		{
-			locationStatus.text = "Location control: " + planetSaveData.ReadValue("Planet" + tempLocID, "planetctrl", -1) + "%";
+			//locationStatus.text = "Location control: " + planetSaveData.ReadValue("Planet" + tempLocID, "planetctrl", -1) + "%";
 		}
 		else
 		{
-			locationStatus.text = "";
+			//locationStatus.text = "";
 		}
 	}
 
@@ -70,7 +70,7 @@ public class LocationHandler : MonoBehaviour
 		bgFill.CallAnimations(1);
 		planetSaveData.Close();
 		locationText.text = "";
-		locationStatus.text = "";
+		//locationStatus.text = "";
 		WorldAction.onLocation = false;
 		tempLocID = 0;
 		GetLocation();

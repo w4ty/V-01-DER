@@ -26,8 +26,8 @@ public class BarHandler : MonoBehaviour
 		if (pShip)
 		{
 			this.GetComponent<Image>().fillAmount = pStats.currentXP / pStats.nextXP;
-			text.text = string.Format("exp {0}/{1}", pStats.currentXP, pStats.nextXP);
-			level.text = string.Format("level {0}", pStats.shipLVL);
+			text.text = string.Format("EXP {0}/{1}", pStats.currentXP, pStats.nextXP);
+			level.text = string.Format("LEVEL {0}", pStats.shipLVL);
 		}
 		//Debug.Log(this.GetComponent<Image>().fillAmount + "/" + pShip.GetComponent<PlayerStatistics>().currentXP / pShip.GetComponent<PlayerStatistics>().nextXP);
 	}

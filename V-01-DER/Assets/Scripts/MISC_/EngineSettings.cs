@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class EngineSettings : MonoBehaviour
 {
-	void Update()
+	void Awake()
 	{
 		// Value controls vSync
 		QualitySettings.vSyncCount = 0;
 		// Value controls the max FPS
-		Application.targetFrameRate = 999;
+		Application.targetFrameRate = 288;
 	}
 }

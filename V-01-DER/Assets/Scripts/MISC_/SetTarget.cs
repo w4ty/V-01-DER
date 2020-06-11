@@ -7,13 +7,13 @@ public class SetTarget : MonoBehaviour
 	static public string controllerName;
 	static public string lang = "English";
 	static public int maxUnits;
-	static public string targetPlatform = "windows";
+	static public string targetPlatform = "Windows";
 	static public string saveDataPath;
 	static public string worldDataPath;
 	static public string universalPath;
 	static public string webDataPath;
 	static public string dialDataPath;
-	static public string buildType = "alpha";
+	static public string buildType = "Alpha";
 	static public string buildName = "";
 	static public int versionGeneration = 1;
 	static public int versionMajor = 5;
@@ -30,7 +30,7 @@ public class SetTarget : MonoBehaviour
 	{
 		switch (targetPlatform)
 		{
-			case "windows":
+			case "Windows":
 				controllerName = "keyboard";
 				maxUnits = 100;
 				universalPath = Application.dataPath + "/StreamingAssets/";

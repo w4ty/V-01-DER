@@ -1,6 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using System.Net.Sockets;
 using UnityEngine;
+using UnityEngine.Experimental.UIElements;
 using UnityEngine.UI;
 
 public class PlayerMovementAlt : MonoBehaviour
@@ -10,6 +13,9 @@ public class PlayerMovementAlt : MonoBehaviour
 	static public float minYCoordinate;
 	static public float maxXCoordinate;
 	static public float minXCoordinate;
+	public Vector2[] positions;
+	public Quaternion rotationAfter;
+	float positionMultiplier;
 	public Text xyText;
 	DashHandler dash;
 
@@ -44,7 +50,15 @@ public class PlayerMovementAlt : MonoBehaviour
 			if (Input.GetButton("L1") && dash.canDash == true && Mathf.Abs(lh) + Mathf.Abs(lv) != 0)
 			{
 				Move = new Vector2(lh * 2.5f, lv * 2.5f);
+				rotationAfter = transform.rotation;
+				positionMultiplier = 0.5f;
 				dash.SetCooldown();
+				for (int i = 0; i < 5; i++)
+				{
+					positions[i] = new Vector2(transform.position.x + Move.x * positionMultiplier, transform.position.y + Move.y * positionMultiplier);
+					positionMultiplier += 0.1f;
+				}
+				dash.SetAfterImage(positions, rotationAfter);
 			}
 
 			Vector2 temp = transform.position + Move;

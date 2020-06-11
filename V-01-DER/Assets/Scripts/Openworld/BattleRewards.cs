@@ -32,6 +32,7 @@ public class BattleRewards : MonoBehaviour
 		dropBgFill.CallAnimations(0);
 		StartCoroutine(CountExp(expAmount));
 		pStats.currentXP += expAmount;
+		Debug.Log("EXP2 " + expAmount);
 		boc.Open(string.Format("{0}DropTables/drop.ini", SetTarget.worldDataPath));
 		tableLength = boc.ReadValue(string.Format("Table{0}", tableId), "Table_Length", 0);
 		for (int t = 1; t <= tableLength; t++, slotToFill++)
@@ -76,7 +77,7 @@ public class BattleRewards : MonoBehaviour
 	{
 		for (int i = 0; i <= maxVal; i++)
 		{
-			xpAmountText.text = string.Format("+{0} exp", i);
+			xpAmountText.text = string.Format("+{0} EXP", i);
 			yield return new WaitForFixedUpdate();
 		}
 	}
@@ -96,6 +97,9 @@ public class BattleRewards : MonoBehaviour
 				break;
 			}
 		}
-		text.text = string.Format("{0} {1}", maxVal, name);
+		if (text != null)
+		{
+			text.text = string.Format("{0} {1}", maxVal, name);
+		}
 	}
 }
