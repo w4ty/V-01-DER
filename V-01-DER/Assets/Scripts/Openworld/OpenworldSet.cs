@@ -38,9 +38,9 @@ public class OpenworldSet : MonoBehaviour
 		LoadWorld();
 	}
 	
-	public void BattleStart (string battleType )
+	public void BattleStart (string battleType, int battleId, int battleDifficulty )
 	{
 			openWorldPlanets.SetActive(false);
-			this.GetComponent<BattleHandler>().PrepareBattle();
+			this.GetComponent<BattleHandler>().PrepareBattle(battleType, battleId, battleDifficulty);
 	}
 }
