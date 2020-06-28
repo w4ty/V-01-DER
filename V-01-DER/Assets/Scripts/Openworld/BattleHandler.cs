@@ -12,11 +12,14 @@ public class BattleHandler : MonoBehaviour
 	public BattleSystem battleSystem;
 	public GameObject enemyGroup;
 	public GameObject locationHud;
+	public float lastPosX;
+	public float lastPosY;
 
 	public GameObject[] spawnables;
 
 	void Start()
 	{
+		playerShip = GameObject.Find("Player_Ship_a");
 		locationHud = GameObject.Find("LocGroup");
 	}
 
@@ -27,7 +30,9 @@ public class BattleHandler : MonoBehaviour
 		ini.Open(SetTarget.worldDataPath + "Battles/" + battleType + "/Difficulty" + battleDifficulty + "/" + battleType + battleId + ".ini");
 		battleSystem.GetObjectives(ini.FileName);
 
-		GameObject.Find("Player_Ship_a").transform.position = new Vector3(ini.ReadValue("InitialProperties", "PlayerPosX", 1), ini.ReadValue("InitialProperties", "PlayerPosY", 1), 0);
+		lastPosX = playerShip.transform.position.x;
+		lastPosY = playerShip.transform.position.y;
+		playerShip.transform.position = new Vector3(ini.ReadValue("InitialProperties", "PlayerPosX", 1), ini.ReadValue("InitialProperties", "PlayerPosY", 1), 0);
 
 		PlayerMovementAlt.maxYCoordinate = ini.ReadValue("InitialProperties", "Border_Ymax", 1);
 		PlayerMovementAlt.maxXCoordinate = ini.ReadValue("InitialProperties", "Border_Xmax", 1);
@@ -53,6 +58,7 @@ public class BattleHandler : MonoBehaviour
 
 	public void EndBattle()
 	{
+		playerShip.transform.position = new Vector2(lastPosX, lastPosY);
 		PrepareHud(true);
 	}
 }

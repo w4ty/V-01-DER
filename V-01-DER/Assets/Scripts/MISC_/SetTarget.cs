@@ -1,10 +1,12 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class SetTarget : MonoBehaviour
 {
 	static public string controllerName;
+	static public string controllerExact;
 	static public string lang = "English";
 	static public int maxUnits;
 	static public string targetPlatform = "Windows";
@@ -13,12 +15,12 @@ public class SetTarget : MonoBehaviour
 	static public string universalPath;
 	static public string webDataPath;
 	static public string dialDataPath;
-	static public string buildType = "Alpha";
+	static public string buildType = Application.platform.ToString();
 	static public string buildName = "";
-	static public int versionGeneration = 1;
+	static public int versionGeneration = 0;
 	static public int versionMajor = 5;
-	static public int versionMinor = 4;
-	static public int versionType = 4;
+	static public int versionMinor = 5;
+	static public int versionType = 5;
 	static public string versionActual = string.Format("{0}.{1}.{2}.{3}", versionGeneration, versionMajor, versionMinor, versionType);
 
 	// SetTarget.cs explanation.
@@ -39,7 +41,7 @@ public class SetTarget : MonoBehaviour
 				webDataPath = Application.dataPath + "/StreamingAssets/WebData/";
 				dialDataPath = Application.dataPath + "/StreamingAssets/DialData/";
 				break;
-			case "psp2":
+			case "PSP2":
 				controllerName = "ps_generic";
 				maxUnits = 50;
 				universalPath = "ux0:data/V-01-DER/";
