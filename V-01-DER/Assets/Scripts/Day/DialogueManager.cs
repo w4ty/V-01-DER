@@ -14,6 +14,8 @@ public class DialogueManager : MonoBehaviour
 	string position;
 	string[] options;
 	int skip;
+	int evidenceAdd;
+	int nextEvent;
 	public static bool playerTalking;
 	public bool buttonClicked;
 	List<Button> buttons = new List<Button>();
@@ -22,7 +24,7 @@ public class DialogueManager : MonoBehaviour
 	public Text nameBox;
 	public GameObject choiceBox;
 
-	void Start()
+	void OnEnable()
 	{
 		/*dialogue = "";
 		characterName = "";
@@ -30,20 +32,35 @@ public class DialogueManager : MonoBehaviour
 		position = "L";
 		playerTalking = false;*/
 		parser = GameObject.Find("DialogueParser").GetComponent<DialogueParser>();
-		ShowDialogue();
-		lineNum = 1;
+		//ShowDialogue();
+		//lineNum = 1;
 	}
 	public void ContDialogue()
 	{
-		ShowDialogue();
-		lineNum += skip;
+		switch (nextEvent)
+		{
+			case (0):
+				Debug.Log("CASE 0");
+				EndDialogue();
+				break;
+			case (1):
+				lineNum += skip;
+				ShowDialogue(lineNum);
+
+				break;
+		}
 	}
-	void Update()
+
+	public void ButtonPress()
 	{
-		if (Input.GetButtonDown("Submit") && playerTalking == false && InfoMenu.isHidden == true)
+		if (playerTalking == false && InfoMenu.isHidden == true)
 		{
 			ContDialogue();
 		}
+	}
+
+	void Update()
+	{
 		if (playerTalking == true || InfoMenu.isHidden == false)
 		{
 			dummyButton.interactable = false;
@@ -55,18 +72,21 @@ public class DialogueManager : MonoBehaviour
 		}
 		UpdateUI();
 	}
-	public void ShowDialogue()
+	public void ShowDialogue(int lineNumber)
 	{
+		Pause.pauseOn = true;
+		lineNum = lineNumber;
 		ResetImages();
 		ParseLine();
 	}
 	void ResetImages()
 	{
-		if (characterName != "")
+		GameObject character = GameObject.Find(characterName);
+		if (characterName != "" && character.GetComponent<Character>().useSprites == true)
 		{
-			GameObject character = GameObject.Find(characterName);
 			Image currSprite = character.GetComponent<Image>();
 			currSprite.sprite = null;
+			currSprite.enabled = false;
 		}
 	}
 	void ParseLine()
@@ -79,15 +99,18 @@ public class DialogueManager : MonoBehaviour
 			pose = parser.GetPose(lineNum);
 			position = parser.GetPosition(lineNum);
 			skip = parser.GetSkip(lineNum);
+			evidenceAdd = parser.GetEvidence(lineNum);
+			nextEvent = parser.GetNextEvent(lineNum);
 			DisplayImages();
 		}
 		else
 		{
 			playerTalking = true;
-			characterName = "Kyo";
+			characterName = "Protagonist";
 			//dialogue = "What will you do?";
 			pose = 0;
 			position = "L";
+			skip = 0;
 			options = parser.GetOptions(lineNum);
 			CreateButtons();
 			DisplayImages();
@@ -95,13 +118,14 @@ public class DialogueManager : MonoBehaviour
 	}
 	void DisplayImages()
 	{
-		if (characterName != "")
+		GameObject character = GameObject.Find(characterName);
+		if (characterName != "" && character.GetComponent<Character>().useSprites == true)
 		{
-			GameObject character = GameObject.Find(characterName);
-
 			SetSpritePositions(character);
 
 			Image currSprite = character.GetComponent<Image>();
+
+			currSprite.enabled = true;
 
 			currSprite.sprite = character.GetComponent<Character>().characterPoses[pose];
 
@@ -112,7 +136,7 @@ public class DialogueManager : MonoBehaviour
 	{
 		if (position == "L")
 		{
-			spriteObj.transform.position = new Vector2(215, 351);
+			spriteObj.transform.position = new Vector2(110, 200);
 		}
 		else if (position == "R")
 		{
@@ -139,7 +163,7 @@ public class DialogueManager : MonoBehaviour
 	}
 	void UpdateUI()
 	{
-		if (!playerTalking)
+		if (playerTalking == false)
 		{
 			ClearButtons();
 		}
@@ -155,5 +179,10 @@ public class DialogueManager : MonoBehaviour
 			buttons.Remove(b);
 			Destroy(b.gameObject);
 		}
+	}
+	void EndDialogue()
+	{
+		Pause.pauseOn = false;
+		transform.parent.gameObject.SetActive(false);
 	}
 }

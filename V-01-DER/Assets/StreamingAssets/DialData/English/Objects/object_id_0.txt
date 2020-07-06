@@ -1,0 +1,4 @@
+Observations;It's a rock. They can be found in most locations in the Void.;0;R;1;1;1
+Player;Interact:line,2;Leave.:line,3
+Observations;You cannot interact with the rock in any meaningful way.;0;R;1;1;0
+Observations;You decided to leave the rock alone.;0;R;1;1;0

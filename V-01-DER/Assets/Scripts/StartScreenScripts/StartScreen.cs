@@ -14,7 +14,7 @@ public class StartScreen : MonoBehaviour
 	public UniversalFillAnim bar;
 	public GameObject overlapEffectImage;
 	public GameObject logoObject;
-	 public GameObject infoText;
+	public GameObject infoText;
 	public GameObject startButton;
 	public GameObject loadingIcon;
 	public GameObject checkFilesText;

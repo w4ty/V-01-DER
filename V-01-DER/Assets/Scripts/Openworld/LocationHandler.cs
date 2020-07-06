@@ -75,4 +75,9 @@ public class LocationHandler : MonoBehaviour
 		tempLocID = 0;
 		GetLocation();
 	}
+
+	public void AddSublocation(string subName)
+	{
+		locationText.text += string.Format(" - {0}", subName);
+	}
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
+	public bool useSprites;
 	public Sprite[] characterPoses = null;
 	public Color nameColorEditor;
 	static public Color nameColorScript;

@@ -29,18 +29,23 @@ public class OpenworldSet : MonoBehaviour
 		}
 	}
 
-	public void OpenWorldStart ()
+	public void OpenWorldStart()
 	{
 		this.GetComponent<BattleHandler>().EndBattle();
-		openWorldPlanets.SetActive(true);
+		SetPlanets(true);
 		WorldAction.worldName = worldName;
 		wINFO.Open(SetTarget.worldDataPath + "Worlds/" + worldName + "/Planets/planets.ini");
 		LoadWorld();
 	}
-	
-	public void BattleStart (string battleType, int battleId, int battleDifficulty )
+
+	public void BattleStart(string battleType, int battleId, int battleDifficulty)
 	{
-			openWorldPlanets.SetActive(false);
-			this.GetComponent<BattleHandler>().PrepareBattle(battleType, battleId, battleDifficulty);
+		SetPlanets(false);
+		this.GetComponent<BattleHandler>().PrepareBattle(battleType, battleId, battleDifficulty);
+	}
+
+	public void SetPlanets(bool setTo)
+	{
+		openWorldPlanets.SetActive(setTo);
 	}
 }

@@ -7,6 +7,7 @@ public class CameraSwitcher : MonoBehaviour
 	public GameObject menuCanvas;
 	public GameObject mainCamera;
 	public GameObject freeCamera;
+	public GameObject explorationCamera;
 	public GameObject classicCamera;
 	public GameObject playerShip;
 	int cooldown;
@@ -37,6 +38,7 @@ public class CameraSwitcher : MonoBehaviour
 		menuCanvas.SetActive(false);
 		mainCamera.SetActive(false);
 		classicCamera.SetActive(false);
+		explorationCamera.SetActive(false);
 		freeCamera.SetActive(true);
 		freeCamera.transform.position = new Vector3(playerShip.transform.position.x, playerShip.transform.position.y, -10);
 		screenshotEnabled = true;
@@ -58,10 +60,17 @@ public class CameraSwitcher : MonoBehaviour
 			case (0):
 				mainCamera.SetActive(true);
 				classicCamera.SetActive(false);
+				explorationCamera.SetActive(false);
 				break;
 			case (1):
 				mainCamera.SetActive(false);
 				classicCamera.SetActive(true);
+				explorationCamera.SetActive(false);
+				break;
+			case (2):
+				mainCamera.SetActive(false);
+				classicCamera.SetActive(false);
+				explorationCamera.SetActive(true);
 				break;
 		}
 	}

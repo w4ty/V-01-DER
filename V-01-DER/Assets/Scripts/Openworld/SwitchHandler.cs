@@ -19,14 +19,20 @@ public class SwitchHandler : MonoBehaviour
 				Debug.Log("case 0");
 				//button.GetComponent<Text>().text = ini.ReadValue("BUTTONID" + reqID, "text", "");
 				GameObject.Find("WorldMaster").GetComponent<WorldAction>().DoOutAnim();
+				ini.Close();
 				break;
 			case 101:
 				Debug.Log("case 101");
+				GameObject.Find("WorldMaster").GetComponent<WorldAction>().DestroyButtons();
+				GameObject.Find("WorldMaster").GetComponent<ExploreSet>().SetLocation(ini.ReadValue("Planet" + locID, "exname_id", -1));
+				GameObject.Find("WorldMaster").GetComponent<OpenworldSet>().SetPlanets(false);
+				ini.Close();
 				break;
 			case 401:
 				Debug.Log("case 401");
 				GameObject.Find("WorldMaster").GetComponent<WorldAction>().DestroyButtons();
 				GameObject.Find("WorldMaster").GetComponent<OpenworldSet>().BattleStart(ini.ReadValue("Planet" + locID, "battle_type", "Generic"), Random.Range(ini.ReadValue("Planet" + locID, "battle_id_low", 0), ini.ReadValue("Planet" + locID, "battle_id_high", 0) + 1), ini.ReadValue("Planet" + locID, "battle_difficulty", 1));
+				ini.Close();
 				break;
 		}
 

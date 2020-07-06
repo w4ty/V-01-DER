@@ -8,12 +8,12 @@ TrueTypeFontImporter:
   characterSpacing: 0
   characterPadding: 1
   includeFontData: 1
-  fontName: PixelLocale v.1.0
+  fontName: PixelLocale v.1.4
   fontNames:
-  - PixelLocale v.1.0
+  - PixelLocale v.1.4
   fallbackFontReferences: []
   customCharacters: 
-  fontRenderingMode: 0
+  fontRenderingMode: 2
   ascentCalculationMode: 1
   useLegacyBoundsCalculation: 0
   shouldRoundAdvanceValue: 1

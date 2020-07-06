@@ -8,6 +8,7 @@ using System.Text.RegularExpressions;
 
 public class DialogueParser : MonoBehaviour
 {
+	public DialogueManager dialogueManager;
 	struct DialogueLine
 	{
 		public string name;
@@ -16,8 +17,10 @@ public class DialogueParser : MonoBehaviour
 		public string position;
 		public int skip;
 		public string[] options;
+		public int evidenceAdd;
+		public int eventNext;
 
-		public DialogueLine(string Name, string Content, int Pose, string Position, int Skip)
+		public DialogueLine(string Name, string Content, int Pose, string Position, int Skip, int EviAdd, int EventNext)
 		{
 			name = Name;
 			content = Content;
@@ -25,17 +28,19 @@ public class DialogueParser : MonoBehaviour
 			position = Position;
 			skip = Skip;
 			options = new string[0];
+			evidenceAdd = EviAdd;
+			eventNext = EventNext;
 		}
 	}
 	List<DialogueLine> lines;
-	void Start()
+	/*void Start()
 	{
 		LoadFile();
-	}
+	}*/
 
-	void LoadFile()
+	public void LoadFile(string fileLocation, int lineBegin)
 	{
-		string file = SetTarget.dialDataPath + SetTarget.lang + "/" + QuestHandler.Instance.questID + "_scene" + QuestHandler.Instance.questScene + "_0.txt";
+		string file = fileLocation;
 		//string sceneNum = SceneManager.GetActiveScene().name;
 		//sceneNum = Regex.Replace(sceneNum, "[^0-9]", "");
 		//file += sceneNum;
@@ -43,10 +48,11 @@ public class DialogueParser : MonoBehaviour
 
 		lines = new List<DialogueLine>();
 
-		LoadDialogue(file);
+		LoadDialogue(file, lineBegin);
+		dialogueManager.ShowDialogue(lineBegin);
 	}
 
-	void LoadDialogue(string filename)
+	void LoadDialogue(string filename, int lineBegin)
 	{
 		string line;
 		StreamReader r = new StreamReader(filename);
@@ -58,10 +64,11 @@ public class DialogueParser : MonoBehaviour
 				line = r.ReadLine();
 				if (line != null)
 				{
+					Debug.Log(line);
 					string[] lineData = line.Split(';');
 					if (lineData[0] == "Player")
 					{
-						DialogueLine lineEntry = new DialogueLine(lineData[0], "", 0, "", 0);
+						DialogueLine lineEntry = new DialogueLine(lineData[0], "", 0, "", 0, -1, -1);
 						lineEntry.options = new string[lineData.Length - 1];
 						for (int i = 1; i < lineData.Length; i++)
 						{
@@ -71,14 +78,16 @@ public class DialogueParser : MonoBehaviour
 					}
 					else
 					{
-						DialogueLine lineEntry = new DialogueLine(lineData[0], lineData[1], int.Parse(lineData[2]), lineData[3], int.Parse(lineData[4]));
+						DialogueLine lineEntry = new DialogueLine(lineData[0], lineData[1], int.Parse(lineData[2]), lineData[3], int.Parse(lineData[4]), int.Parse(lineData[5]), int.Parse(lineData[6]));
 						lines.Add(lineEntry);
+						Debug.Log(lineData[6]);
 					}
 				}
 			}
 			while (line != null);
 			r.Close();
 		}
+		dialogueManager.ShowDialogue(lineBegin);
 	}
 
 	public string GetPosition(int lineNumber)
@@ -93,6 +102,7 @@ public class DialogueParser : MonoBehaviour
 	{
 		if (lineNumber < lines.Count)
 		{
+			Debug.Log(lines[lineNumber].name);
 			return lines[lineNumber].name;
 		}
 		return "";
@@ -126,6 +136,24 @@ public class DialogueParser : MonoBehaviour
 		if (lineNumber < lines.Count)
 		{
 			return lines[lineNumber].skip;
+		}
+		return 0;
+	}
+	public int GetEvidence(int lineNumber)
+	{
+		if (lineNumber < lines.Count)
+		{
+			return lines[lineNumber].evidenceAdd;
+		}
+		return 0;
+	}
+
+	public int GetNextEvent(int lineNumber)
+	{
+		if (lineNumber < lines.Count)
+		{
+			Debug.Log(lines[lineNumber].eventNext);
+			return lines[lineNumber].eventNext;
 		}
 		return 0;
 	}

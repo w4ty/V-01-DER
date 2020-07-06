@@ -1,0 +1,2 @@
+Observations;You can see an odd structure in the distance.;0;R;1;1;1
+Observations;The longer you look at it, the weirder it looks.;0;R;1;1;0

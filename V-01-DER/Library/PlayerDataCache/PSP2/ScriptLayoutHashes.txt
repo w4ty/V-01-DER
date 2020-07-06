@@ -1,6 +1,6 @@
 PSP2
 PlayerPath?
-C:/Users/Admin/Desktop/Project Void/28.06.20
+C:/Users/Admin/Desktop/Project Void/05.07.20(9.34PM)
 SceneListBegin?
 Assets/Scenes/Start_Screen.unity
 Assets/Scenes/Main_Menu.unity
@@ -26,6 +26,7 @@ c7dd12c15208b0447e101f80038706df UnityEngine.Timeline.dll:UnityEngine.Timeline.A
 f6637497451c9a030c421de4a1ad5cdb Unity.TextMeshPro.dll:TMPro.TMP_ScrollbarEventHandler
 b14b4630cc47b6e9ea8a644551a6a8cc Unity.TextMeshPro.dll:TMPro.TMP_Text
 486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.TransferLoadData
+cbedf4d84f06f8517ce6907e4a13db78 Assembly-CSharp.dll:.BackgroundHandler
 53cefe5d98cadefbab750835e70b89c0 UnityEngine.UI.dll:UnityEngine.UI.AspectRatioFitter
 486cd95c82d8305219c352c06b776e1f UnityEngine.UI.dll:UnityEngine.EventSystems.BaseInput
 da2091a04d360891450faf16cdf621f1 UnityEngine.UI.dll:UnityEngine.UI.Button
@@ -60,6 +61,7 @@ e90403eeda069970e0b9de1533de13a6 UnityEngine.UI.dll:UnityEngine.UI.ToggleGroup
 16da51d1b62ef6d4ee1849350434023b UnityEngine.UI.dll:UnityEngine.UI.VerticalLayoutGroup
 486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.Explosion
 50b0b141074b216c8b53b1bd467f73c9 Unity.TextMeshPro.dll:TMPro.TMP_InputField
+090000a506d372c6ce4ffa6e2b9d5ed6 Assembly-CSharp.dll:.ExploreSet
 53cefe5d98cadefbab750835e70b89c0 UnityEngine.UI.dll:UnityEngine.UI.AspectRatioFitter
 486cd95c82d8305219c352c06b776e1f UnityEngine.UI.dll:UnityEngine.EventSystems.BaseInput
 da2091a04d360891450faf16cdf621f1 UnityEngine.UI.dll:UnityEngine.UI.Button
@@ -95,7 +97,7 @@ e90403eeda069970e0b9de1533de13a6 UnityEngine.UI.dll:UnityEngine.UI.ToggleGroup
 71edbbef07d6c87f2540ca35c8d763e4 Assembly-CSharp.dll:.ChoiceButton
 fbdf45c45c55fed5157b62ea75aba82d Assembly-CSharp.dll:.QuestHandler
 75f69ef1c66110d198ca206c694257a8 Assembly-CSharp.dll:.CameraControl
-32cf4ac5a25758cf9a906c9ae9e30e3d Assembly-CSharp.dll:.CameraSwitcher
+6e946d6a14994d46ec7a0a95fb899b84 Assembly-CSharp.dll:.CameraSwitcher
 4d6c9177f47241b0c3755895ff3afd34 Assembly-CSharp.dll:.ActiveObjectStats
 486cd95c82d8305219c352c06b776e1f UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationPlayableAsset
 9e61f3535f3c55760a1cedfbd114f4af UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationTrack
@@ -148,6 +150,7 @@ e1ea12ca952c81d81a9a21fdf34446ed UnityEngine.HoloLens.dll:UnityEngine.EventSyste
 dfd33ff9ae3ce8d7ca1f22b475ec2387 UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingRenderer
 64af896d97c0473dcd9f38eb7e6d607d Assembly-CSharp.dll:.RandomizedMusic
 96f3ea9f23b6f08e60710ebb4af49174 Unity.TextMeshPro.dll:TMPro.TMP_SpriteAsset
+1bc2dbb125fb01bd2e1ad84a93e3b37a Assembly-CSharp.dll:.StartBGAnim
 486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.PlayerMovementCinematic
 75292e88200aef53b5d98683538f53bf Assembly-CSharp.dll:.Character
 486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.KillSwitch
@@ -198,7 +201,10 @@ e033f131358cea5a0eabf9561e781deb UnityEngine.TestRunner.dll:UnityEngine.TestTool
 28a95668dd28649297d595834fe8417e UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioSoundfieldExtension
 28a95668dd28649297d595834fe8417e UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioSourceExtension
 0b74817e44a2153e26ed1bf56f46b560 Assembly-CSharp.dll:.PlayerStatistics
+8ad0496afff5700e6e2ee867c38da0da Assembly-CSharp.dll:.ObjectVisual
+9a89053704be8f1313ce281c3f6132b6 Assembly-CSharp.dll:.SimpleTextAnim
 1bc2dbb125fb01bd2e1ad84a93e3b37a Assembly-CSharp.dll:.PlayerMode
+486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.CameraExplorationMovement
 1a90b221dc803408fbafa883c12bcab4 UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioListenerExtension
 70f7dc248db3379548a88e8d4fa049f8 UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioRoom
 28a95668dd28649297d595834fe8417e UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioSoundfieldExtension
@@ -224,6 +230,7 @@ db85dfffe0c0dbf12bad6d3230c5abd4 Assembly-CSharp.dll:.EnemyFire
 e04611b8715e6833d2bd7010fc6be10b Unity.TextMeshPro.dll:TMPro.TMP_StyleSheet
 60951704836338d0f9c70a6e9695cd05 Assembly-CSharp.dll:.FastMobileBloom
 486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.SetTarget
+486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.SetText
 2f9af06a78208a67db480e9bfed4a076 Unity.TextMeshPro.dll:TMPro.TextMeshPro
 9318334b30e9f195f573b2ce00154b95 Unity.TextMeshPro.dll:TMPro.TMP_ColorGradient
 cde30c1372426aac9e9f99f19fe03423 Assembly-CSharp.dll:.PlayerFire
@@ -234,4 +241,3 @@ cde30c1372426aac9e9f99f19fe03423 Assembly-CSharp.dll:.PlayerFire
 93307bd34e39d73fd24e00ec39c25a91 Unity.TextMeshPro.dll:TMPro.TMP_SubMesh
 adc0d94675785519cbf1c2197938cd55 Assembly-CSharp.dll:.StartScreen
 8e9d20c295a2e3e9d9924e93c2bed7fe Assembly-CSharp.dll:.InfoMenu
-1bc2dbb125fb01bd2e1ad84a93e3b37a Assembly-CSharp.dll:.StartBGAnim

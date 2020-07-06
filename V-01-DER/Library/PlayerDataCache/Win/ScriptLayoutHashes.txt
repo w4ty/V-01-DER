@@ -1,6 +1,6 @@
 WindowsStandalone
 PlayerPath?
-C:/Users/Admin/Desktop/V-01-DER WIN2/V-01-DER.exe
+C:/Users/Admin/Desktop/V-01-DER WIN3/V-01-DER.exe
 SceneListBegin?
 Assets/Scenes/Start_Screen.unity
 Assets/Scenes/Main_Menu.unity
@@ -60,6 +60,7 @@ e90403eeda069970e0b9de1533de13a6 UnityEngine.UI.dll:UnityEngine.UI.ToggleGroup
 16da51d1b62ef6d4ee1849350434023b UnityEngine.UI.dll:UnityEngine.UI.VerticalLayoutGroup
 486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.Explosion
 50b0b141074b216c8b53b1bd467f73c9 Unity.TextMeshPro.dll:TMPro.TMP_InputField
+a6324238e0d5e1f4fcc7607664c172b9 Assembly-CSharp.dll:.ExploreSet
 53cefe5d98cadefbab750835e70b89c0 UnityEngine.UI.dll:UnityEngine.UI.AspectRatioFitter
 486cd95c82d8305219c352c06b776e1f UnityEngine.UI.dll:UnityEngine.EventSystems.BaseInput
 da2091a04d360891450faf16cdf621f1 UnityEngine.UI.dll:UnityEngine.UI.Button
@@ -95,7 +96,7 @@ e90403eeda069970e0b9de1533de13a6 UnityEngine.UI.dll:UnityEngine.UI.ToggleGroup
 71edbbef07d6c87f2540ca35c8d763e4 Assembly-CSharp.dll:.ChoiceButton
 fbdf45c45c55fed5157b62ea75aba82d Assembly-CSharp.dll:.QuestHandler
 75f69ef1c66110d198ca206c694257a8 Assembly-CSharp.dll:.CameraControl
-32cf4ac5a25758cf9a906c9ae9e30e3d Assembly-CSharp.dll:.CameraSwitcher
+6e946d6a14994d46ec7a0a95fb899b84 Assembly-CSharp.dll:.CameraSwitcher
 4d6c9177f47241b0c3755895ff3afd34 Assembly-CSharp.dll:.ActiveObjectStats
 486cd95c82d8305219c352c06b776e1f UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationPlayableAsset
 9e61f3535f3c55760a1cedfbd114f4af UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationTrack
@@ -148,6 +149,7 @@ e1ea12ca952c81d81a9a21fdf34446ed UnityEngine.HoloLens.dll:UnityEngine.EventSyste
 dfd33ff9ae3ce8d7ca1f22b475ec2387 UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingRenderer
 64af896d97c0473dcd9f38eb7e6d607d Assembly-CSharp.dll:.RandomizedMusic
 96f3ea9f23b6f08e60710ebb4af49174 Unity.TextMeshPro.dll:TMPro.TMP_SpriteAsset
+1bc2dbb125fb01bd2e1ad84a93e3b37a Assembly-CSharp.dll:.StartBGAnim
 486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.PlayerMovementCinematic
 75292e88200aef53b5d98683538f53bf Assembly-CSharp.dll:.Character
 486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.KillSwitch
@@ -198,6 +200,7 @@ e033f131358cea5a0eabf9561e781deb UnityEngine.TestRunner.dll:UnityEngine.TestTool
 28a95668dd28649297d595834fe8417e UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioSoundfieldExtension
 28a95668dd28649297d595834fe8417e UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioSourceExtension
 0b74817e44a2153e26ed1bf56f46b560 Assembly-CSharp.dll:.PlayerStatistics
+9a89053704be8f1313ce281c3f6132b6 Assembly-CSharp.dll:.SimpleTextAnim
 1bc2dbb125fb01bd2e1ad84a93e3b37a Assembly-CSharp.dll:.PlayerMode
 1a90b221dc803408fbafa883c12bcab4 UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioListenerExtension
 70f7dc248db3379548a88e8d4fa049f8 UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioRoom
@@ -234,4 +237,4 @@ cde30c1372426aac9e9f99f19fe03423 Assembly-CSharp.dll:.PlayerFire
 93307bd34e39d73fd24e00ec39c25a91 Unity.TextMeshPro.dll:TMPro.TMP_SubMesh
 adc0d94675785519cbf1c2197938cd55 Assembly-CSharp.dll:.StartScreen
 8e9d20c295a2e3e9d9924e93c2bed7fe Assembly-CSharp.dll:.InfoMenu
-1bc2dbb125fb01bd2e1ad84a93e3b37a Assembly-CSharp.dll:.StartBGAnim
+cbedf4d84f06f8517ce6907e4a13db78 Assembly-CSharp.dll:.BackgroundHandler

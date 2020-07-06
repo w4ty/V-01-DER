@@ -21,15 +21,18 @@ public class ChoiceButton : MonoBehaviour
 	{
 		string command = option.Split(',')[0];
 		string commandModifier = option.Split(',')[1];
-		DialogueManager.playerTalking = false;
+		//DialogueManager.playerTalking = false;
 		if (command == "line")
 		{
 			box.lineNum = int.Parse(commandModifier);
-			box.ShowDialogue();
+
+			box.ShowDialogue(box.lineNum);
+			//DialogueManager.playerTalking = false;
 		}
 		else if (command == "scene")
 		{
 			SceneManager.LoadScene(commandModifier);
 		}
+		//DialogueManager.playerTalking = false;
 	}
 }
