@@ -53,29 +53,36 @@ public class DamageHandler : MonoBehaviour
 	{
 		if (other.gameObject.tag != "Obstacle")
 		{
-			otherObjectStats = other.GetComponent<ActiveObjectStats>();
+			otherObjectStats = other.GetComponent<BulletDataHolder>().actStats;
 			//Debug.Log("Triggered");
-
-			//Math for damage calculations
-			dmgCalc = Mathf.RoundToInt
-				(
-					(
-						(
-						otherObjectStats.objectDamage
-						+ Random.Range
-							(
-							otherObjectStats.objectLowerRandomDamage, otherObjectStats.objectHigherRandomDamage
-							)
-						)
-						/ currentObjectStats.objectArmour
-					)
-				);
-			hp -= dmgCalc;
 
 			//Adding damage text next to the damaged unit
 			Vector3 ghostPos = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z);
 			Quaternion ghostRot = new Quaternion();
-			damageText.GetComponentInChildren<Text>().text = dmgCalc.ToString();
+
+			//Math for damage calculations
+			dmgCalc = Mathf.RoundToInt
+				(
+						otherObjectStats.objectDamage
+						/ currentObjectStats.objectArmour
+				);
+			if (otherObjectStats.objectCritChance > Random.Range(0, 100))
+			{
+				dmgCalc *= Mathf.RoundToInt(otherObjectStats.objectCritDamage);
+				damageText.GetComponentInChildren<Text>().text = string.Format("{0}!", dmgCalc.ToString());
+				damageText.GetComponentInChildren<Text>().fontSize = 20;
+				Debug.LogError("CRIT");
+			}
+			else
+			{
+				damageText.GetComponentInChildren<Text>().text = string.Format("{0}", dmgCalc.ToString());
+				damageText.GetComponentInChildren<Text>().fontSize = 16;
+				Debug.LogError("NOT CRIT");
+			}
+			hp -= dmgCalc;
+
+			
+			
 			Instantiate(damageText, ghostPos, ghostRot, GameObject.Find("WorldSpaceCanvas").transform);
 
 			//Mess regarding invincibility frames

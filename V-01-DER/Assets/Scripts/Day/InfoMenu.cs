@@ -94,12 +94,33 @@ public class InfoMenu : MonoBehaviour
 		SceneManager.LoadScene("Main_Menu");
 	}
 
-	public void ShowShipStatScreen()
+	public void ShowMore()
 	{
-		mainGroup.SetActive(false);
-		loadoutGroup.SetActive(true);
-		GameObject.Find("skilltrees_BGRight").GetComponent<UniversalFillAnim>().CallAnimations(0);
-		GameObject.Find("skilltrees_BGLeft").GetComponent<UniversalFillAnim>().CallAnimations(0);
+		MoreInfo(0);
+	}
+
+	public void HideMore()
+	{
+		MoreInfo(1);
+	}
+
+	void MoreInfo(int arg)
+	{
+		switch (arg) 
+		{
+			case 0:
+				mainGroup.SetActive(false);
+				loadoutGroup.SetActive(true);
+				GameObject.Find("skilltrees_BGRight").GetComponent<UniversalFillAnim>().CallAnimations(0);
+				GameObject.Find("skilltrees_BGLeft").GetComponent<UniversalFillAnim>().CallAnimations(0);
+				GameObject.Find("button_Back").GetComponent<Button>().Select();
+				break;
+			case 1:
+				mainGroup.SetActive(true);
+				loadoutGroup.SetActive(false);
+				GameObject.Find("button_Continue").GetComponent<Button>().Select();
+				break;
+		}
 	}
 
 	public void ShowInfoSubmenu()

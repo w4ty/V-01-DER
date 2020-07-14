@@ -23,9 +23,10 @@ public class TurretAI : MonoBehaviour {
 				Quaternion rotation = Quaternion.Euler(0, 0, i * 45);
 				Vector3 offset = rotation * new Vector3(0, 0.5f, 0);
 
-				Instantiate(bullet, transform.position + offset, rotation, transform.parent);
+				GameObject proj = Instantiate(bullet, transform.position + offset, rotation, transform.parent);
+				proj.GetComponent<BulletDataHolder>().actStats = GetComponent<ActiveObjectStats>();
 			}
-			yield return new WaitForSeconds(3);
+			yield return new WaitForSeconds(1/GetComponent<ActiveObjectStats>().objectFirerate);
 		}
 	}
 }

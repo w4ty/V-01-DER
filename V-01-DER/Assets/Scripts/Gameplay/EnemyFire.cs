@@ -6,21 +6,31 @@ public class EnemyFire : MonoBehaviour
 {
 	public GameObject target;
 	public GameObject bullet_PlayerPrefab;
-	public float fireDelay = 0.25f;
-	float cooldownTimer = 0.5f;
+	float fireRate;
+	float cooldown;
 
-	void Update()
+	void Start()
+	{
+		fireRate = GetComponent<ActiveObjectStats>().objectFirerate;
+	}
+
+	void FixedUpdate()
 	{
 		if (Pause.pauseOn == false)
 		{
-			cooldownTimer -= Time.deltaTime;
-
-			if (cooldownTimer <= 0)
+			if (cooldown < 1)
 			{
+				cooldown += fireRate / 50;
+			}
+
+			if (cooldown >= 1)
+			{
+				cooldown -= 1;
 				//Debug.Log("Enemy firing");
-				cooldownTimer = fireDelay;
+				fireRate = GetComponent<ActiveObjectStats>().objectFirerate;
 				Vector3 offset = transform.rotation * new Vector3(0, 0.5f, 0);
-				Instantiate(bullet_PlayerPrefab, transform.position + offset, transform.rotation, transform.parent);
+				GameObject bullet = Instantiate(bullet_PlayerPrefab, transform.position + offset, transform.rotation, transform.parent);
+				bullet.GetComponent<BulletDataHolder>().actStats = GetComponent<ActiveObjectStats>();
 			}
 		}
 	}

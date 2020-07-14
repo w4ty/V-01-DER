@@ -5,22 +5,32 @@ using UnityEngine;
 public class PlayerFire : MonoBehaviour
 {
 	public GameObject bulletPlayerPrefab;
-	float cooldownTimer;
+	float fireRate;
+	float cooldown;
 
-	void Update ()
+	void Start()
+	{
+		fireRate = GetComponent<ActiveObjectStats>().objectFirerate;
+	}
+
+	void FixedUpdate()
 	{
 		if (Pause.pauseOn == false)
 		{
-			cooldownTimer -= Time.deltaTime;
-
-			if (Input.GetButton("Fire1") && cooldownTimer <= 0)
+			if (cooldown < 1)
 			{
-				//Debug.Log("Firing");
-				cooldownTimer = this.GetComponent<ActiveObjectStats>().objectAttackDelay;
-				Vector3 offset = transform.rotation * new Vector3(0, 0.5f, 0);
-				Instantiate(bulletPlayerPrefab, transform.position + offset, transform.rotation);
+				cooldown += fireRate / 50;
 			}
 
+			if (Input.GetButton("Fire1") && cooldown >= 1)
+			{
+				cooldown -= 1;
+				Debug.LogWarning("Firing");
+				fireRate = GetComponent<ActiveObjectStats>().objectFirerate;
+				Vector3 offset = transform.rotation * new Vector3(0, 0.5f, 0);
+				GameObject bullet = Instantiate(bulletPlayerPrefab, transform.position + offset, transform.rotation);
+				bullet.GetComponent<BulletDataHolder>().actStats = GetComponent<ActiveObjectStats>();
+			}
 		}
 	}
 }

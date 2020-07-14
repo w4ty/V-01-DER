@@ -26,6 +26,7 @@ public class ExplosiveBeh : MonoBehaviour
 	{
 		exploded = true;
 		tempExplosion = Instantiate(explosionObj);
+		tempExplosion.GetComponent<BulletDataHolder>().actStats = GetComponent<ActiveObjectStats>();
 		tempExplosion.transform.position = this.transform.position;
 		tempExplosion.GetComponent<Explosion>().OnCall();
 	}

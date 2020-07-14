@@ -8,9 +8,9 @@ public class ActiveObjectStats : MonoBehaviour
 	public float hpScaleMX;
 	public float armorScaleMX;
 	public float damageScaleMX;
-	public float objectAttackDelay;
-	public int objectLowerRandomDamage;
-	public int objectHigherRandomDamage;
+	public float objectFirerate;
+	public int objectCritChance;
+	public float objectCritDamage;
 	public float objectArmour;
 	public int objectMaxHp;
 }
