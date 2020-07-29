@@ -12,12 +12,14 @@ public class SimpleTextAnim : MonoBehaviour
 	public bool OnlyAcceptDirectCalls;
 	public bool AcceptOnEnable;
 	Text currentText;
+	string startingText;
 
 	void Awake()
 	{
 		// Set in Awake because OnEnable runs before Start causing an exception (even though it still works).
 
 		currentText = GetComponent<Text>();
+		startingText = currentText.text;
 	}
 
 	void Start()
@@ -37,6 +39,14 @@ public class SimpleTextAnim : MonoBehaviour
 		if (OnlyAcceptDirectCalls == false && AcceptOnEnable == true)
 		{
 			StartCoroutine(DoText(currentText.text, EngineSettings.textSpeed));
+		}
+	}
+
+	void OnDisable()
+	{
+		if (OnlyAcceptDirectCalls == false && AcceptOnEnable == true)
+		{
+			currentText.text = startingText;
 		}
 	}
 

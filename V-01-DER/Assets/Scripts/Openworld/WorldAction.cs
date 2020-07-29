@@ -74,8 +74,10 @@ public class WorldAction : MonoBehaviour
 			b.transform.SetParent(buttonCanvas.transform);
 			b.transform.localPosition = new Vector3(386, 0 + (i * -32));
 			b.transform.localScale = new Vector3(1, 1, 1);
+			b.GetComponent<LocationButtons>().file = "planets";
+			b.GetComponent<LocationButtons>().group = "Planet";
 			buttons.Add(b);
-		//	Debug.LogWarning("BUTTONS: " + buttons.Count);
+			//	Debug.LogWarning("BUTTONS: " + buttons.Count);
 			b.GetComponent<LocationButtons>().id = i + 1;
 			optionID = pAD.ReadValue("Planet" + selectedLocID, "button" + (i + 1), -1);
 			Debug.Log("Planet" + selectedLocID + "button" + (i + 1));
@@ -96,8 +98,8 @@ public class WorldAction : MonoBehaviour
 		//Debug.LogError("START");
 		for (int i = 0; i < buttons.Count; i++)
 		{
-		//	Debug.Log("COUNT : " + i + " / " + buttons.Count);
-		//	Debug.LogError("OBJECT " + i + " " + buttons[i]);
+			//	Debug.Log("COUNT : " + i + " / " + buttons.Count);
+			//	Debug.LogError("OBJECT " + i + " " + buttons[i]);
 			Destroy(buttons[i].gameObject);
 		}
 		Pause.pauseOn = false;

@@ -34,7 +34,7 @@ public class InfoMenu : MonoBehaviour
 		{
 			buttonCD -= 1;
 		}
-		if (Input.GetButtonDown("Triangle") && isHidden == true && buttonCD <= 0 && DialogueManager.playerTalking == false)
+		if (Input.GetButtonDown("Triangle") && isHidden == true && buttonCD <= 0 && DialogueManager.playerTalking == false && !Pause.pauseOn)
 		{
 			ShowMenu();
 			buttonCD = 100;

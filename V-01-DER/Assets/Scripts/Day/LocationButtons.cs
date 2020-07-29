@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class LocationButtons : MonoBehaviour 
 {
 	public int id;
+	public string file;
+	public string group;
 	public GameObject worldMaster;
 
 	void Start()
@@ -16,7 +18,7 @@ public class LocationButtons : MonoBehaviour
 	public void OnButton()
 	{
 		Debug.Log("DONE id " + id);
-		worldMaster.GetComponent<SwitchHandler>().ParseOption(id, gameObject);
+		worldMaster.GetComponent<SwitchHandler>().ParseOption(id, gameObject, file, group);
 		WorldAction.lockAction = 10;
 	}
 

@@ -43,7 +43,7 @@ public class PlayerMode : MonoBehaviour
 		CameraSwitcher.cameraReturnTo = 2;
 		camControl.ReloadCams();
 		playerSprite.sprite = sprites[2];
-		this.GetComponent<PlayerFire>().enabled = false;
+		GetComponent<PlayerFire>().enabled = false;
 	}
 
 	public void Cinematic()
@@ -56,6 +56,7 @@ public class PlayerMode : MonoBehaviour
 		CameraSwitcher.cameraReturnTo = 1;
 		camControl.ReloadCams();
 		playerSprite.sprite = sprites[0];
+		GetComponent<PlayerFire>().enabled = false;
 	}
 
 	public void SideScroller()
@@ -71,6 +72,7 @@ public class PlayerMode : MonoBehaviour
 		camControl.ReloadCams();
 		playerSprite.sprite = sprites[1];
 		Debug.Log("sprite: " + playerSprite.sprite + " array: " + sprites[1] + " " + sprites[0] + " this " + this.gameObject);
+		GetComponent<PlayerFire>().enabled = true;
 	}
 
 	public void TwinStick()
@@ -83,6 +85,7 @@ public class PlayerMode : MonoBehaviour
 		CameraSwitcher.cameraReturnTo = 0;
 		camControl.ReloadCams();
 		playerSprite.sprite = sprites[0];
+		GetComponent<PlayerFire>().enabled = true;
 	}
 
 	public void Classic()
@@ -97,5 +100,6 @@ public class PlayerMode : MonoBehaviour
 		CameraSwitcher.cameraReturnTo = 1;
 		camControl.ReloadCams();
 		playerSprite.sprite = sprites[0];
+		GetComponent<PlayerFire>().enabled = true;
 	}
 }

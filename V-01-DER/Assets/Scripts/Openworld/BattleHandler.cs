@@ -23,6 +23,12 @@ public class BattleHandler : MonoBehaviour
 		locationHud = GameObject.Find("LocGroup");
 	}
 
+	public void SaveLastPos()
+	{
+		lastPosX = playerShip.transform.position.x;
+		lastPosY = playerShip.transform.position.y;
+	}
+
 	public void PrepareBattle(string battleType, int battleId, int battleDifficulty)
 	{
 		KillSwitch.kill = false;
@@ -30,8 +36,6 @@ public class BattleHandler : MonoBehaviour
 		ini.Open(SetTarget.worldDataPath + "Battles/" + battleType + "/Difficulty" + battleDifficulty + "/" + battleType + battleId + ".ini");
 		battleSystem.GetObjectives(ini.FileName);
 
-		lastPosX = playerShip.transform.position.x;
-		lastPosY = playerShip.transform.position.y;
 		playerShip.transform.position = new Vector3(ini.ReadValue("InitialProperties", "PlayerPosX", 1), ini.ReadValue("InitialProperties", "PlayerPosY", 1), 0);
 
 		PlayerMovementAlt.maxYCoordinate = ini.ReadValue("InitialProperties", "Border_Ymax", 1);
