@@ -115,7 +115,7 @@ public class BattleSystem : MonoBehaviour
 	{
 		foreach (Transform child in enemyGroup.transform)
 		{
-			GameObject.Destroy(child.gameObject);
+			Destroy(child.gameObject);
 		}
 	}
 }

@@ -27,8 +27,8 @@ public class VirtualButtons : MonoBehaviour
 
 	void UpdateSelection()
 	{
-		textAnim.StartTextAnim(buttons[currentSelection], 0.05f);
-		outOf.StartTextAnim(string.Format("{0}/{1}", currentSelection + 1, buttons.Length), 0.05f);
+		textAnim.StartTextAnim(buttons[currentSelection], EngineSettings.textSpeed);
+		outOf.StartTextAnim(string.Format("{0}/{1}", currentSelection + 1, buttons.Length), EngineSettings.textSpeed);
 	}
 
 	void Update()
@@ -86,6 +86,7 @@ public class VirtualButtons : MonoBehaviour
 				}
 			case 3:
 				{
+					menuFunctionality.CloseGame();
 					break;
 				}
 		}

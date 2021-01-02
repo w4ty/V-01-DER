@@ -43,9 +43,9 @@ public class MenuButtons : MonoBehaviour
 		this.GetComponent<LoadGame>().QueueLoad();
 		SceneManager.LoadScene("Gameplay_Battle");
 	}
-	public void OpenOptions()
+	public void CloseGame()
 	{
-		Debug.Log("Options not yet implemented.");
+		Debug.Log("Exit option not yet implemented.");
 	}
 	public void ShowCredits()
 	{

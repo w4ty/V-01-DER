@@ -74,7 +74,6 @@ public class DamageHandler : MonoBehaviour
 				damageText.GetComponentInChildren<Text>().text = string.Format("{0}!", dmgCalc.ToString());
 				damageText.GetComponentInChildren<Text>().fontSize = 30;
 				damageText.GetComponentInChildren<Text>().color = new Color(1, 0.1f, 0.1f);
-				Debug.LogError("CRIT " + damageText.GetComponentInChildren<Text>().color);
 			}
 			else
 			{
