@@ -37,7 +37,7 @@ public class ExploreSet : MonoBehaviour
 		visualsGroup.transform.GetChild(0).gameObject.GetComponent<UniversalFillAnim>().InAnim();
 		backgroundHandler.SetBackground(id + 1);
 		locationObjects[id].SetActive(true);
-		ini.Open(SetTarget.worldDataPath + "Worlds/" + LocationHandler.worldName + "/Planets/locations.ini");
+		ini.Open(SetTarget.worldDataPath + "Worlds/" + OpenworldSet.worldName + "/Planets/locations.ini");
 		playerModeSet.Exploration(ini.ReadValue("id" + id, "x_min", 0), ini.ReadValue("id" + id, "x_max", 0));
 		locText.text += string.Format(" - {0}", ini.ReadValue(("id" + bgid), "name", "err"));
 	}

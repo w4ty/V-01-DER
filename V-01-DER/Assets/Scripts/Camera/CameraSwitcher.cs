@@ -21,12 +21,12 @@ public class CameraSwitcher : MonoBehaviour
 			cooldown--;
 		}
 
-		if (Input.GetButtonDown("Square") && cooldown <= 0 && screenshotEnabled == false && menuCanvas.activeSelf == true)
+		if (Input.GetButtonDown("Square") && cooldown <= 0 && screenshotEnabled == false && menuCanvas.activeInHierarchy)
 		{
 			cooldown = 10;
 			EnableSS();
 		}
-		else if (Input.GetButtonDown("Square") && cooldown <= 0 && screenshotEnabled == true && menuCanvas.activeSelf == false)
+		else if (Input.GetButtonDown("Square") && cooldown <= 0 && screenshotEnabled == true && !menuCanvas.activeInHierarchy)
 		{
 			cooldown = 10;
 			DisableSS();

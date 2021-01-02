@@ -1,9 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net.Sockets;
 using UnityEngine;
-using UnityEngine.Experimental.UIElements;
 using UnityEngine.UI;
 
 public class PlayerMovementAlt : MonoBehaviour
@@ -37,11 +34,11 @@ public class PlayerMovementAlt : MonoBehaviour
 			// Debug input info
 			if (Input.GetButton("Submit") && Input.GetButton("Cancel"))
 			{
-				xyText.text = "lh " + Mathf.Round(lh * 100f) / 100f + " " + "lv " + Mathf.Round(lv * 100f) / 100f + " " + maxXCoordinate + "/" + minXCoordinate + "/" + maxYCoordinate + "/" + minYCoordinate;
+				xyText.text = "lh " + (lh * 100f) / 100f + " " + "lv " + (lv * 100f) / 100f + " " + maxXCoordinate + "/" + minXCoordinate + "/" + maxYCoordinate + "/" + minYCoordinate;
 			}
 			else
 			{
-				xyText.text = "X: " + Mathf.RoundToInt(this.transform.position.x * 10).ToString() + " / Y: " + Mathf.RoundToInt(this.transform.position.y * 10).ToString();
+				xyText.text = "X: " + (this.transform.position.x * 10).ToString() + " / Y: " + (this.transform.position.y * 10).ToString();
 			}
 			// Classic movement
 			Vector3 Move = new Vector3(lh * moveSpeed, lv * moveSpeed, 0);

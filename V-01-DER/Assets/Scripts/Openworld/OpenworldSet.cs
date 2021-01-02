@@ -8,7 +8,7 @@ public class OpenworldSet : MonoBehaviour
 	public GameObject playerShip;
 	public GameObject openWorldPlanets;
 	public GameObject planetPrefab;
-	static public string worldName = "MAINVOID";
+	static public string worldName = "Void I - Main";
 	INIParser wINFO = new INIParser();
 
 	public void LoadWorld()

@@ -51,8 +51,8 @@ public class CameraControl : MonoBehaviour
 	}
 	void SizeChange()
 	{
-		zoomText.GetComponent<Text>().text = string.Format("{0:#.0}x", ((cameraSize) / 6.0f));
-		//Debug.Log(cameraSize);
+		zoomText.GetComponent<Text>().text = string.Format("{0:#.0}%", cameraSize / 6.0f * 100f);
+		Debug.Log(cameraSize + "  " + this.GetComponent<Camera>().sensorSize);
 		cooldown = 3;
 		zoomUI.SetActive(true);
 		zoomAlpha = 1f;
@@ -61,8 +61,8 @@ public class CameraControl : MonoBehaviour
 	}
 	void ChangeAlpha()
 	{
-		zoomText.GetComponent<Text>().color = new Color(255, 255, 255, zoomAlpha);
-		zoomBack.GetComponent<RawImage>().color = new Color(255, 255, 255, zoomAlpha);
+		zoomText.GetComponent<Text>().color = new Color(zoomText.GetComponent<Text>().color.r, zoomText.GetComponent<Text>().color.g, zoomText.GetComponent<Text>().color.b, zoomAlpha);
+		zoomBack.GetComponent<Image>().color = new Color(zoomBack.GetComponent<Image>().color.r, zoomBack.GetComponent<Image>().color.g, zoomBack.GetComponent<Image>().color.b, zoomAlpha);
 		zoomIcon.GetComponent<RawImage>().color = new Color(255, 255, 255, zoomAlpha);
 	}
 }

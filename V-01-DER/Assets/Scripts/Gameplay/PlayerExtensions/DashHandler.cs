@@ -39,6 +39,7 @@ public class DashHandler : MonoBehaviour
 		{
 
 			GameObject temp = Instantiate(afterImage);
+			temp.GetComponent<SpriteRenderer>().sprite = GetComponent<SpriteRenderer>().sprite;
 			temp.transform.position = positions[i];
 			temp.transform.rotation = rotation;
 		}

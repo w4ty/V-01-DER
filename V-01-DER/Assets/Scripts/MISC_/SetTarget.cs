@@ -16,11 +16,10 @@ public class SetTarget : MonoBehaviour
 	static public string webDataPath;
 	static public string dialDataPath;
 	static public string buildType = Application.platform.ToString();
-	static public string buildName = "";
-	static public int versionGeneration = 0;
-	static public int versionMajor = 5;
-	static public int versionMinor = 5;
-	static public int versionType = 5;
+	const int versionGeneration = 0;
+	const int versionMajor = 5;
+	const int versionMinor = 5;
+	const int versionType = 5;
 	static public string versionActual = string.Format("{0}.{1}.{2}.{3}", versionGeneration, versionMajor, versionMinor, versionType);
 
 	// SetTarget.cs explanation.

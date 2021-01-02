@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SocialPlatforms;
 using UnityEngine.UI;
 
 public class SwitchHandler : MonoBehaviour 
@@ -11,7 +12,7 @@ public class SwitchHandler : MonoBehaviour
 
 	public void ParseOption(int id, GameObject button, string file, string group)
 	{
-		ini.Open(SetTarget.worldDataPath + "Worlds/" + LocationHandler.worldName + "/Planets/" + file + ".ini");
+		ini.Open(SetTarget.worldDataPath + "Worlds/" + OpenworldSet.worldName + "/Planets/" + file + ".ini");
 		reqID = ini.ReadValue(group + locID, "button" + id, 0);
 		switch (reqID)
 		{
@@ -43,6 +44,10 @@ public class SwitchHandler : MonoBehaviour
 				GameObject.Find("WorldMaster").GetComponent<BattleHandler>().EndBattle();
 				GameObject.Find("WorldMaster").GetComponent<OpenworldSet>().SetPlanets(true);
 				ini.Close();
+				break;
+			case 102:
+				GameObject.Find("WorldMaster").GetComponent<WorldAction>().DestroyButtons();
+				GameObject.Find("WorldMaster").GetComponent<ExploreSet>().SetLocation(ini.ReadValue("Planet" + locID, "exname_id", -1));
 				break;
 		}
 

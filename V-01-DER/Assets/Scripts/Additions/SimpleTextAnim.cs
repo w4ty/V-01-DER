@@ -52,6 +52,7 @@ public class SimpleTextAnim : MonoBehaviour
 
 	public void StartTextAnim(string original, float speed)
 	{
+		StopAllCoroutines();
 		StartCoroutine(DoText(original, speed));
 	}
 

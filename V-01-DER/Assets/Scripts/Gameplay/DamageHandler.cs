@@ -25,11 +25,13 @@ public class DamageHandler : MonoBehaviour
 	private FacePlayer rotController;
 	private BattleSystem battleSystem;
 	private bool disableControllers;
+	private ParticleSystem destroyParticle;
 	static public string[] objToSeek;
 	static public int objAmount;
 
 	void Start()
 	{
+		destroyParticle = transform.Find("DestructionParticles").gameObject.GetComponent<ParticleSystem>();
 		ghostBar = GameObject.FindGameObjectWithTag("GhostBar").GetComponent<GhostHpBar>();
 		hpHandler = GameObject.FindGameObjectWithTag("Hp").GetComponent<HpHandler>();
 		battleSystem = GameObject.Find("BattleHandler").GetComponent<BattleSystem>();
@@ -70,14 +72,15 @@ public class DamageHandler : MonoBehaviour
 			{
 				dmgCalc *= Mathf.RoundToInt(otherObjectStats.objectCritDamage);
 				damageText.GetComponentInChildren<Text>().text = string.Format("{0}!", dmgCalc.ToString());
-				damageText.GetComponentInChildren<Text>().fontSize = 20;
-				Debug.LogError("CRIT");
+				damageText.GetComponentInChildren<Text>().fontSize = 30;
+				damageText.GetComponentInChildren<Text>().color = new Color(1, 0.1f, 0.1f);
+				Debug.LogError("CRIT " + damageText.GetComponentInChildren<Text>().color);
 			}
 			else
 			{
 				damageText.GetComponentInChildren<Text>().text = string.Format("{0}", dmgCalc.ToString());
-				damageText.GetComponentInChildren<Text>().fontSize = 16;
-				Debug.LogError("NOT CRIT");
+				damageText.GetComponentInChildren<Text>().fontSize = 26;
+				damageText.GetComponentInChildren<Text>().color = new Color(1, 1, 1);
 			}
 			hp -= dmgCalc;
 
@@ -104,10 +107,11 @@ public class DamageHandler : MonoBehaviour
 		{
 			gameObject.layer = objectLayer;
 		}*/
-		if (hp <= 0)
+		if (hp <= 0 && gameObject.layer != 10)
 		{
 			try
 			{
+				destroyParticle.Play();
 				this.gameObject.layer = 10;
 				if (disableControllers == true)
 				{

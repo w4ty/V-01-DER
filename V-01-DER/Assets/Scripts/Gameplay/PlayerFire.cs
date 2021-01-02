@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerFire : MonoBehaviour
 {
 	public GameObject bulletPlayerPrefab;
+	public ParticleSystem particles;
 	float fireRate;
 	float cooldown;
 
@@ -24,6 +25,7 @@ public class PlayerFire : MonoBehaviour
 
 			if (Input.GetButton("Fire1") && cooldown >= 1)
 			{
+				particles.Play();
 				cooldown -= 1;
 				Debug.LogWarning("Firing");
 				fireRate = GetComponent<ActiveObjectStats>().objectFirerate;

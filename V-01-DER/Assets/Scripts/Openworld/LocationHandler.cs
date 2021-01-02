@@ -9,7 +9,7 @@ using System.Text.RegularExpressions;
 public class LocationHandler : MonoBehaviour
 {
 
-	static public string worldName = "MAINVOID";
+	//static public string worldName = "MAINVOID";
 	static public string locFileToChange;
 	public int locationID;
 	int tempLocID;
@@ -35,7 +35,7 @@ public class LocationHandler : MonoBehaviour
 		worldMaster = GameObject.Find("WorldMaster");
 		locBG = GameObject.Find("locBG");
 		planetSaveData.Open(SetTarget.saveDataPath + "planetdata.ini");
-		planetActualData.Open(SetTarget.worldDataPath + "Worlds/" + worldName + "/Planets/planets.ini");
+		planetActualData.Open(SetTarget.worldDataPath + "Worlds/" + OpenworldSet.worldName + "/Planets/planets.ini");
 		tempLocID = 0;
 		bgFill = locBG.GetComponent<UniversalFillAnim>();
 		GetLocation();
