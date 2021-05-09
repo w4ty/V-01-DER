@@ -13,6 +13,11 @@ public class PlayerStatistics : MonoBehaviour
 	public int skillPoints;
 	public int skillInTree;
 
+	void Awake()
+	{
+		GetComponent<ActiveObjectStats>().SetStats();
+	}
+
 	void LevelUp()
 	{
 		if (shipLVL > 0)

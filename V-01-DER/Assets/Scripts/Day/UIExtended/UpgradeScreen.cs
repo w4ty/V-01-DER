@@ -23,6 +23,6 @@ public class UpgradeScreen : MonoBehaviour
 	public void DoUI()
 	{
 		levelPoints.text = string.Format("Level {0}\nAvailable points {1}\nPrimary {2}\nSecondary {3}\nTertiary {4}\n{5}", playerInfo.shipLVL, playerInfo.skillPoints, skillTreeExtend.references[skillTreeExtend.primaryId].treeName, skillTreeExtend.references[skillTreeExtend.secondaryId].treeName, skillTreeExtend.references[skillTreeExtend.tertiaryId].treeName, skillTreeExtend.buildName);
-		stats.text = string.Format("Health {0}\nArmor {1}\nDamage {2}\nFirerate {3}\nCrit chance {4}%\nCrit damage {5}%", playerStats.objectMaxHp, playerStats.objectArmour, playerStats.objectDamage, playerStats.objectFirerate, playerStats.objectCritChance, playerStats.objectCritDamage * 100);
+		stats.text = string.Format("Health {0}\nArmor {1}\nDamage {2}\nFirerate {3}\nCrit chance {4}%\nCrit damage {5}%", playerStats.ObjectMaxHp, playerStats.ObjectArmour, playerStats.ObjectDamage, playerStats.ObjectFirerate, playerStats.ObjectCritChance, playerStats.ObjectCritDamage * 100);
 	}
 }

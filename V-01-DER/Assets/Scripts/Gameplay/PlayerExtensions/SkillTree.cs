@@ -59,91 +59,91 @@ public class SkillTree : MonoBehaviour
 					switch (state)
 					{
 						case (1):
-							playerStats.objectFirerate = 2 + levels[currentLvl] + primBonus;
+							playerStats.ObjectFirerate = 2 + levels[currentLvl] + primBonus;
 							break;
 						default:
-							playerStats.objectFirerate = 2 + levels[currentLvl];
+							playerStats.ObjectFirerate = 2 + levels[currentLvl];
 							break;
 						case (4):
-							playerStats.objectFirerate = 2 + levels[currentLvl] / 2;
+							playerStats.ObjectFirerate = 2 + levels[currentLvl] / 2;
 							break;
 					}
-					Debug.Log(playerStats.objectFirerate);
+					Debug.Log(playerStats.ObjectFirerate);
 					break;
 				case (1):
 					switch (state)
 					{
 						case (1):
-							playerStats.objectCritChance = 5 + levels[currentLvl] + primBonus;
+							playerStats.ObjectCritChance = 5 + levels[currentLvl] + primBonus;
 							break;
 						default:
-							playerStats.objectCritChance = 5 + levels[currentLvl];
+							playerStats.ObjectCritChance = 5 + levels[currentLvl];
 							break;
 						case (4):
-							playerStats.objectCritChance = 5 + levels[currentLvl] / 2;
+							playerStats.ObjectCritChance = 5 + levels[currentLvl] / 2;
 							break;
 					}
-					Debug.Log(playerStats.objectCritChance);
+					Debug.Log(playerStats.ObjectCritChance);
 					break;
 				case (2):
 					switch(state)
 					{
 						case (1):
-							playerStats.objectDamage = 50 + Mathf.RoundToInt(levels[currentLvl] + primBonus);
+							playerStats.ObjectDamage = 50 + Mathf.RoundToInt(levels[currentLvl] + primBonus);
 							break;
 						default:
-							playerStats.objectDamage = 50 + Mathf.RoundToInt(levels[currentLvl]);
+							playerStats.ObjectDamage = 50 + Mathf.RoundToInt(levels[currentLvl]);
 							break;
 						case (4):
-							playerStats.objectDamage = 50 + Mathf.RoundToInt(levels[currentLvl] / 2);
+							playerStats.ObjectDamage = 50 + Mathf.RoundToInt(levels[currentLvl] / 2);
 							break;
 					}
-					Debug.Log(playerStats.objectDamage);
+					Debug.Log(playerStats.ObjectDamage);
 					break;
 				case (3):
 					switch(state)
 					{
 						case (1):
-							playerStats.objectCritDamage = 1.5f + levels[currentLvl] + primBonus;
+							playerStats.ObjectCritDamage = 1.5f + levels[currentLvl] + primBonus;
 							break;
 						default:
-							playerStats.objectCritDamage = 1.5f + levels[currentLvl];
+							playerStats.ObjectCritDamage = 1.5f + levels[currentLvl];
 							break;
 						case (4):
-							playerStats.objectCritDamage = 1.5f + levels[currentLvl] / 2;
+							playerStats.ObjectCritDamage = 1.5f + levels[currentLvl] / 2;
 							break;
 					}
-					Debug.Log(playerStats.objectCritDamage);
+					Debug.Log(playerStats.ObjectCritDamage);
 					break;
 				case (4):
 					switch (state)
 					{
 						case (1):
-							playerStats.objectMaxHp = 100 + Mathf.RoundToInt(levels[currentLvl] + primBonus);
+							playerStats.ObjectMaxHp = 100 + Mathf.RoundToInt(levels[currentLvl] + primBonus);
 							break;
 						default:
-							playerStats.objectMaxHp = 100 + Mathf.RoundToInt(levels[currentLvl]);
+							playerStats.ObjectMaxHp = 100 + Mathf.RoundToInt(levels[currentLvl]);
 							break;
 						case (4):
-							playerStats.objectMaxHp = 100 + Mathf.RoundToInt(levels[currentLvl] / 2);
+							playerStats.ObjectMaxHp = 100 + Mathf.RoundToInt(levels[currentLvl] / 2);
 							break;
 					}
-					Debug.Log(playerStats.objectMaxHp);
+					Debug.Log(playerStats.ObjectMaxHp);
 					break;
 				case (5):
 					switch (state)
 					{
 						case (1):
-							playerStats.objectArmour = 2 + levels[currentLvl] + primBonus;
+							playerStats.ObjectArmour = 2 + levels[currentLvl] + primBonus;
 							break;
 						default:
-							playerStats.objectArmour = 2 + levels[currentLvl];
+							playerStats.ObjectArmour = 2 + levels[currentLvl];
 							break;
 						case (4):
-							playerStats.objectArmour = 2 + levels[currentLvl] / 2;
+							playerStats.ObjectArmour = 2 + levels[currentLvl] / 2;
 							break;
 					}
-					Debug.Log(playerStats.objectArmour);
+					Debug.Log(playerStats.ObjectArmour);
 					break;
 			}
 		}

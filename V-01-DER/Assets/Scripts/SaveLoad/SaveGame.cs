@@ -12,35 +12,44 @@ public class SaveGame : MonoBehaviour
 
 	void SavePlayerStats()
 	{
-		/*path = Application.dataPath + "/StreamingAssets/Save/save_playerstats.txt";
-		StreamWriter w = new StreamWriter(path, false);
-		w.WriteLine(playerShip.GetComponent<PlayerStatistics>().shipLVL);
-		w.WriteLine(playerShip.GetComponent<PlayerStatistics>().currentXP);
-		w.WriteLine(playerShip.GetComponent<PlayerStatistics>().perkSelected);
-		w.Close();*/
 		INIParser ini = new INIParser();
-		ini.Open(SetTarget.saveDataPath + "savedata_player.ini");
-		ini.WriteValue("Player_Stats", "stt_shiplvl", this.GetComponent<PlayerStatistics>().shipLVL);
-		ini.WriteValue("Player_Stats", "stt_xp", this.GetComponent<PlayerStatistics>().currentXP);
-		ini.WriteValue("Player_Stats", "stt_perk", this.GetComponent<PlayerStatistics>().perkSelected);
+		ini.Open(SetTarget.saveDataPath + SetTarget.saveDataName);
+		ini.WriteValue("PlayerStatistics", "shipLVL", this.GetComponent<PlayerStatistics>().shipLVL);
+		ini.WriteValue("PlayerStatistics", "currentXP", this.GetComponent<PlayerStatistics>().currentXP);
+		ini.WriteValue("PlayerStatistics", "perkSelected", this.GetComponent<PlayerStatistics>().perkSelected);
 		ini.Close();
+	}
+
+	void SaveProgress()
+	{
+		Debug.Log("Saving...");
+		INIParser ini = new INIParser();
+		ini.Open(SetTarget.saveDataPath + SetTarget.saveDataName);
+		ini.WriteValue("PlayerStatistics", "shipLVL", this.GetComponent<PlayerStatistics>().shipLVL);
+		ini.WriteValue("PlayerStatistics", "currentXP", this.GetComponent<PlayerStatistics>().currentXP);
+		ini.WriteValue("PlayerStatistics", "perkSelected", this.GetComponent<PlayerStatistics>().perkSelected);
+		ini.WriteValue("InstanceInfo", "last_x", Mathf.RoundToInt(this.transform.position.x * 10));
+		ini.WriteValue("InstanceInfo", "last_y", Mathf.RoundToInt(this.transform.position.y * 10));
+		ini.WriteValue("InstanceInfo", "seconds", GameTime.seconds);
+		ini.WriteValue("InstanceInfo", "minutes", GameTime.minutes);
+		ini.Close();
+		Debug.Log("Progress saved!");
 	}
 
 	void SavePlayerInfo()
 	{
 		INIParser ini = new INIParser();
-		ini.Open(SetTarget.saveDataPath + "savedata_player.ini");
+		ini.Open(SetTarget.saveDataPath + SetTarget.saveDataName);
 		ini.WriteValue("Player_Info", "last_x", Mathf.RoundToInt(this.transform.position.x * 10));
 		ini.WriteValue("Player_Info", "last_y", Mathf.RoundToInt(this.transform.position.y * 10));
 		ini.Close();
 	}
 
-	void A()
+	void Update()
 	{
-		if (Input.GetButtonUp("Triangle"))
+		if (Input.GetKeyUp(KeyCode.F2))
 		{
-			SavePlayerStats();
-			SavePlayerInfo();
+			SaveProgress();
 		}
 	}
 }

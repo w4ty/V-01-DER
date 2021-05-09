@@ -34,7 +34,7 @@ public class SwitchHandler : MonoBehaviour
 				Debug.Log("case 401");
 				GameObject.Find("WorldMaster").GetComponent<BattleHandler>().SaveLastPos();
 				GameObject.Find("WorldMaster").GetComponent<WorldAction>().DestroyButtons();
-				GameObject.Find("WorldMaster").GetComponent<OpenworldSet>().BattleStart(ini.ReadValue("Planet" + locID, "battle_type", "Generic"), Random.Range(ini.ReadValue("Planet" + locID, "battle_id_low", 0), ini.ReadValue("Planet" + locID, "battle_id_high", 0) + 1), ini.ReadValue("Planet" + locID, "battle_difficulty", 1));
+				GameObject.Find("WorldMaster").GetComponent<OpenworldSet>().BattleStart(ini.ReadValue("Planet" + locID, "battle_type", "Generic"), Random.Range(ini.ReadValue("Planet" + locID, "battle_id_low", 0), ini.ReadValue("Planet" + locID, "battle_id_high", 0) + 1), ini.ReadValue("Planet" + locID, "battle_difficulty", 1), ini.ReadValue("Planet" + locID, "enemy_difficulty", 1));
 				ini.Close();
 				break;
 			case 1001:

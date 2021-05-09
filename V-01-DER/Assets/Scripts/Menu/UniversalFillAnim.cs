@@ -7,9 +7,9 @@ using UnityEngine.UI;
 public class UniversalFillAnim : MonoBehaviour
 {
 	public int state;
-	bool doAfter;
-	Component component;
-	string functionName;
+	private bool doAfter;
+	private Component component;
+	private string functionName;
 
 	public void CallAnimations(int b)
 	{

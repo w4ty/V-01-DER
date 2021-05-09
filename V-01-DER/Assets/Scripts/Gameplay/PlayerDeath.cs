@@ -13,7 +13,7 @@ public class PlayerDeath : MonoBehaviour
 	}
 	void Update () 
 	{
-		if (damageHandlerComp.hp <= 0)
+		if (damageHandlerComp.Hp <= 0)
 		{
 			//damageHandlerComp.kill();
 		}

@@ -17,8 +17,8 @@ public class EnemyLeveling : MonoBehaviour
 
 	void CalculateStats() 
 	{
-		stats.objectArmour += Mathf.RoundToInt((objectLevel / 10) * stats.armorScaleMX);
-		stats.objectMaxHp += Mathf.RoundToInt((objectLevel / 10) * stats.hpScaleMX);
-		stats.objectDamage += Mathf.RoundToInt((objectLevel / 10) * stats.damageScaleMX);
+		stats.ObjectArmour += Mathf.RoundToInt((objectLevel / 10) * stats.ArmourScaleMX);
+		stats.ObjectMaxHp += Mathf.RoundToInt((objectLevel / 10) * stats.HpScaleMX);
+		stats.ObjectDamage += Mathf.RoundToInt((objectLevel / 10) * stats.DamageScaleMX);
 	}
 }

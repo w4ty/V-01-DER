@@ -14,18 +14,18 @@ public class LoadGame : MonoBehaviour
 	public void LoadPlayerStats()
 	{
 		INIParser ini = new INIParser();
-		ini.Open(SetTarget.saveDataPath + "savedata_player.ini");
-		shipLvl = ini.ReadValue("Player_Stats", "stt_shiplvl", -1);
-		xp = ini.ReadValue("Player_Stats", "stt_xp", -1);
-		perk = ini.ReadValue("Player_Stats", "stt_perk", -1);
+		ini.Open(SetTarget.saveDataPath + SetTarget.saveDataName);
+		shipLvl = ini.ReadValue("PlayerStatistics", "shipLVL", -1);
+		xp = ini.ReadValue("PlayerStatistics", "currentXP", -1);
+		perk = ini.ReadValue("PlayerStatistics", "perkSelected", -1);
 		ini.Close();
 	}
 
 	public void LoadPlayerInfo()
 	{
 		INIParser ini = new INIParser();
-		ini.Open(SetTarget.saveDataPath + "savedata_player.ini");
-		pos = new Vector3(ini.ReadValue("Player_Info", "last_x", 0) / 10, ini.ReadValue("Player_Info", "last_y", 0) / 10, 0);
+		ini.Open(SetTarget.saveDataPath + SetTarget.saveDataName);
+		pos = new Vector3(ini.ReadValue("InstanceInfo", "last_x", 0) / 10, ini.ReadValue("InstanceInfo", "last_y", 0) / 10, 0);
 		ini.Close();
 	}
 

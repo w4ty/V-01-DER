@@ -29,7 +29,7 @@ public class BattleHandler : MonoBehaviour
 		lastPosY = playerShip.transform.position.y;
 	}
 
-	public void PrepareBattle(string battleType, int battleId, int battleDifficulty)
+	public void PrepareBattle(string battleType, int battleId, int battleDifficulty, int enemyLvl)
 	{
 		KillSwitch.kill = false;
 		INIParser ini = new INIParser();
@@ -38,15 +38,16 @@ public class BattleHandler : MonoBehaviour
 
 		playerShip.transform.position = new Vector3(ini.ReadValue("InitialProperties", "PlayerPosX", 1), ini.ReadValue("InitialProperties", "PlayerPosY", 1), 0);
 
-		PlayerMovementAlt.maxYCoordinate = ini.ReadValue("InitialProperties", "Border_Ymax", 1);
-		PlayerMovementAlt.maxXCoordinate = ini.ReadValue("InitialProperties", "Border_Xmax", 1);
-		PlayerMovementAlt.minYCoordinate = ini.ReadValue("InitialProperties", "Border_Ymin", -1);
-		PlayerMovementAlt.minXCoordinate = ini.ReadValue("InitialProperties", "Border_Xmin", -1);
+		PlayerMovementAlt.MaxYCoordinate = ini.ReadValue("InitialProperties", "Border_Ymax", 1);
+		PlayerMovementAlt.MaxXCoordinate = ini.ReadValue("InitialProperties", "Border_Xmax", 1);
+		PlayerMovementAlt.MinYCoordinate = ini.ReadValue("InitialProperties", "Border_Ymin", -1);
+		PlayerMovementAlt.MinXCoordinate = ini.ReadValue("InitialProperties", "Border_Xmin", -1);
 
 		for (int a = 1; a <= 256; a++)
 		{
-			Debug.Log(ini.ReadValue("Object" + a, "id", 1));
-			Instantiate(spawnables[ini.ReadValue("Object" + a, "id", 1)], new Vector3(ini.ReadValue("Object" + a, "PosX", 0), ini.ReadValue("Object" + a, "PosY", 0)), new Quaternion(), enemyGroup.transform);
+			GameObject instance = Instantiate(spawnables[ini.ReadValue("Object" + a, "id", 1)], new Vector3(ini.ReadValue("Object" + a, "PosX", 0), ini.ReadValue("Object" + a, "PosY", 0)), new Quaternion(), enemyGroup.transform);
+			instance.GetComponent<ActiveObjectStats>().ObjectLevel = enemyLvl;
+			instance.GetComponent<ActiveObjectStats>().SetStats();
 			if (!ini.IsSectionExists("Object" + a))
 			{
 				a = 257;

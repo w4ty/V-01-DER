@@ -40,7 +40,7 @@ public class BattleSystem : MonoBehaviour
 			objAmountToDestroy = new int[objectiveAmount];
 			objPlayerDone = new int[objectiveAmount];
 			objectiveDone = new bool[objectiveAmount];
-			DamageHandler.objAmount = objectiveAmount;
+			DamageHandler.ObjAmount = objectiveAmount;
 			for (int objA = 0; objA < objectiveAmount; objA++)
 			{
 				objToDestroy[objA] = matiaz.ReadValue(string.Format("Objective{0}", (objA + 1)), "ObjToDestroy", "nullObject");
@@ -48,7 +48,7 @@ public class BattleSystem : MonoBehaviour
 				UpdateObjective();
 			}
 		}
-		DamageHandler.objToSeek = objToDestroy;
+		DamageHandler.ObjToSeek = objToDestroy;
 	}
 
 	public void ObjectiveAdd(string name, int objID)

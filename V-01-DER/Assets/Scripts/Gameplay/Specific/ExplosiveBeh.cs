@@ -16,7 +16,7 @@ public class ExplosiveBeh : MonoBehaviour
 
 	void Update()
 	{
-		if(objDamageHandler.hp <= 0 && exploded == false)
+		if(objDamageHandler.Hp <= 0 && exploded == false)
 		{
 			Explode();
 		}

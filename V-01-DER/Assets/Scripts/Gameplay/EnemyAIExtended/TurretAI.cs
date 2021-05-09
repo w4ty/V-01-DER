@@ -6,7 +6,7 @@ public class TurretAI : MonoBehaviour {
 
 	public GameObject bullet;
 
-	void Awake () 
+	void Start() 
 	{
 		StartCoroutine(AIUpdate());
 	}
@@ -15,10 +15,10 @@ public class TurretAI : MonoBehaviour {
 	{
 		while (this != null)
 		{
-			Debug.Log("Launched AI");
+			//Debug.Log("Launched AI");
 			for (int i = 1; i < 9; i++)
 			{
-				Debug.Log("DOING LOOP " + transform.position);
+				//Debug.Log("DOING LOOP " + transform.position);
 
 				Quaternion rotation = Quaternion.Euler(0, 0, i * 45);
 				Vector3 offset = rotation * new Vector3(0, 0.5f, 0);
@@ -26,7 +26,7 @@ public class TurretAI : MonoBehaviour {
 				GameObject proj = Instantiate(bullet, transform.position + offset, rotation, transform.parent);
 				proj.GetComponent<BulletDataHolder>().actStats = GetComponent<ActiveObjectStats>();
 			}
-			yield return new WaitForSeconds(1/GetComponent<ActiveObjectStats>().objectFirerate);
+			yield return new WaitForSeconds(1/GetComponent<ActiveObjectStats>().ObjectFirerate);
 		}
 	}
 }

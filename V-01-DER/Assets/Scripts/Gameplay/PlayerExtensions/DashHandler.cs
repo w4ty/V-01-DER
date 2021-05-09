@@ -5,19 +5,22 @@ using UnityEngine.UI;
 
 public class DashHandler : MonoBehaviour
 {
-
-	float dashCD;
-	float invTimer;
-	bool invState;
-	GameObject dashObj;
-	Image dashBar;
 	public bool canDash;
 	public GameObject afterImage;
+	private float dashCD;
+	private float invTimer;
+	private bool invState;
+	private GameObject dashObj;
+	private Image dashBar;
+	private GameObject invObj;
+	private Image invBar;
 
 	private void Start()
 	{
 		dashObj = GameObject.Find("DashBar");
 		dashBar = dashObj.GetComponent<Image>();
+		invObj = GameObject.Find("InvincibleBar");
+		invBar = invObj.GetComponent<Image>();
 	}
 
 	void UpdateBar(float fillVal)
@@ -59,10 +62,12 @@ public class DashHandler : MonoBehaviour
 			else
 			{
 				canDash = true;
+				UpdateBar(0);
 			}
 			if (invTimer > 0)
 			{
 				invTimer -= Time.deltaTime;
+				invBar.fillAmount = invTimer;
 
 			}
 			else if (invState == true)
@@ -85,5 +90,10 @@ public class DashHandler : MonoBehaviour
 				gameObject.layer = 8;
 				break;
 		}
+	}
+
+	public void EndCooldown()
+	{
+		dashCD = 0;
 	}
 }

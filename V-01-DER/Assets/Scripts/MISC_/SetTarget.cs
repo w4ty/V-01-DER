@@ -15,6 +15,7 @@ public class SetTarget : MonoBehaviour
 	static public string universalPath;
 	static public string webDataPath;
 	static public string dialDataPath;
+	static public string saveDataName = "savedata.red";
 	static public string buildType = Application.platform.ToString();
 	const int versionGeneration = 0;
 	const int versionMajor = 5;

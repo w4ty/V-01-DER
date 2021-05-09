@@ -21,14 +21,14 @@ public class ExploreSet : MonoBehaviour
 	INIParser ini = new INIParser();
 	int id;
 
-	void Update()
+	/*void Update()
 	{
 		if (Input.GetButtonUp("Square") && !Pause.pauseOn)
 		{
 			Pause.pauseOn = true;
 			SubLocMenu();
 		}
-	}
+	}*/
 
 	public void SetLocation(int bgid)
 	{

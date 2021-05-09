@@ -11,7 +11,7 @@ public class EnemyFire : MonoBehaviour
 
 	void Start()
 	{
-		fireRate = GetComponent<ActiveObjectStats>().objectFirerate;
+		fireRate = GetComponent<ActiveObjectStats>().ObjectFirerate;
 	}
 
 	void FixedUpdate()
@@ -27,7 +27,7 @@ public class EnemyFire : MonoBehaviour
 			{
 				cooldown -= 1;
 				//Debug.Log("Enemy firing");
-				fireRate = GetComponent<ActiveObjectStats>().objectFirerate;
+				fireRate = GetComponent<ActiveObjectStats>().ObjectFirerate;
 				Vector3 offset = transform.rotation * new Vector3(0, 0.5f, 0);
 				GameObject bullet = Instantiate(bullet_PlayerPrefab, transform.position + offset, transform.rotation, transform.parent);
 				bullet.GetComponent<BulletDataHolder>().actStats = GetComponent<ActiveObjectStats>();

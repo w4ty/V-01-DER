@@ -6,7 +6,7 @@ public class CameraFollow : MonoBehaviour
 {
 
 	public Transform Target;
-	public float followSpeed = 5f;
+	[System.NonSerialized] public float followSpeed = 0.1f;
 	Vector3 targPos;
 
 	void FixedUpdate ()
@@ -15,7 +15,7 @@ public class CameraFollow : MonoBehaviour
 		{
 			targPos = Target.position;
 			targPos.z = transform.position.z;
-			transform.position = Vector3.Lerp(transform.position, targPos, Time.deltaTime * followSpeed);
+			transform.position = Vector3.Lerp(transform.position, targPos, followSpeed);
 		}
 	}
 }

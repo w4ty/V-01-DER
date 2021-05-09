@@ -11,22 +11,22 @@ public class HpHandler : MonoBehaviour
 	GameObject textObj;
 	Text text;
 
-	void Awake()
+	void Start()
 	{
 		textObj = GameObject.Find("HpText");
 		pShip = GameObject.FindGameObjectWithTag("Player");
 		pDMG = pShip.GetComponent<DamageHandler>();
 		pActive = pShip.GetComponent<ActiveObjectStats>();
 		text = textObj.GetComponent<Text>();
-		text.text = string.Format("STATUS: {0}%", pActive.objectMaxHp);
+		text.text = string.Format("STATUS: {0}%", pActive.ObjectMaxHp);
 	}
 
 	public void OnDamaged()
 	{
 		if (pShip)
 		{
-			this.GetComponent<Image>().fillAmount = pDMG.hp / pActive.objectMaxHp;
-			text.text = string.Format("STATUS: {0}%", pDMG.hp);
+			this.GetComponent<Image>().fillAmount = pDMG.Hp / pActive.ObjectMaxHp;
+			text.text = string.Format("STATUS: {0}%", pDMG.Hp);
 		}
 		//Debug.Log(this.GetComponent<Image>().fillAmount + "/" + pShip.GetComponent<DamageHandler>().hp);
 	}

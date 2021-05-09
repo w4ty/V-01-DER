@@ -13,10 +13,10 @@ public class OpenworldSet : MonoBehaviour
 
 	public void LoadWorld()
 	{
-		PlayerMovementAlt.maxYCoordinate = wINFO.ReadValue("WorldProperties", "maxY", 0);
-		PlayerMovementAlt.minYCoordinate = wINFO.ReadValue("WorldProperties", "minY", 0);
-		PlayerMovementAlt.maxXCoordinate = wINFO.ReadValue("WorldProperties", "maxX", 0);
-		PlayerMovementAlt.minXCoordinate = wINFO.ReadValue("WorldProperties", "minX", 0);
+		PlayerMovementAlt.MaxYCoordinate = wINFO.ReadValue("WorldProperties", "maxY", 0);
+		PlayerMovementAlt.MinYCoordinate = wINFO.ReadValue("WorldProperties", "minY", 0);
+		PlayerMovementAlt.MaxXCoordinate = wINFO.ReadValue("WorldProperties", "maxX", 0);
+		PlayerMovementAlt.MinXCoordinate = wINFO.ReadValue("WorldProperties", "minX", 0);
 		for (int i = 1; i <= wINFO.ReadValue("WorldProperties", "planets", 0); i++)
 		{
 			Debug.Log(wINFO.ReadValue(string.Format("Planet{0}", i), "pos_x", 0) + "/" + wINFO.ReadValue(string.Format("Planet{0}", i), "pos_y", 0) + "/Planet" + i);
@@ -38,10 +38,10 @@ public class OpenworldSet : MonoBehaviour
 		LoadWorld();
 	}
 
-	public void BattleStart(string battleType, int battleId, int battleDifficulty)
+	public void BattleStart(string battleType, int battleId, int battleDifficulty, int enemyLvl)
 	{
 		SetPlanets(false);
-		this.GetComponent<BattleHandler>().PrepareBattle(battleType, battleId, battleDifficulty);
+		this.GetComponent<BattleHandler>().PrepareBattle(battleType, battleId, battleDifficulty, enemyLvl);
 	}
 
 	public void SetPlanets(bool setTo)

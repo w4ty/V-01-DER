@@ -5,16 +5,17 @@ using UnityEngine.UI;
 
 public class PlayerMovementAlt : MonoBehaviour
 {
-	[System.NonSerialized] public float moveSpeed = 0.1f;
-	static public float maxYCoordinate;
-	static public float minYCoordinate;
-	static public float maxXCoordinate;
-	static public float minXCoordinate;
-	public Vector2[] positions;
-	public Quaternion rotationAfter;
-	float positionMultiplier;
-	public Text xyText;
-	DashHandler dash;
+	[System.NonSerialized] public float MoveSpeed = 0.1f;
+	[System.NonSerialized] public Vector2[] Positions = new Vector2[5];
+	public static float MaxYCoordinate;
+	public static float MinYCoordinate;
+	public static float MaxXCoordinate;
+	public static float MinXCoordinate;
+	public Quaternion RotationAfter;
+	public Text XyText;
+	private float positionMultiplier;
+	private DashHandler dash;
+
 
 	private void Start()
 	{
@@ -34,34 +35,34 @@ public class PlayerMovementAlt : MonoBehaviour
 			// Debug input info
 			if (Input.GetButton("Submit") && Input.GetButton("Cancel"))
 			{
-				xyText.text = "lh " + (lh * 100f) / 100f + " " + "lv " + (lv * 100f) / 100f + " " + maxXCoordinate + "/" + minXCoordinate + "/" + maxYCoordinate + "/" + minYCoordinate;
+				XyText.text = "lh " + (lh * 100f) / 100f + " " + "lv " + (lv * 100f) / 100f + " " + MaxXCoordinate + "/" + MinXCoordinate + "/" + MaxYCoordinate + "/" + MinYCoordinate;
 			}
 			else
 			{
-				xyText.text = "X: " + (this.transform.position.x * 10).ToString() + " / Y: " + (this.transform.position.y * 10).ToString();
+				XyText.text = "X: " + (this.transform.position.x * 10).ToString() + " / Y: " + (this.transform.position.y * 10).ToString();
 			}
 			// Classic movement
-			Vector3 Move = new Vector3(lh * moveSpeed, lv * moveSpeed, 0);
+			Vector3 Move = new Vector3(lh * MoveSpeed, lv * MoveSpeed, 0);
 			
 			// Dash
 			if (Input.GetButton("L1") && dash.canDash == true && Mathf.Abs(lh) + Mathf.Abs(lv) != 0)
 			{
 				Move = new Vector2(lh * 2.5f, lv * 2.5f);
-				rotationAfter = transform.rotation;
+				RotationAfter = transform.rotation;
 				positionMultiplier = 0.5f;
 				dash.SetCooldown();
 				for (int i = 0; i < 5; i++)
 				{
-					positions[i] = new Vector2(transform.position.x + Move.x * positionMultiplier, transform.position.y + Move.y * positionMultiplier);
+					Positions[i] = new Vector2(transform.position.x + Move.x * positionMultiplier, transform.position.y + Move.y * positionMultiplier);
 					positionMultiplier += 0.1f;
 				}
-				dash.SetAfterImage(positions, rotationAfter);
+				dash.SetAfterImage(Positions, RotationAfter);
 			}
 
 			Vector2 temp = transform.position + Move;
 
 			// Check if player can move into the area
-			if (temp.y > maxYCoordinate || temp.y < minYCoordinate || temp.x > maxXCoordinate || temp.x < minXCoordinate)
+			if (temp.y > MaxYCoordinate || temp.y < MinYCoordinate || temp.x > MaxXCoordinate || temp.x < MinXCoordinate)
 			{
 				temp = transform.position;
 			}

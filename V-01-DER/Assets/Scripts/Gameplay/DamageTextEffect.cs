@@ -22,11 +22,11 @@ public class DamageTextEffect : MonoBehaviour
 		for (float i = 0; i != dist; i += speed)
 		{
 			a -= speed/2;
-			Debug.Log(a);
+			//Debug.Log(a);
 			transform.position = new Vector2(transform.position.x, transform.position.y - speed);
 			alpha = a;
 			text.color = new Color(text.color.r, text.color.g, text.color.b, alpha);
-			Debug.Log(transform.position);
+			//Debug.Log(transform.position);
 			yield return new WaitForSeconds(0.016f);
 		}
 	}
